@@ -112,3 +112,10 @@ Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e a
 - [STRIDE, registro de riscos, controles Free-only, plano de resposta, runbooks e gate de produção](docs/21-modelagem-ameacas-incidentes-free/README.md).
 
 Este conteúdo é documental; não declara auditoria, teste, rotação de credenciais, restore ou resposta real executados.
+
+
+## Observabilidade, monitoramento e capacidade — somente Free
+
+- [Logs estruturados, Auth0, Neon, Vercel Hobby, GitHub Actions, quotas, indicadores e runbooks](docs/23-observabilidade-monitoramento-capacidade-free/README.md)
+
+Guia documental sem dependência de ferramentas pagas. Não representa telemetria coletada ou configuração aplicada; Vercel Hobby permanece restrito a uso pessoal/não comercial.
