@@ -52,3 +52,12 @@ O cliente nunca recebe credenciais Neon. O backend valida identidade/autorizaç�
 | DATABASE_URL | servidor | segredo |
 
 Validar os nomes exatos exigidos pela versão do SDK e pelo código da aplicação antes de configurar o projeto.
+
+## Restrições de integração sob planos Free
+
+- **GitHub privado:** no GitHub Free, rulesets/proteção server-side de branch para repositórios privados não estão disponíveis. CI e revisão manual são controles compensatórios, não equivalentes.
+- **Auth0:** não assumir M2M Tokens ou RBAC por Organization no Free. A API deve validar Access Token de usuário e consultar memberships/permissions no banco.
+- **Vercel:** Hobby somente para uso pessoal/não comercial. Não conectar aplicação comercial/SaaS a esse plano; utilizar self-host ou host alternativo com uso comercial Free confirmado.
+- **Neon:** limitar branches e compute ao Free; validar o projeto/branch de destino antes de migrations; proteger dados via roles SQL, RLS e backup externo.
+
+A integração só é aprovada quando o plano, a permissão contratual de uso, a quota e a disponibilidade regional estiverem documentados. Quando nenhum recurso Free satisfizer o requisito, bloquear a integração em vez de sugerir upgrade.
