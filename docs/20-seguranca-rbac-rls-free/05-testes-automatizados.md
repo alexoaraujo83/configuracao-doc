@@ -42,7 +42,7 @@ Tenant A e B; Alice owner de A; Bruno viewer de A; Carla editor de B; usuário s
 
 ## 4. Teste unitário de política
 
-\`\`\`ts
+```ts
 import { describe, expect, it } from "vitest";
 import { can } from "@/lib/authz/permissions";
 
@@ -57,7 +57,7 @@ describe("authorization policy", () => {
     expect(can("unknown-role", "projects:read")).toBe(false);
   });
 });
-\`\`\`
+```
 
 Role unit tests não provam isolamento de tenant. Integração deve executar queries como app_runtime (não owner).
 
