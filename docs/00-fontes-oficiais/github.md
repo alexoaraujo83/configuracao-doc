@@ -128,3 +128,17 @@ Documentar versão da API, paginação, rate limits, retries com backoff, idempo
 
 ## Limites
 Runners, rulesets, controles avançados e recursos de segurança variam por plano, tipo de conta e visibilidade. Confirmar disponibilidade atual antes de definir baseline obrigatória.
+
+## Baseline de compatibilidade — GitHub Free (31/10/2026)
+
+A documentação oficial distingue recursos de repositórios públicos e privados. GitHub Free oferece o conjunto mais amplo em repositórios públicos; repositórios privados permanecem disponíveis, mas com funcionalidades reduzidas.
+
+- **Rulesets:** disponíveis no GitHub Free para repositórios públicos. Rulesets em repositórios privados requerem Pro, Team ou Enterprise Cloud. Não documentar ruleset privado como controle aplicável ao Free.
+- **Branch protection:** protected branches, required reviewers e Code Owners para repositórios privados não estão incluídos no Free. O mesmo cuidado vale para regras de proteção de ambientes/deployments.
+- **Actions:** a página de pricing informa 2.000 minutos mensais para Free; a documentação de planos também descreve uma franquia de compute. Conferir a medição exibida em Billing para a conta e runner. Runners padrão em repositórios públicos são gratuitos; self-hosted runners não consomem minutos GitHub-hosted, mas o hardware e a operação são próprios.
+- **Segurança:** Dependabot alerts está incluído; recursos avançados de code/secret security variam conforme visibilidade e plano. Usar ferramentas open source em local/CI não substitui os controles nativos de enforcement.
+- **Privacidade:** tornar o repositório público para obter rulesets só é aceitável quando o código e todo o histórico podem ser divulgados. Nunca publicar segredos, dados de clientes ou configuração interna.
+
+Para repositório privado no Free, reduzir os escritores da branch padrão ao mínimo, executar CI em todos os PRs e registrar a revisão como processo manual. Isso é controle compensatório, **não** enforcement server-side. Se proteção server-side for requisito obrigatório, declarar incompatibilidade com GitHub Free privado; não recomendar upgrade.
+
+Fontes: [GitHub plans](https://docs.github.com/en/get-started/learning-about-github/githubs-plans), [ruleset availability](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets), [Actions billing](https://docs.github.com/en/actions/concepts/billing-and-usage), [GitHub Pricing](https://github.com/pricing).
