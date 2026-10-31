@@ -31,12 +31,11 @@ Não registrar valores secretos. Exemplos de nomes de variáveis são permitidos
 14. [Ambientes, CI, segurança, testes e operação](13-ambientes-testes-operacao/README.md)
 15. [Inventário dos painéis GitHub, Auth0, Vercel e Neon](14-inventario-paineis/README.md)
 
-A stack é somente documental nesta etapa. Os exemplos não significam que pacotes foram instalados, migrations executadas ou deployments realizados. Consulte a matriz Free antes de aplicar qualquer procedimento.
-
-## Arquitetura e segurança
+## Arquitetura, segurança e continuidade
 
 16. [Matriz de arquitetura por tipo de projeto — somente Free](19-matriz-arquitetura-free/README.md)
 17. [Segurança, RBAC, RLS e isolamento multi-tenant — somente Free](20-seguranca-rbac-rls-free/README.md)
 18. [Modelagem de ameaças e resposta a incidentes — somente Free](21-modelagem-ameacas-incidentes-free/README.md)
+19. [Continuidade de negócio e recuperação de desastres — somente Free](22-continuidade-recuperacao-free/README.md)
 
-A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
+Os documentos são padrões e procedimentos propostos. Não significam que serviços foram provisionados, controles aplicados, incidentes ocorreram, backups executados ou exercícios realizados.
