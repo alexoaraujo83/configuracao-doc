@@ -67,3 +67,10 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
 
 Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## Segurança integrada — somente Free
+
+30. [Segurança integrada Auth0 + Next.js + Neon: modelo de ameaças, OIDC, sessão, CSRF, autorização, RLS, segredos e resposta a incidentes](37-seguranca-integrada-free/README.md)
+
+A documentação é um padrão recomendado; não representa validação em ambiente real.
