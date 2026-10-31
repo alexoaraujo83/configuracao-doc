@@ -29,4 +29,6 @@ Não registrar valores secretos. Exemplos de nomes de variáveis são permitidos
 13. [Neon PostgreSQL — driver, roles, RLS e migrations](12-neon-postgresql/README.md)
 14. [Ambientes, CI, segurança, testes e operação](13-ambientes-testes-operacao/README.md)
 
+15. [Inventário dos painéis GitHub, Auth0, Vercel e Neon](14-inventario-paineis/README.md)
+
 A stack é somente documental nesta etapa. Os exemplos não significam que pacotes foram instalados, migrations executadas ou deployments realizados. Consulte a matriz Free antes de aplicar qualquer procedimento.
