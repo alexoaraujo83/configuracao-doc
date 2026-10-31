@@ -58,6 +58,12 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
 
 
+## Endpoints e contratos HTTP
+
+31. [Endpoints e contratos HTTP — Next.js + Auth0 + Neon Free](35-endpoints-contratos-http-free/README.md)
+
+Especificação documental de endpoints, payloads, respostas, paginação, segurança e testes de contrato.
+
 ## Governança, provisionamento e integração da stack Free
 
 25. [Operação de conformidade por projeto](28-operacao-conformidade-projeto-free/README.md)
