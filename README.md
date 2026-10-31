@@ -97,3 +97,11 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 ## Contribuição
 
 Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto, validação e rollback. Mudanças estruturais devem ser submetidas por Pull Request e revisadas antes de serem incorporadas à branch principal.
+
+
+## Provisionamento reutilizável para múltiplos projetos
+
+- [Guia de provisionamento Free](docs/18-provisionamento-multiplos-projetos/README.md)
+- [Templates de projeto](templates/provisionamento/README.md)
+
+Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e auditoria. Considera as limitações de tenant único do Auth0 Free, Preview branch-scoped no Vercel Hobby e cotas do Neon Free.
