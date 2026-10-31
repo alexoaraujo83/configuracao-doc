@@ -6,12 +6,14 @@ Esta documentação é organizada por domínio técnico e ciclo operacional. Cad
 
 1. [Padrões gerais](01-padroes-gerais/README.md)
 2. [Auth0](02-auth0/README.md)
-3. [Vercel](03-vercel/README.md)
-4. [Neon](04-neon/README.md)
-5. [Integrações](05-integracoes/README.md)
-6. [Templates por projeto](06-templates-projeto/README.md)
-7. [Operação e governança](07-operacao-governanca/README.md)
-8. [Referências e histórico](08-referencias-historico/README.md)
+3. [Vercel — guia principal](03-vercel/README.md)
+4. [Vercel — guia detalhado](03-vercel/guia-detalhado.md)
+5. [Neon](04-neon/README.md)
+6. [Integrações](05-integracoes/README.md)
+7. [Templates por projeto](06-templates-projeto/README.md)
+8. [Operação e governança](07-operacao-governanca/README.md)
+9. [Referências e histórico](08-referencias-historico/README.md)
+10. [GitHub — governança e Actions](09-github/README.md)
 
 ## Convenção de evidências
 
