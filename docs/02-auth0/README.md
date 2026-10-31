@@ -54,3 +54,11 @@ Manter as decisões explicitamente aprovadas no projeto: não adicionar Google O
 
 - [Auth0 Documentation](https://auth0.com/docs)
 - [Auth0 Next.js SDK](https://auth0.com/docs/quickstart/webapp/nextjs)
+
+## Restrições Auth0 Free — baseline
+
+A documentação de preços do Auth0 apresenta o Free com até 25.000 MAU e até cinco Organizations. Não assumir que MFA OTP/Duo, RBAC por Organization, M2M Tokens ou database connections externas/customizadas estejam incluídos no Free; recursos e nomenclaturas variam e devem ser confirmados na tabela de preços vigente.
+
+Para a API IAM, não depender de Client Credentials/M2M nativo no Free. Usar Access Tokens de usuário para operações em nome do usuário, validar assinatura/issuer/audience/expiração/scopes no backend e consultar membership/permissions no PostgreSQL, aplicando RLS. Não substituir M2M por ID Token, sessão compartilhada ou segredo no frontend.
+
+Manter as decisões específicas pendentes de evidência do tenant: não adicionar Google OAuth2; utilizar a Database Connection integrada Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado. A existência de um checklist não comprova que a configuração foi salva.
