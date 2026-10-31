@@ -156,4 +156,4 @@ Não substituir M2M por ID Token, sessão compartilhada ou segredo estático no 
 
 Os requisitos do projeto — não adicionar Google OAuth2; usar Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado — continuam válidos como requisitos a verificar. Eles não comprovam que as opções estejam salvas; a quota M2M Free também deve ser monitorada no painel de uso.
 
-Fonte de preços: [Auth0 Pricing](https://auth0.com/pt/pricing). A página deve ser revisitada antes de uma mudança no tenant.
+Fontes oficiais: [Auth0 Pricing](https://auth0.com/pt/pricing) (a tabela compara M2M Authentication e M2M Add-on) e [What to Expect When Your Auth0 Startup Plan Expires](https://auth0.com/blog/what-to-expect-when-your-auth0-startup-plan-expires/) (referência da quota de 1.000 M2M no Free). Revalidar antes de uma mudança no tenant.
