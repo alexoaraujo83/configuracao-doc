@@ -50,10 +50,13 @@ Substituir `appdb` pelo nome real do database. Senhas são placeholders e devem 
 As migrations devem operar como `app_owner` por meio da role migrator autorizada. `NOINHERIT` impede o uso automático dos privilégios herdados; a membership `GRANT app_owner TO app_migrator` permite a troca explícita de role quando a opção `SET` estiver autorizada. O `SET ROLE` depende da mesma sessão PostgreSQL: não o envie como uma consulta HTTP isolada via `neon()` esperando que a role permaneça ativa na próxima chamada. Use um executor de migration com conexão persistente (`Client`/`Pool` em WebSocket ou conexão PostgreSQL direta) ou agrupe `SET LOCAL ROLE`, DDL e finalização em uma única transação suportada. A criação das roles/membership e a atribuição de ownership são tarefas administrativas separadas da credencial runtime:
 
 ```sql
-SET ROLE app_owner;
--- DDL da migration
-RESET ROLE;
+BEGIN;
+SET LOCAL ROLE app_owner;
+-- DDL da migration; executar na mesma conexão/transação
+COMMIT;
 ```
+
+Em caso de erro, o executor deve emitir `ROLLBACK` na mesma conexão. `SET LOCAL ROLE` termina com a transação; não reutilizar estado de role entre requests. Confirmar que o usuário conectado possui membership com permissão `SET` para `app_owner`. Não conceder essa membership a `app_runtime`.
 
 Conceder ao runtime apenas permissões necessárias sobre tabelas e sequences específicas. Exemplo após criar tabelas:
 
