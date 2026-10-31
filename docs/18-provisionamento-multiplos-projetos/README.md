@@ -30,7 +30,7 @@ A especificação de origem exige distinguir padrão recomendado, configuração
 
 | Serviço | Restrição relevante | Decisão documental |
 |---|---|---|
-| Auth0 Free | Um tenant Free por conta conforme suporte Auth0 | Um tenant compartilhado; separar aplicações/clients por projeto/ambiente quando quotas e configuração permitirem; isolar callbacks e nunca presumir tenants dev/stage/prod independentes |
+| Auth0 Free | Um tenant Free por conta e limite de 10 Applications por tenant | Um tenant compartilhado; planejar clients com orçamento global de até 10 Applications, incluindo clients de teste/M2M; não criar quatro clients por projeto automaticamente; isolar callbacks e nunca presumir tenants dev/stage/prod independentes |
 | Vercel Hobby | Ambientes padrão Local/Development, Preview e Production; uso pessoal e não comercial | Staging é branch específica dentro de Preview; não documentar Custom Environment como disponível no Hobby |
 | GitHub Free | Environments e environment secrets não estão disponíveis em repositórios privados no Free | CI sem secrets de produção; preferir variáveis no painel Vercel; evitar depender de deployment protection privada |
 | Neon Free | Limites de projetos, branches, compute, storage e transferência | Projeto por aplicação ou domínio de isolamento; branches limitadas para dev/staging/teste; auditar quotas antes de criar branch por PR |
@@ -62,13 +62,13 @@ A especificação de origem exige distinguir padrão recomendado, configuração
 
 ## Fontes oficiais consultadas
 
-- [Auth0 Free — segundo tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)
+- [Auth0 Free — segundo tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)\n- [Auth0 Free — limite de 10 Applications por tenant](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
 - [Auth0 Deploy CLI — multi-environment workflow](https://github.com/auth0/auth0-deploy-cli/blob/master/docs/multi-environment-workflow.md)
 - [Auth0 Deploy CLI — configuração e limitações Free](https://github.com/auth0/auth0-deploy-cli/blob/master/docs/configuring-the-deploy-cli.md)
 - [Vercel — Environments](https://vercel.com/docs/deployments/environments)
 - [Vercel — Environment Variables](https://vercel.com/docs/environment-variables)
 - [GitHub — Managing environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments)
-- [Neon — Free plan limits](https://neon.com/docs/introduction/pro-plan)
+- [Neon — Free plan limits and quotas](https://neon.com/faqs/free-plan-limits-and-quotas)
 - [Neon — Free plan quotas](https://neon.com/docs/introduction/plans)
 
 > Conferir os limites e termos diretamente na data de provisionamento. A presença de uma funcionalidade no painel não comprova elegibilidade no plano Free.
