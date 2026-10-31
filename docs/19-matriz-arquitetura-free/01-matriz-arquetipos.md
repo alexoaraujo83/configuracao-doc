@@ -7,7 +7,7 @@ Exemplos: ferramenta pessoal, portfólio autenticado, protótipo individual não
 |---|---|---|
 | GitHub | Um repo por app ou monorepo pequeno | CI sem environment secrets em repo privado Free |
 | Vercel | Um projeto Hobby por app | Somente pessoal/não comercial |
-| Auth0 | Tenant Free único; client por aplicação | Callbacks/logout/web origins estritos; client não equivale a tenant |
+| Auth0 | Tenant Free único; até 10 Applications por tenant para todos os projetos | Callbacks/logout/web origins estritos; client não equivale a tenant; inventariar slots antes de criar apps |
 | Neon | Um projeto por aplicação; branches para dev/teste | Branch não é backup independente |
 
 **Decisão:** RECOMENDADO se pessoal/não comercial, dados de baixo risco e quotas suficientes.
@@ -19,7 +19,7 @@ Exemplo: contas, organizações e dados separados por cliente.
 |---|---|---|
 | GitHub | Repo privado; CI sem segredos de produção | Environment secrets indisponíveis em repo privado Free |
 | Vercel | Hobby apenas para protótipo pessoal/não comercial | **BLOQUEADO** para SaaS comercial |
-| Auth0 | Tenant Free único; clients/API conforme quotas | Não há isolamento de tenant por cliente/ambiente |
+| Auth0 | Tenant Free único; até 10 Applications por tenant | Não há isolamento de tenant por cliente/ambiente; quota global compartilhada |
 | Neon | Projeto por domínio do SaaS; roles runtime/migrator; RLS | RLS requer testes negativos e contexto transacional seguro |
 
 **Decisão:** CONDICIONAL para protótipo pessoal/não comercial; BLOQUEADO NO FREE para SaaS comercial na Vercel Hobby.
@@ -47,7 +47,7 @@ Exemplo: vários portais e frontends sob uma conta.
 |---|---|---|
 | GitHub | Templates/workflows; repo por app | Ownership, permissões ou release divergentes |
 | Vercel | Um projeto por aplicação | Domínio, variáveis ou ciclo de release independente; Hobby segue não comercial |
-| Auth0 | Tenant Free único; client por app | Necessidade de diretórios, políticas, conexões ou blast radius isolados |
+| Auth0 | Tenant Free único; até 10 Applications por tenant | Necessidade de diretórios, políticas, conexões ou blast radius isolados |
 | Neon | Projeto por app/domínio de dados | Ownership, classificação, restore ou acesso diferentes |
 
 **Decisão:** CONDICIONAL. Reutilizar Auth0 e templates reduz duplicação, mas não cria isolamento forte. Preferir Neon separado quando os domínios de dados não compartilham a mesma fronteira de segurança.
@@ -63,4 +63,4 @@ Exemplo: vários portais e frontends sob uma conta.
 | CI | Repositórios/permissões/workflows mínimos | Environment secrets em repo privado Free |
 
 ## Fontes
-[Auth0 tenant Free](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan) · [Vercel Hobby](https://vercel.com/docs/plans/hobby) · [Vercel Fair Use](https://vercel.com/docs/limits/fair-use-guidelines) · [Neon quotas](https://neon.com/docs/introduction/plans) · [GitHub environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments)
+[Auth0 tenant Free](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan) · [Limite de 10 Applications](https://support.auth0.com/center/s/article/Error-Problem-creating-clients-Forbidden-You-reached-the-limit-of-entities-of-this-type-for-this-tenant) · [Vercel Hobby](https://vercel.com/docs/plans/hobby) · [Vercel Fair Use](https://vercel.com/docs/limits/fair-use-guidelines) · [Neon quotas](https://neon.com/docs/introduction/plans) · [GitHub environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments)
