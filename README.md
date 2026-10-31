@@ -130,3 +130,10 @@ Esta revisão é documental; não declara typecheck, build, testes, migrations o
 - [Matriz mestra de conformidade Free](docs/26-matriz-mestra-conformidade-free/README.md).
 
 Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
+
+
+## Integração ponta a ponta — somente Free
+
+- [Integração Auth0 + Next.js + Neon + GitHub + Vercel](docs/30-integracao-ponta-a-ponta-free/README.md).
+
+Inclui arquitetura e fluxos, sessão e autorização server-side, persistência do subject, modelo multi-tenant, RLS, papéis PostgreSQL, CI, previews, tratamento de erros, privacidade e critérios de aceitação. Exemplos documentais, não executados. Vercel Hobby permanece restrito a uso pessoal e não comercial.
