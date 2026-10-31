@@ -32,3 +32,8 @@ Não registrar valores secretos. Exemplos de nomes de variáveis são permitidos
 15. [Inventário dos painéis GitHub, Auth0, Vercel e Neon](14-inventario-paineis/README.md)
 
 A stack é somente documental nesta etapa. Os exemplos não significam que pacotes foram instalados, migrations executadas ou deployments realizados. Consulte a matriz Free antes de aplicar qualquer procedimento.
+
+
+## Arquitetura por arquétipo
+
+16. [Matriz de arquitetura por tipo de projeto — somente Free](19-matriz-arquitetura-free/README.md)
