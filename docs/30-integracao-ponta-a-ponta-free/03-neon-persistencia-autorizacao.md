@@ -25,7 +25,9 @@ Manter DATABASE_URL exclusivamente no servidor. Ajustar pooling, timeouts e tran
 ## Modelo de domínio inicial
 
 ~~~sql
-CREATE SCHEMA IF NOT EXISTS app;\n\nCREATE TABLE app.app_user (
+CREATE SCHEMA IF NOT EXISTS app;
+
+CREATE TABLE app.app_user (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   auth_issuer text NOT NULL,
   auth_subject text NOT NULL,
@@ -196,8 +198,10 @@ export async function listProjects(requestedTenantId: string) {
   const session = await auth0.getSession();
   if (!session?.user?.sub) throw new Error("UNAUTHENTICATED");
 
-  const issuer = process.env.AUTH0_ISSUER; // issuer OIDC configurado e validado pelo servidor
-  if (!issuer) throw new Error("AUTH0_ISSUER ausente");
+  const auth0Domain = process.env.AUTH0_DOMAIN;
+  if (!auth0Domain) throw new Error("AUTH0_DOMAIN ausente");
+  // AUTH0_DOMAIN é o domínio sem esquema, conforme configuração do SDK v4.
+  const issuer = `https://${auth0Domain.replace(/\/+$/, "")}/`;
 
   const [, rows] = await sql.transaction([
     sql`SELECT
