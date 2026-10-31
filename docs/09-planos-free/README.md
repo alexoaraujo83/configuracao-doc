@@ -7,7 +7,7 @@
 | Serviço | Plano permitido | Disponibilidade/limite Free | Restrições críticas |
 |---|---|---|---|
 | GitHub | Free | Repositórios públicos com conjunto amplo de recursos; privados ilimitados com conjunto limitado; Actions com franquia mensal e runners públicos gratuitos | Rulesets e branch protections nativos não abrangem repositórios privados no Free; reviewers obrigatórios, protected branches e Code Owners para privados exigem plano superior |
-| Auth0 | Free | Até 25.000 MAU; 5 Organizations; até 1.000 autenticações M2M/mês; Actions e Attack Protection básico | M2M Add-on não incluído; MFA OTP/Duo e RBAC por Organization aparecem em Essentials; mais de 5 Organizations indisponível |
+| Auth0 | Free | Até 25.000 MAU; 5 Organizations; até 1.000 autenticações M2M/mês; máximo de 10 Applications por tenant; Actions e Attack Protection básico | M2M Add-on não incluído; MFA OTP/Duo e RBAC por Organization aparecem em Essentials; mais de 5 Organizations indisponível; quota de Applications compartilhada por clients do tenant |
 | Vercel | Hobby ($0) | Projetos pessoais/não comerciais com quotas Hobby | Uso comercial ou SaaS comercial não permitido pelo Hobby; não usar para produção de produto comercial |
 | Neon | Free ($0) | 100 projetos; 10 branches/projeto; 100 CU-hours/projeto/mês; 1 GB/projeto e 20 GB agregados; 5 GB de transferência/projeto/mês | Branch protection nativo indisponível; escala para zero obrigatória; 6 h/1 GB de instant restore; quotas podem suspender compute |
 
@@ -145,6 +145,8 @@
 - [GitHub ruleset availability](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets)
 - [GitHub Actions billing](https://docs.github.com/en/actions/concepts/billing-and-usage)
 - [Auth0 Pricing](https://auth0.com/pt/pricing)
+- [Auth0 Support — limite de 10 Applications em tenants Free](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
+- [Auth0 Support — segundo tenant em plano Free](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)
 - [Vercel Hobby plan](https://vercel.com/docs/plans/hobby)
 - [Vercel Terms of Service](https://vercel.com/legal/terms)
 - [Vercel limits](https://vercel.com/docs/limits)

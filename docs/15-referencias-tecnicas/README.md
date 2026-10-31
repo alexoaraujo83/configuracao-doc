@@ -42,8 +42,8 @@
 
 ### GitHub Actions — interpretar cotas com cuidado
 
-- A documentação de planos e a página de uso incluído apresentam franquias de GitHub Free, incluindo 2.000 minutos mensais e 500 MB de armazenamento de Actions para repositórios privados, conforme a tabela de plano.
-- A documentação de cobrança também descreve uso de computação incluído em valor monetário para runners padrão em repositórios privados/internos, e cobrança após consumir a franquia aplicável.
+- A página de planos do GitHub informa 2.000 minutos mensais para GitHub Free pessoal; já a tabela atual de uso incluído expressa o crédito de compute de contas Free em US$ 12/mês e o armazenamento de Actions em 500 MB. Não tratar 2.000 minutos como franquia universal para qualquer conta, runner ou sistema operacional.
+- A documentação de cobrança descreve uso de computação incluído em valor monetário para runners padrão em repositórios privados/internos, e cobrança após consumir a franquia aplicável; a página de planos e a tabela de uso incluído devem ser lidas em conjunto e conforme o tipo de conta.
 - Runners padrão em repositórios públicos e runners auto-hospedados são tratados de forma diferente da franquia de runners hospedados para repositórios privados.
 - Multiplicadores de sistema operacional, tipo de runner, armazenamento de artifacts/cache e regras de billing podem afetar consumo e custo. Não interpretar “2.000 minutos” como 2.000 minutos universais em qualquer runner.
 - Para operação sem cobrança, configurar budgets e a opção de interromper uso quando o limite de orçamento for atingido, quando disponível; validar o comportamento na conta antes de depender dele.

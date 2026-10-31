@@ -24,6 +24,8 @@ auth0:
   tenant:
     # Auth0 Free: one tenant per account per current support guidance.
     # Store only tenant domain/identifier; never credentials.
+    # Auth0 Free: max 10 Applications per tenant across all projects.
+    # Inventory existing/test/M2M clients before assigning slots; do not assume four clients per project.
     domain: "replace-tenant-region.auth0.com"
     isolation: "shared-single-tenant"
     status: "planned" # Confirmar tenant existente no inventário; alterar para existing somente após verificação.
