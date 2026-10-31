@@ -148,12 +148,14 @@ Não retornar o objeto de sessão completo, tokens, claims desnecessárias ou da
 
 ## 6. Autenticação não é autorização
 
-O Proxy não protege rotas automaticamente e não deve ser tratado como única barreira. Em cada Server Component, Route Handler, Server Action e operação de banco:
-1. Obter sessão no servidor.
-2. Rejeitar ausência de sessão.
-3. Verificar permissão/role exigida.
-4. Restringir a consulta ao recurso autorizado.
-5. Retornar 401 para ausência de autenticação e 403 para falta de autorização.
+O Proxy do SDK monta endpoints e mantém o ciclo de sessão, mas não protege páginas ou APIs por padrão. Em Next.js 16, Proxy é executado no runtime Node.js; use-o para verificações otimistas/redirecionamentos, nunca como fronteira exclusiva de autorização. Em cada Server Component que exponha dados, Route Handler, Server Action e operação de banco:
+1. Obter `await auth0.getSession()` no servidor e rejeitar `null`.
+2. Validar entrada e identificar o recurso solicitado.
+3. Consultar membership/estado atual no banco e verificar a permissão exigida.
+4. Executar a operação com escopo de tenant/recurso aplicado na própria consulta/transação.
+5. Retornar 401 para ausência de autenticação e 403 (ou 404 quando a política de não divulgação exigir) para falta de autorização.
+
+Server Actions são invocáveis por requisições diretas; não presumir que a action só pode ser chamada pela UI. Repetir a autorização dentro de cada action, inclusive quando a página já verificou a sessão. Não usar valores `sub`, `tenant_id`, `role` ou `permissions` recebidos no body/query como identidade/autoridade. `sub` vem da sessão validada; o tenant solicitado é apenas um seletor e deve ser confirmado por membership ativa.
 
 Nunca aceitar `sub`, role ou permission como prova quando enviado pelo navegador. A identidade deve vir da sessão validada pelo SDK. Para autorização baseada em token de API, validar assinatura, issuer, audience, expiração e scopes no serviço destinatário.
 
