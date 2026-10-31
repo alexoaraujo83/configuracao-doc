@@ -26,7 +26,7 @@ auth0:
     # Store only tenant domain/identifier; never credentials.
     domain: "replace-tenant-region.auth0.com"
     isolation: "shared-single-tenant"
-    status: "existing"
+    status: "planned" # Confirmar tenant existente no inventário; alterar para existing somente após verificação.
   applications:
     development:
       name: "replace-project-slug-development"
