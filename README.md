@@ -130,3 +130,14 @@ Esta revisão é documental; não declara typecheck, build, testes, migrations o
 - [Matriz mestra de conformidade Free](docs/26-matriz-mestra-conformidade-free/README.md).
 
 Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
+
+
+## Padronização de múltiplos projetos e ambientes
+
+- [Padrões para múltiplos projetos e ambientes — somente Free](docs/32-padroes-multiplos-projetos-free/README.md)
+- [Matriz de variáveis por ambiente](docs/32-padroes-multiplos-projetos-free/matriz-variaveis.md)
+- [Governança de configuração e dependências](docs/32-padroes-multiplos-projetos-free/governanca.md)
+- [Checklist de onboarding de novo projeto](docs/32-padroes-multiplos-projetos-free/checklist-novo-projeto.md)
+- [Perfil mestre de projeto reutilizável](templates/projeto/PROJECT_PROFILE.md)
+
+Esta etapa define padrões documentais; não cria nem configura recursos nos fornecedores.
