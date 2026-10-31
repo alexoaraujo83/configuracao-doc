@@ -37,3 +37,8 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 ## Arquitetura por arquétipo
 
 16. [Matriz de arquitetura por tipo de projeto — somente Free](19-matriz-arquitetura-free/README.md)
+
+
+## Segurança e segregação de dados
+
+17. [Segurança, RBAC, RLS e isolamento multi-tenant — somente Free](20-seguranca-rbac-rls-free/README.md)
