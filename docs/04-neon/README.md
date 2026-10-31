@@ -45,3 +45,11 @@ Migrations devem ser idempotentes quando possível, revisadas, executadas por ro
 - [Neon Documentation](https://neon.com/docs)
 - [Neon branching](https://neon.com/branching)
 - [Neon CLI](https://neon.com/docs/cli/install)
+
+## Restrições Neon Free — baseline
+
+No plano Free, considerar 10 branches por projeto, 100 CU-hours por projeto/mês, autoscaling até 2 CU, 1 GB de storage por projeto, 20 GB agregados na organização, 5 GB de transferência pública por projeto/mês e instant restore limitado a 6 horas/1 GB de histórico. Scale-to-zero após cinco minutos é obrigatório.
+
+Protected branches nativas são **NÃO DISPONÍVEIS NO FREE**. Não apresentar branch de produção como protegida sem evidência. Usar controles compensatórios: migrations versionadas e revisadas, role administrativa separada, roles SQL de privilégio mínimo, backup externo criptografado e restore testado.
+
+Atenção a RLS: roles criadas pelo Console/CLI/API herdam membership de neon_superuser, que possui BYPASSRLS em projetos criados após 15/08/2023. Criar roles de runtime/migration via SQL com grants explícitos e validar RLS com a role real da aplicação. Não usar role administrativa no runtime.
