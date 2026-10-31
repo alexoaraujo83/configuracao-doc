@@ -67,3 +67,8 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
 
 Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## Operação e monitoramento — somente Free
+
+34. [Logs, quotas/capacidade, resposta a incidentes, backup/restore e rotina operacional](41-operacao-monitoramento-free/README.md)
