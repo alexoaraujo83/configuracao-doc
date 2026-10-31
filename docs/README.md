@@ -41,6 +41,7 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
 
+
 ## Continuidade, qualidade e governança
 
 As seções 19–23 documentam recuperação, observabilidade, releases, testes e conformidade. Não representam execução de exercícios, validação de produção ou certificação.
@@ -56,6 +57,13 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
 
+
+## Implementação funcional por módulos
+
+30. [Implementação funcional Next.js + Auth0 + Neon — somente Free](34-implementacao-funcional-modulos-free/README.md)
+
+Guia documental dos módulos funcionais; exemplos não executados.
+
 ## Governança, provisionamento e integração da stack Free
 
 25. [Operação de conformidade por projeto](28-operacao-conformidade-projeto-free/README.md)
@@ -63,6 +71,21 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 27. [Integração ponta a ponta Next.js + Auth0 + Neon + GitHub + Vercel](30-integracao-ponta-a-ponta-free/README.md)
 28. [Manual operacional de implantação Free](31-manual-operacional-implantacao-free/README.md)
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
+
+Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## Arquitetura de referência Next.js + Auth0 + Neon
+
+30. [Arquitetura de referência](33-arquitetura-referencia-nextjs-auth0-neon-free/README.md)
+31. [Estrutura do projeto e responsabilidade dos módulos](33-arquitetura-referencia-nextjs-auth0-neon-free/estrutura-projeto.md)
+32. [Exemplos de código de referência](33-arquitetura-referencia-nextjs-auth0-neon-free/exemplos-codigo.md)
+33. [Segurança, testes e critérios de validação](33-arquitetura-referencia-nextjs-auth0-neon-free/seguranca-e-testes.md)
+
+A arquitetura é uma referência documental; não comprova implementação ou testes operacionais.
+
+## Persistência e banco de dados — somente Free
+
 30. [Persistência e banco de dados — somente Free](36-persistencia-banco-dados-free/README.md)
 
-Os documentos 25–30 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+Os documentos de persistência são padrões de referência; SQL, migrations, backup e restore não foram executados.
