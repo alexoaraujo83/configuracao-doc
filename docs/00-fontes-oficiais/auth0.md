@@ -140,7 +140,7 @@ A página oficial de preços apresenta o Free com até **25.000 MAU** e até **5
 | Até 5 Organizations | Incluído | Não projetar mais de cinco Organizations nativas |
 | Actions | Incluído no Free | Restringir triggers, dependências e dados de entrada |
 | Attack Protection básico | Incluído | Não confundir com recursos avançados |
-| M2M Tokens | **NÃO DISPONÍVEL NO FREE** — a tabela lista M2M Tokens como add-on pago | Não depender de Client Credentials/M2M nativo |
+| M2M Authentication | Incluída até 1.000 autenticações/tokens por mês no Free; M2M Add-on: Não | Usar Client Credentials dentro da quota, reutilizar tokens e monitorar consumo; o add-on para ampliar quota não está incluído |
 | RBAC por Organization | **NÃO DISPONÍVEL NO FREE** — aparece em Essentials | Gerenciar memberships/permissions no PostgreSQL e autorizar no servidor |
 | MFA com OTP/Duo | **NÃO DISPONÍVEL NO FREE** — aparece em Essentials | Avaliar passkeys/passwordless; não chamar passwordless de MFA automaticamente |
 | Banco de usuários externo/custom database connection | **NÃO DISPONÍVEL NO FREE** — listado em Professional | Diferenciar isso da Database Connection integrada Username-Password-Authentication |
@@ -148,9 +148,11 @@ A página oficial de preços apresenta o Free com até **25.000 MAU** e até **5
 
 ### Consequência para a API IAM
 
-A API não deve assumir que o Auth0 Free emitirá M2M tokens para workloads sem usuário. Para operações iniciadas por usuário, usar OIDC Authorization Code Flow com PKCE, Access Token destinado à API e validação server-side de assinatura, issuer, audience, expiração e scopes. Carregar membership e permission do banco após validar iss + sub; aplicar RLS com o contexto autenticado.
+O Auth0 Free inclui Machine-to-Machine Authentication até a quota de 1.000 autenticações/tokens por mês; a tabela de preços também indica M2M Add-on = No. Portanto, Client Credentials pode ser usado dentro desse limite, mas não se deve depender de M2M ilimitado nem de add-on para ampliar a quota no Free. Reutilizar/cachar Access Tokens até próximo da expiração, evitar solicitar novo token a cada operação, medir o consumo mensal e definir alerta e bloqueio seguro ao atingir o limite.
 
-Não trocar um token M2M ausente por ID Token, token de sessão, token de usuário compartilhado ou segredo estático em frontend. Para serviço interno sem usuário, qualquer identidade própria precisa de revisão específica de segurança, chave privada server-side, validade curta, audience estrita, rotação e auditoria.
+Para operações iniciadas por usuário, usar OIDC Authorization Code Flow com PKCE, Access Token destinado à API e validação server-side de assinatura, issuer, audience, expiração e scopes. Carregar membership e permission do banco após validar iss + sub; aplicar RLS com o contexto autenticado.
+
+Não substituir M2M por ID Token, sessão compartilhada ou segredo estático no frontend. Se o requisito superar a quota Free, a arquitetura deve ser revista sem pressupor contratação de add-on; qualquer identidade de serviço alternativa requer revisão específica de segurança, chave privada server-side, validade curta, audience estrita, rotação e auditoria.
 
 Os requisitos do projeto — não adicionar Google OAuth2; usar Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado — continuam válidos como requisitos a verificar. Eles não comprovam disponibilidade de M2M nem que as opções estejam salvas.
 
