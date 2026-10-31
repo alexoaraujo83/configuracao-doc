@@ -91,7 +91,7 @@ Marcar o módulo como server-only ajuda a impedir import acidental em Client Com
 ```typescript
 const rows = await sql`
   SELECT id, email
-  FROM app_users
+  FROM app.app_users
   WHERE auth0_sub = ${auth0Sub}
   LIMIT 1
 `;
@@ -128,15 +128,18 @@ Conceder somente permissões necessárias, ajustando database/schema reais:
 
 ```sql
 GRANT CONNECT ON DATABASE appdb TO app_runtime;
-GRANT USAGE ON SCHEMA public TO app_runtime;
+SET ROLE app_owner;
+CREATE SCHEMA app AUTHORIZATION app_owner;
+RESET ROLE;
+GRANT USAGE ON SCHEMA app TO app_runtime;
 GRANT SELECT, INSERT, UPDATE, DELETE
-  ON ALL TABLES IN SCHEMA public TO app_runtime;
+  ON ALL TABLES IN SCHEMA app TO app_runtime;
 GRANT USAGE, SELECT
-  ON ALL SEQUENCES IN SCHEMA public TO app_runtime;
+  ON ALL SEQUENCES IN SCHEMA app TO app_runtime;
 
-ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA public
+ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA app
   GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO app_runtime;
-ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA public
+ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA app
   GRANT USAGE, SELECT ON SEQUENCES TO app_runtime;
 ```
 
@@ -144,10 +147,11 @@ Revisar privilégios de UPDATE/DELETE por tabela; não conceder globalmente se o
 
 ## 8. Modelagem mínima de identidade
 
-Migration ilustrativa:
+Migration ilustrativa (executar com `app_migrator` e assumir a role `app_owner` antes de criar objetos):
 
 ```sql
-CREATE TABLE app_users (
+SET ROLE app_owner;
+CREATE TABLE app.app_users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   auth0_sub TEXT NOT NULL UNIQUE,
   email TEXT NOT NULL,
@@ -156,7 +160,7 @@ CREATE TABLE app_users (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE INDEX app_users_email_idx ON app_users(email);
+CREATE INDEX app_users_email_idx ON app.app_users(email);
 ```
 
 Usar `auth0_sub` como identidade externa; não usar email como chave primária. Em sistemas multi-tenant, modelar `organizations`, `memberships` e `tenant_id` com constraints e índices adequados. A membership deve ser verificada pelo backend em cada operação.
@@ -168,11 +172,11 @@ RLS é defesa adicional contra leitura/escrita fora do escopo. Não substitui au
 Exemplo de isolamento por usuário:
 
 ```sql
-ALTER TABLE app_users ENABLE ROW LEVEL SECURITY;
-ALTER TABLE app_users FORCE ROW LEVEL SECURITY;
+ALTER TABLE app.app_users ENABLE ROW LEVEL SECURITY;
+ALTER TABLE app.app_users FORCE ROW LEVEL SECURITY;
 
 CREATE POLICY app_users_self
-ON app_users
+ON app.app_users
 FOR ALL
 TO app_runtime
 USING (
@@ -193,7 +197,7 @@ export async function findCurrentUser(auth0Sub: string) {
   const [context, rows] = await sql.transaction([
     sql`SELECT set_config('app.auth0_sub', ${auth0Sub}, true)`,
     sql`SELECT id, auth0_sub, email
-        FROM app_users
+        FROM app.app_users
         WHERE auth0_sub = ${auth0Sub}
         LIMIT 1`,
   ]);
