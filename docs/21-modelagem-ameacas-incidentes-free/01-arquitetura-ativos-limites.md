@@ -53,7 +53,7 @@ C = confidencialidade; I = integridade; D = disponibilidade.
 ## Premissas e limitações
 - Auth0 autentica; a aplicação autoriza membership, tenant e domínio.
 - Com credencial PostgreSQL compartilhada pelo backend, o banco não identifica diretamente o usuário final. GUCs de tenant/user são contexto definido pelo backend; comprometimento total do runtime pode adulterá-lo. RLS é defesa em profundidade, não isolamento independente contra SQL arbitrário.
-- Vários Auth0 clients não equivalem a isolamento administrativo entre tenants. Não presumir Organizations ou add-ons.
+- Auth0 Free: um tenant por conta e limite de 10 Applications por tenant, compartilhado entre projetos; vários clients não equivalem a isolamento administrativo entre tenants. Inventariar aplicações antes de provisionar; não presumir Organizations ou add-ons.
 - GitHub Free em repositórios privados tem limitações de Environments/secrets; não depender de controles indisponíveis.
 - Vercel Hobby é pessoal/não comercial. Standard Protection não protege o domínio de produção.
 - Logs e retenção variam por plano; não pressupor SIEM ou retenção premium.
