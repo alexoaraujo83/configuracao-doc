@@ -42,11 +42,11 @@ Use identificadores minúsculos, ASCII, sem espaços, sem dados pessoais e sem s
 |---|---|---|
 | Projeto | `<produto>-<dominio>` | portal-clientes |
 | Repositório | `<projeto>` | portal-clientes |
-| Vercel project | `<projeto>`-web | portal-clientes-web |
-| Neon project | `<projeto>`-db | portal-clientes-db |
-| Auth0 Application | `<projeto>`-`<ambiente>`-web | portal-clientes-preview-web |
-| Branch Git | feat/`<assunto>`, fix/`<assunto>`, docs/`<assunto>` | feat/perfil |
-| Neon branch | `<ambiente>`-`<projeto>` | preview-portal-clientes |
+| Vercel project | `<projeto>-web` | portal-clientes-web |
+| Neon project | `<projeto>-db` | portal-clientes-db |
+| Auth0 Application | `<projeto>-<ambiente>-web` | portal-clientes-preview-web |
+| Branch Git | `feat/<assunto>`, `fix/<assunto>`, `docs/<assunto>` | feat/perfil |
+| Neon branch | `<ambiente>-<projeto>` | preview-portal-clientes |
 | Variável | UPPER_SNAKE_CASE | DATABASE_URL |
 | Schema PostgreSQL | nome funcional | billing |
 
