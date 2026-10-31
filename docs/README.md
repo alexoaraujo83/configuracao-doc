@@ -40,3 +40,10 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 18. [Modelagem de ameaças e resposta a incidentes — somente Free](21-modelagem-ameacas-incidentes-free/README.md)
 
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
+
+
+## Revisões técnicas
+
+20. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
+
+A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
