@@ -17,6 +17,15 @@ A classificação Free não elimina custos indiretos: hardware próprio, energia
 | Vercel | [vercel.md](vercel.md) | Teams, Projects, Git, ambientes, deployments, Functions e observabilidade |
 | Neon | [neon.md](neon.md) | PostgreSQL, projetos, branches, roles, compute, quotas, restore e região |
 
+## Guias de implementação da stack de referência
+
+| Tema | Guia técnico |
+|---|---|
+| Next.js App Router + TypeScript | [docs/10-nextjs-typescript](../10-nextjs-typescript/README.md) |
+| Auth0 SDK v4 + Next.js | [docs/11-auth0-nextjs](../11-auth0-nextjs/README.md) |
+| Neon PostgreSQL + RLS + migrations | [docs/12-neon-postgresql](../12-neon-postgresql/README.md) |
+| Ambientes, CI, testes e operação | [docs/13-ambientes-testes-operacao](../13-ambientes-testes-operacao/README.md) |
+
 ## Matriz consolidada
 
 Consulte [Matriz de compatibilidade Free](../09-planos-free/README.md) antes de escolher qualquer arquitetura ou habilitar um recurso.
