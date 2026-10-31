@@ -129,3 +129,31 @@ Não declarar esses valores como ativos sem evidência direta do tenant. Se o no
 
 ## Limites e observações
 MFA, Organizations, log streaming, attack protection, custom domains e limites do tenant podem variar por plano/região. Verificar disponibilidade no tenant. Esta documentação não executa alterações no tenant.
+
+## Baseline de compatibilidade — Auth0 Free (31/10/2026)
+
+A página oficial de preços apresenta o Free com até **25.000 MAU** e até **5 Organizations**, além de Actions, Attack Protection básico e opções passwordless. O domínio personalizado exige verificação de cartão; quando a política for não cadastrar cartão, manter o domínio padrão do tenant.
+
+| Recurso | Classificação Free | Decisão operacional |
+|---|---|---|
+| Até 25 mil MAU | Incluído | Monitorar consumo e limites do tenant |
+| Até 5 Organizations | Incluído | Não projetar mais de cinco Organizations nativas |
+| Actions | Incluído no Free | Restringir triggers, dependências e dados de entrada |
+| Attack Protection básico | Incluído | Não confundir com recursos avançados |
+| M2M Authentication | Incluída até 1.000 autenticações/tokens por mês no Free; M2M Add-on: Não | Usar Client Credentials dentro da quota, reutilizar tokens e monitorar consumo; o add-on para ampliar quota não está incluído |
+| RBAC por Organization | **NÃO DISPONÍVEL NO FREE** — aparece em Essentials | Gerenciar memberships/permissions no PostgreSQL e autorizar no servidor |
+| MFA com OTP/Duo | **NÃO DISPONÍVEL NO FREE** — aparece em Essentials | Avaliar passkeys/passwordless; não chamar passwordless de MFA automaticamente |
+| Banco de usuários externo/custom database connection | **NÃO DISPONÍVEL NO FREE** — listado em Professional | Diferenciar isso da Database Connection integrada Username-Password-Authentication |
+| Custom domain | Requer verificação de cartão | Usar auth0 domain padrão se nenhum cartão puder ser verificado |
+
+### Consequência para a API IAM
+
+O Auth0 Free inclui Machine-to-Machine Authentication até a quota de 1.000 autenticações/tokens por mês; a tabela de preços também indica M2M Add-on = No. Portanto, Client Credentials pode ser usado dentro desse limite, mas não se deve depender de M2M ilimitado nem de add-on para ampliar a quota no Free. Reutilizar/cachar Access Tokens até próximo da expiração, evitar solicitar novo token a cada operação, medir o consumo mensal e definir alerta e bloqueio seguro ao atingir o limite.
+
+Para operações iniciadas por usuário, usar OIDC Authorization Code Flow com PKCE, Access Token destinado à API e validação server-side de assinatura, issuer, audience, expiração e scopes. Carregar membership e permission do banco após validar iss + sub; aplicar RLS com o contexto autenticado.
+
+Não substituir M2M por ID Token, sessão compartilhada ou segredo estático no frontend. Se o requisito superar a quota Free, a arquitetura deve ser revista sem pressupor contratação de add-on; qualquer identidade de serviço alternativa requer revisão específica de segurança, chave privada server-side, validade curta, audience estrita, rotação e auditoria.
+
+Os requisitos do projeto — não adicionar Google OAuth2; usar Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado — continuam válidos como requisitos a verificar. Eles não comprovam que as opções estejam salvas; a quota M2M Free também deve ser monitorada no painel de uso.
+
+Fontes oficiais: [Auth0 Pricing](https://auth0.com/pt/pricing) (a tabela compara M2M Authentication e M2M Add-on) e [What to Expect When Your Auth0 Startup Plan Expires](https://auth0.com/blog/what-to-expect-when-your-auth0-startup-plan-expires/) (referência da quota de 1.000 M2M no Free). Revalidar antes de uma mudança no tenant.

@@ -144,3 +144,19 @@ Avaliar firewall/WAF, deployment protection, password protection de Preview, tru
 
 ## Limites e observações
 Custom environments, limites de execução, segurança avançada, networking, observability e retenção dependem do plano. Confirmar pricing/limits e configurações reais do team antes de estabelecer baseline obrigatória.
+
+## Baseline de compatibilidade — Vercel Hobby (Free) (31/10/2026)
+
+**Restrição contratual crítica:** Vercel Hobby é restrito a uso pessoal ou não comercial, conforme a página oficial do plano e os Termos de Serviço. Não utilizar Hobby para hospedar ou operar um SaaS comercial, produto empresarial comercial ou serviço oferecido a clientes. Um plano de preço zero não representa autorização de uso comercial.
+
+O team conectado foi observado no plano Hobby. Isso não comprova que a finalidade de cada projeto seja pessoal/não comercial; validar a finalidade separadamente antes de manter qualquer deployment.
+
+**Privacidade e treinamento de modelos:** os Termos de Serviço atualizados em 19/10/2026 dizem que, em contas Hobby, conteúdo enviado pode ser usado para treinar modelos de IA/ML e compartilhado com terceiros para esse fim. Os termos indicam opção de saída nas configurações da Team. Antes de enviar código-fonte, dados de usuários ou material confidencial, verificar e registrar a configuração efetiva de opt-out no plano Free. Se a opção não estiver visível ou não puder ser comprovada, não enviar conteúdo sensível; manter o build/self-host em infraestrutura sob controle próprio.
+
+Limites documentados incluem, entre outros: 4 CPU-hours ativas, 360 GB-hours de memória provisionada, até 1 milhão de invocações de Functions, 100 GB-hours de duração de Functions, 1 hora/até 4.000 linhas de runtime logs, 100 deployments por dia e uma build concorrente. Revalidar a página Limits e o painel porque quotas podem mudar.
+
+**Decisão Free-only:** Hobby só é elegível para projeto pessoal/não comercial. Para produto SaaS comercial, classificar Vercel Hobby como **NÃO DISPONÍVEL PARA ESTE USO**. A alternativa gratuita é executar Next.js/Node em infraestrutura própria já disponível, ou selecionar outro host cujo tier Free autorize explicitamente uso comercial e cujos limites sejam suficientes. Não assumir que outro host seja comercialmente gratuito sem revisar seus termos.
+
+Custom Environments, controles de equipe, RBAC e funcionalidades de proteção/logs variam por plano. Não desenhar Staging, aprovação de deploy ou retenção maior com base em capacidade não incluída no Hobby.
+
+Fontes: [Hobby Plan](https://vercel.com/docs/plans/hobby), [Terms of Service — Hobby](https://vercel.com/legal/terms), [Limits](https://vercel.com/docs/limits).
