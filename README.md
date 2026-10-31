@@ -98,7 +98,6 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 
 Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto, validação e rollback. Mudanças estruturais devem ser submetidas por Pull Request e revisadas antes de serem incorporadas à branch principal.
 
-
 ## Provisionamento reutilizável para múltiplos projetos
 
 - [Guia de provisionamento Free](docs/18-provisionamento-multiplos-projetos/README.md)
@@ -106,9 +105,18 @@ Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto
 
 Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e auditoria. Considera as limitações de tenant único do Auth0 Free, Preview branch-scoped no Vercel Hobby e cotas do Neon Free.
 
-
 ## Modelagem de ameaças e resposta a incidentes
 
 - [STRIDE, registro de riscos, controles Free-only, plano de resposta, runbooks e gate de produção](docs/21-modelagem-ameacas-incidentes-free/README.md).
 
 Este conteúdo é documental; não declara auditoria, teste, rotação de credenciais, restore ou resposta real executados.
+
+## Observabilidade, monitoramento e capacidade — somente Free
+
+- [Logs estruturados, Auth0, Neon, Vercel Hobby, GitHub Actions, quotas, indicadores e runbooks](docs/23-observabilidade-monitoramento-capacidade-free/README.md)
+
+## Gestão de mudanças, releases e versionamento — somente Free
+
+- [Branches, Pull Requests, SemVer, changelog, CI/CD, migrations Neon, rollback, auditoria e checklist de release](docs/24-gestao-mudancas-releases-free/README.md)
+
+Esta seção é documental. Nenhuma regra de branch, pipeline, migration ou deployment foi aplicada.
