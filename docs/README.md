@@ -67,3 +67,8 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
 
 Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## Consolidação e auditoria final — somente Free
+
+35. [Matriz de cobertura, lacunas, decisões e critérios de conclusão documental/operacional](42-consolidacao-auditoria-free/README.md)
