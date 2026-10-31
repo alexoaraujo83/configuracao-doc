@@ -151,6 +151,8 @@ Custom environments, limites de execução, segurança avançada, networking, ob
 
 O team conectado foi observado no plano Hobby. Isso não comprova que a finalidade de cada projeto seja pessoal/não comercial; validar a finalidade separadamente antes de manter qualquer deployment.
 
+**Privacidade e treinamento de modelos:** os Termos de Serviço atualizados em 19/10/2026 dizem que, em contas Hobby, conteúdo enviado pode ser usado para treinar modelos de IA/ML e compartilhado com terceiros para esse fim. Os termos indicam opção de saída nas configurações da Team. Antes de enviar código-fonte, dados de usuários ou material confidencial, verificar e registrar a configuração efetiva de opt-out no plano Free. Se a opção não estiver visível ou não puder ser comprovada, não enviar conteúdo sensível; manter o build/self-host em infraestrutura sob controle próprio.
+
 Limites documentados incluem, entre outros: 4 CPU-hours ativas, 360 GB-hours de memória provisionada, até 1 milhão de invocações de Functions, 100 GB-hours de duração de Functions, 1 hora/até 4.000 linhas de runtime logs, 100 deployments por dia e uma build concorrente. Revalidar a página Limits e o painel porque quotas podem mudar.
 
 **Decisão Free-only:** Hobby só é elegível para projeto pessoal/não comercial. Para produto SaaS comercial, classificar Vercel Hobby como **NÃO DISPONÍVEL PARA ESTE USO**. A alternativa gratuita é executar Next.js/Node em infraestrutura própria já disponível, ou selecionar outro host cujo tier Free autorize explicitamente uso comercial e cujos limites sejam suficientes. Não assumir que outro host seja comercialmente gratuito sem revisar seus termos.
