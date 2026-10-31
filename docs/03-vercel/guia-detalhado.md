@@ -218,3 +218,12 @@ Confirmar sintaxe na versão instalada antes de executar. Para produção, usar 
 ## 14. Estado e evidências
 
 Este documento descreve recursos e procedimentos com base na documentação oficial consultada em 2026-10-31. Para declarar configuração como **Verificada**, registrar projeto, team, plano, data, ambiente e evidência observada. O guia não afirma que todas as opções estejam habilitadas nos projetos atuais.
+
+
+## Restrição Free e decisão de Staging
+
+A conta conectada foi observada em Hobby. Esse plano é limitado a uso pessoal/não comercial; não usar para implantar ou operar produto SaaS comercial.
+
+Custom Environments, como staging/QA, não devem ser pressupostos no Hobby. Usar Local Development, Preview e Production apenas dentro do uso permitido e das quotas do plano. Um Project separado não remove a restrição contratual de uso comercial.
+
+Se o produto for comercial, classificar a hospedagem Vercel Hobby como **NÃO DISPONÍVEL PARA ESTE USO**. A alternativa Free-only é self-host ou outro provedor com termos explícitos de uso comercial no plano gratuito; validar a alternativa antes de adotá-la. Não recomendar upgrade, trial nem crédito promocional.
