@@ -40,3 +40,9 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 18. [Modelagem de ameaças e resposta a incidentes — somente Free](21-modelagem-ameacas-incidentes-free/README.md)
 
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
+
+## Governança e conformidade
+
+19. [Matriz mestra de conformidade Free](26-matriz-mestra-conformidade-free/README.md)
+
+A matriz consolida requisitos, controles, evidências, responsáveis, limitações Free e critérios GO/NO-GO. O estado inicial dos controles é Não avaliado até a coleta e revisão de evidência operacional.
