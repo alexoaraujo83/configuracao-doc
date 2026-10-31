@@ -3,7 +3,7 @@
 ## Lacunas ainda abertas
 1. Não há evidência de configuração real dos tenants Auth0, projetos Vercel ou projetos Neon; a documentação é padrão de referência.
 2. Nenhum exemplo TypeScript/SQL/YAML foi compilado, executado ou testado.
-3. Os PRs #30–#35 são independentes e ainda não mesclados; links internos para seus diretórios não devem ser tratados como conteúdo disponível na main.
+3. Os conteúdos dos PRs #29–#36 foram reunidos na branch de integração #37; sua incorporação à main depende do merge desse PR.
 4. Auth0 Free e Neon Free têm quotas/recursos que mudam; verificar o painel e os termos na data de uso.
 5. Vercel Hobby não pode ser usado para aplicação comercial; isso pode impedir deploy para certos repositórios privados de organizações.
 6. GitHub Free em repositórios privados não deve pressupor environments, secrets de environment ou required reviewers.
@@ -22,7 +22,7 @@
 - Vercel Hobby somente uso pessoal/não comercial.
 
 ## Divergência Neon storage
-Em 31/10/2026, FAQ Free e anúncio de 02/10/2026 indicam 1 GB PostgreSQL por projeto; a página Plans ainda apresenta 0,5 GB em trechos. Até confirmação direta no Console, a documentação operacional usa 0,5 GB como teto conservador. Fonte: https://github.com/neondatabase/website/blob/main/content/faqs/free-plan-limits-and-quotas.md ; https://neon.com/blog/neon-free-plan-1-gb-per-project ; https://neon.com/docs/introduction/plans.
+Em 31/10/2026, FAQ Free e anúncio de 02/10/2026 indicam 1 GB PostgreSQL por projeto; a página Plans ainda apresenta 0,5 GB em trechos. Até confirmação direta no Console, a documentação operacional usa 0,5 GB como teto conservador. Fontes: https://github.com/neondatabase/website/blob/main/content/faqs/free-plan-limits-and-quotas.md ; https://neon.com/blog/neon-free-plan-1-gb-per-project ; https://neon.com/docs/introduction/plans.
 
 ## Limites Vercel Hobby
 Retenção de runtime logs indicada como 1 hora e uso pessoal/não comercial. Revalidar quotas em https://vercel.com/docs/limits e https://vercel.com/docs/plans/hobby.
