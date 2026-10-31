@@ -69,10 +69,10 @@ Vercel fornece três ambientes padrão: Local Development, Preview e Production.
 |---|---|---|
 | Development | Local Development | desenvolvimento local e variáveis locais |
 | Preview | Preview | validação de branch/PR |
-| Staging | Custom Environment ou Project separado | ambiente persistente de homologação |
+| Staging | Self-host ou host que comprove uso comercial no Free; Vercel Hobby apenas em uso pessoal/não comercial | ambiente persistente quando permitido |
 | Production | Production | tráfego real |
 
-Se custom environment não estiver disponível, staging pode exigir projeto separado, com custo, domains, variáveis e integração Git próprios. Não chamar um Preview fixo de staging sem documentar sua natureza efêmera, branch tracking e proteção.
+No Hobby, não presumir Custom Environments. Para uso pessoal/não comercial, mapear Staging de forma explícita e dentro das quotas permitidas; para produto comercial, não usar Vercel Hobby. Um Preview fixo não se torna staging persistente por convenção.
 
 ### CLI para ambientes
 
@@ -88,12 +88,6 @@ vercel env run -- npm run dev
 
 # Criar Preview deployment
 vercel deploy
-
-# Consultar variáveis do ambiente staging (se custom environment existir)
-vercel pull --environment=staging
-
-# Deploy em custom environment
-vercel deploy --target=staging
 
 # Deploy de produção — executar somente após aprovação
 vercel deploy --prod
