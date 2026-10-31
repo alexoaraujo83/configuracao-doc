@@ -33,3 +33,19 @@ Use estes modelos para iniciar um novo projeto sem copiar segredos nem assumir c
 ## Template de inventário
 
 Copiar a ficha para cada aplicação e manter IDs/nomes de recursos, owners, região, plano, data da última verificação e links administrativos. Não incluir valores secretos.
+
+## Verificação obrigatória de planos Free
+
+Adicionar à ficha de cada projeto e preencher antes de provisionar:
+
+- Plano Free e link da página oficial:
+- Data da verificação e responsável:
+- Limite mensal de compute/minutos/invocações:
+- Limite de storage/transfer/branches:
+- Retenção de logs e restore:
+- Uso comercial permitido pelos termos? (sim/não/pendente):
+- Recursos desejados não incluídos no Free:
+- Alternativa open source/self-hosted:
+- Requisitos que ficam BLOCKED sem recurso pago:
+
+Não iniciar um provisionamento se o serviço exigir trial, cartão, add-on pago ou upgrade. Não assumir que a disponibilidade de uma integração equivale a inclusão no Free.
