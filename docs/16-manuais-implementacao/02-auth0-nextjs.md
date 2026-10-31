@@ -65,10 +65,9 @@ node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
 Next.js 16: criar `src/proxy.ts`:
 
 ```typescript
-import type { NextRequest } from "next/server";
 import { auth0 } from "@/lib/auth0";
 
-export async function proxy(request: NextRequest) {
+export async function proxy(request: Request) {
   return auth0.middleware(request);
 }
 
