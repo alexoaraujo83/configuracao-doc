@@ -218,6 +218,8 @@ Este documento descreve recursos e procedimentos com base na documentação ofic
 
 A conta conectada foi observada em Hobby. Esse plano é limitado a uso pessoal/não comercial; não usar para implantar ou operar produto SaaS comercial.
 
+Os Termos de Serviço permitem o uso de conteúdo enviado por contas Hobby em treinamento de modelos de IA/ML e compartilhamento com terceiros para esse fim. Conferir e documentar o opt-out nas configurações da Team antes de importar repositórios, variáveis não secretas ou dados operacionais. Se não for possível comprovar a opção de saída, manter código e dados confidenciais fora desse serviço.
+
 Custom Environments, como staging/QA, não devem ser pressupostos no Hobby. Usar Local Development, Preview e Production apenas dentro do uso permitido e das quotas do plano. Um Project separado não remove a restrição contratual de uso comercial.
 
 Se o produto for comercial, classificar a hospedagem Vercel Hobby como **NÃO DISPONÍVEL PARA ESTE USO**. A alternativa Free-only é self-host ou outro provedor com termos explícitos de uso comercial no plano gratuito; validar a alternativa antes de adotá-la. Não recomendar upgrade, trial nem crédito promocional.
