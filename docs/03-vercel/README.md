@@ -48,3 +48,9 @@ Consulte o [guia detalhado de configuração e operação](guia-detalhado.md), q
 - [Vercel Documentation](https://vercel.com/docs)
 - [Vercel CLI](https://vercel.com/docs/cli)
 - [Deployment Environments](https://vercel.com/docs/deployments/environments)
+
+## Restrições Vercel Hobby — baseline Free
+
+Vercel Hobby é restrito a uso pessoal ou não comercial pelos termos oficiais. Não hospedar SaaS, produto comercial ou aplicações empresariais oferecidas a clientes nesse plano. Custom Environments, Deployment Protection avançada, recursos de equipe e quotas de observabilidade variam conforme plano.
+
+Para projetos pessoais/não comerciais, utilizar somente os ambientes e limites efetivamente incluídos no Hobby. Para aplicações comerciais com orçamento de licença zero, considerar self-host com infraestrutura própria já disponível ou outro host cujo Free autorize explicitamente uso comercial. Não presumir que preço zero permita uso comercial.
