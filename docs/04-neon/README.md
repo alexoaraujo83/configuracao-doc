@@ -27,7 +27,7 @@
 
 ## Branching e ambientes
 
-- Production: branch protegida, mudanças aprovadas e backups/restauração compreendidos.
+- Production: branch principal; branch protection nativa não está disponível no Free. Exigir mudança revisada, migration versionada, role de privilégio mínimo e backup externo testado.
 - Staging: branch persistente derivada da base apropriada, com dados sintéticos/mascarados.
 - Development: branch de desenvolvimento com dados descartáveis.
 - Preview: branches efêmeras quando o fluxo e o plano permitirem; aplicar TTL e limpeza.
