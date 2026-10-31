@@ -141,3 +141,10 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## Ambientes Development, Preview e Production — Free
+
+- [Matriz de variáveis, Auth0, Neon branches, Vercel Preview e isolamento](docs/39-ambientes-free/README.md).
+
+Padrões documentais; nenhuma variável ou serviço foi configurado.
