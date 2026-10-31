@@ -218,3 +218,12 @@ Regras de proteção podem restringir branches, exigir aprovação e controlar a
 ## 10. Estado e evidências
 
 Os itens acima são procedimentos e padrões documentados. Para marcar uma configuração como **Verificada**, registrar repositório, data, plano, tela/API consultada, valor observado (sem secrets) e responsável. Não inferir configurações da conta apenas pelo conteúdo deste guia.
+
+
+## Restrições GitHub Free
+
+A disponibilidade de rulesets e branch protection depende da visibilidade do repositório. Rulesets no GitHub Free são aplicáveis a repositórios públicos; rulesets e controles nativos de branch protection para repositórios privados exigem planos superiores. Não assumir required reviewers, Code Owners ou enforcement de ruleset no repositório privado Free.
+
+Para repositório privado no Free, manter o acesso de escrita à branch padrão restrito ao mínimo, exigir Pull Request como processo, executar CI e registrar revisão manual. Isso é controle organizacional compensatório, **não** enforcement server-side. Nunca tornar repositório confidencial público apenas para obter rulesets gratuitos.
+
+GitHub Actions tem compute incluído com quota; revisar a área Billing e o uso real. Runners self-hosted não consomem minutos GitHub-hosted, mas exigem hardware, isolamento, atualização e manutenção próprios. Não depender de ambiente protegido ou required reviewers se o recurso não estiver disponível no plano.
