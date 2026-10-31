@@ -147,6 +147,15 @@ USING (
   auth0_sub = current_setting('app.auth0_sub', true)
 );
 
+-- Permite criar somente o registro associado ao subject autenticado.
+CREATE POLICY app_users_insert_own
+ON app.app_users
+FOR INSERT
+TO app_runtime
+WITH CHECK (
+  auth0_sub = current_setting('app.auth0_sub', true)
+);
+
 CREATE POLICY app_users_update_own
 ON app.app_users
 FOR UPDATE
@@ -166,14 +175,23 @@ A variável de sessão deve ser local à transação. Executar a definição do 
 Exemplo conceitual de transação HTTP (validar assinatura da API na versão instalada):
 
 ```typescript
-const rows = await sql.transaction([
+const [contextResult, userRows] = await sql.transaction([
   sql`select set_config('app.auth0_sub', ${auth0Sub}, true)`,
-  sql`select id, email from app.app_users
-      where auth0_sub = current_setting('app.auth0_sub', true)`,
+  sql`insert into app.app_users (auth0_sub, email, display_name)
+      values (${auth0Sub}, ${email}, ${displayName})
+      on conflict (auth0_sub) do update
+      set email = excluded.email,
+          display_name = excluded.display_name,
+          updated_at = now()
+      returning id, auth0_sub, email, display_name`,
 ]);
+
+const user = userRows[0] ?? null;
 ```
 
-Não tratar o exemplo como substituto de teste de integração: verificar que ambas as instruções são executadas na mesma transação e que o parâmetro é transaction-local. RLS é defesa adicional; manter autorização explícita na camada de aplicação.
+O exemplo pressupõe que `auth0Sub`, `email` e `displayName` foram obtidos/normalizados no servidor, após validar a sessão Auth0; nunca aceitar `auth0Sub` como identidade confiável do body ou query. A policy de INSERT usa `WITH CHECK`, e a de UPDATE usa `USING` e `WITH CHECK`, impedindo criar ou mover uma linha para o subject de outra pessoa. O `ON CONFLICT DO UPDATE` também precisa satisfazer a policy de UPDATE.
+
+Não tratar o exemplo como substituto de teste de integração: verificar que ambas as instruções são executadas na mesma transação, que o parâmetro é transaction-local e que o usuário de runtime possui somente os grants necessários. Testar INSERT próprio, INSERT forjado, UPDATE próprio e UPDATE cruzado com `app_runtime`. RLS é defesa adicional; manter autorização explícita na camada de aplicação.
 
 ## 7. Health check seguro
 
