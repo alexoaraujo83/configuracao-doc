@@ -40,3 +40,9 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 18. [Modelagem de ameaças e resposta a incidentes — somente Free](21-modelagem-ameacas-incidentes-free/README.md)
 
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
+
+## Qualidade, segurança de dependências e produção
+
+19. [Testes, segurança da cadeia de dependências e validação de produção — somente Free](25-testes-seguranca-validacao-free/README.md)
+
+Esta seção descreve testes unitários, integração e E2E; autenticação Auth0; autorização RBAC/RLS; auditoria npm e GitHub Actions; triagem de CVEs; migrations PostgreSQL; quality gates; validação final e modelo de evidências. O conteúdo é documental e não comprova execução.
