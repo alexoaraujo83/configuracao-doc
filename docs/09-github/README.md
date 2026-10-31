@@ -5,7 +5,7 @@
 ## 1. Configuração padrão inicial
 
 1. Criar um repositório por unidade de versionamento/deploy, ou definir claramente os limites do monorepo.
-2. Definir branch padrão e estratégia de branches; proteger `main` por regras de branch ou rulesets.
+2. Definir branch padrão e estratégia. Em repositório público no Free, rulesets podem aplicar regras; em repositório privado no Free, não há enforcement nativo equivalente. Reduzir escritores de main e exigir CI/revisão como controle compensatório.
 3. Exigir Pull Request para mudanças em `main`, checks automatizados e resolução de conversas.
 4. Definir permissões mínimas para usuários, equipes, GitHub Apps e tokens.
 5. Usar GitHub Actions com permissões explícitas e mínimas para `GITHUB_TOKEN`.
