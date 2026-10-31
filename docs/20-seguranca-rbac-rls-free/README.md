@@ -22,18 +22,18 @@
 
 ## Arquitetura
 
-\`\`\`text
+```text
 Browser --cookie HttpOnly/HTTPS--> Next.js + Auth0 SDK v4
   -> DAL server-only: identidade + permission + membership
   -> transação PostgreSQL: contexto tenant/user
   -> Neon: app_runtime sem ownership/BYPASSRLS
   -> tabelas com RLS e default deny
-\`\`\`
+```
 
 ## Limite de confiança importante
 Quando o backend usa uma credencial de banco compartilhada, PostgreSQL não autentica cada usuário final. O backend define o contexto transacional (tenant/user). Um comprometimento total do backend/runtime pode permitir alterar esse contexto; RLS baseada em GUC é defesa em profundidade, não isolamento independente contra execução SQL arbitrária.
 
-Auth0 Free é documentado neste projeto como tenant único por conta. Confirmar no painel a disponibilidade e quotas de RBAC/API permissions no Free. Não presumir Organizations, recursos adicionais ou add-ons pagos. Vercel Hobby é exclusivamente pessoal/não comercial.
+Auth0 Free é documentado neste projeto como tenant único por conta e limite de 10 Applications por tenant, compartilhado entre projetos/clients. Inventariar a quota antes de criar aplicações. Confirmar no painel a disponibilidade e quotas de RBAC/API permissions no Free. Não presumir Organizations, recursos adicionais ou add-ons pagos. Vercel Hobby é exclusivamente pessoal/não comercial.
 
 ## Estados de evidência
 - **Recomendado:** padrão proposto.
@@ -47,7 +47,7 @@ Nenhum item deve ser declarado implementado/testado/verificado apenas por estar 
 ## Referências
 - [Next.js Authentication — DAL, DTO, Server Actions e Route Handlers](https://nextjs.org/docs/app/guides/authentication)
 - [Next.js Data Security](https://nextjs.org/docs/15/app/guides/data-security)
-- [Auth0 RBAC permissions claim](https://support.auth0.com/center/s/article/Adding-RBAC-Permissions-to-Access-Tokens)
+- [Auth0 Free — limite de 10 Applications](https://support.auth0.com/center/s/article/Error-Problem-creating-clients-Forbidden-You-reached-the-limit-of-entities-of-this-type-for-this-tenant)\n- [Auth0 RBAC permissions claim](https://support.auth0.com/center/s/article/Adding-RBAC-Permissions-to-Access-Tokens)
 - [PostgreSQL Row Security](https://www.postgresql.org/docs/17/ddl-rowsecurity.html)
 - [PostgreSQL CREATE POLICY](https://www.postgresql.org/docs/16/sql-createpolicy.html)
 - [OWASP Authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
