@@ -129,3 +129,29 @@ Não declarar esses valores como ativos sem evidência direta do tenant. Se o no
 
 ## Limites e observações
 MFA, Organizations, log streaming, attack protection, custom domains e limites do tenant podem variar por plano/região. Verificar disponibilidade no tenant. Esta documentação não executa alterações no tenant.
+
+## Baseline de compatibilidade — Auth0 Free (31/10/2026)
+
+A página oficial de preços apresenta o Free com até **25.000 MAU** e até **5 Organizations**, além de Actions, Attack Protection básico e opções passwordless. O domínio personalizado exige verificação de cartão; quando a política for não cadastrar cartão, manter o domínio padrão do tenant.
+
+| Recurso | Classificação Free | Decisão operacional |
+|---|---|---|
+| Até 25 mil MAU | Incluído | Monitorar consumo e limites do tenant |
+| Até 5 Organizations | Incluído | Não projetar mais de cinco Organizations nativas |
+| Actions | Incluído no Free | Restringir triggers, dependências e dados de entrada |
+| Attack Protection básico | Incluído | Não confundir com recursos avançados |
+| M2M Tokens | **NÃO DISPONÍVEL NO FREE** — a tabela lista M2M Tokens como add-on pago | Não depender de Client Credentials/M2M nativo |
+| RBAC por Organization | **NÃO DISPONÍVEL NO FREE** — aparece em Essentials | Gerenciar memberships/permissions no PostgreSQL e autorizar no servidor |
+| MFA com OTP/Duo | **NÃO DISPONÍVEL NO FREE** — aparece em Essentials | Avaliar passkeys/passwordless; não chamar passwordless de MFA automaticamente |
+| Banco de usuários externo/custom database connection | **NÃO DISPONÍVEL NO FREE** — listado em Professional | Diferenciar isso da Database Connection integrada Username-Password-Authentication |
+| Custom domain | Requer verificação de cartão | Usar auth0 domain padrão se nenhum cartão puder ser verificado |
+
+### Consequência para a API IAM
+
+A API não deve assumir que o Auth0 Free emitirá M2M tokens para workloads sem usuário. Para operações iniciadas por usuário, usar OIDC Authorization Code Flow com PKCE, Access Token destinado à API e validação server-side de assinatura, issuer, audience, expiração e scopes. Carregar membership e permission do banco após validar iss + sub; aplicar RLS com o contexto autenticado.
+
+Não trocar um token M2M ausente por ID Token, token de sessão, token de usuário compartilhado ou segredo estático em frontend. Para serviço interno sem usuário, qualquer identidade própria precisa de revisão específica de segurança, chave privada server-side, validade curta, audience estrita, rotação e auditoria.
+
+Os requisitos do projeto — não adicionar Google OAuth2; usar Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado — continuam válidos como requisitos a verificar. Eles não comprovam disponibilidade de M2M nem que as opções estejam salvas.
+
+Fonte de preços: [Auth0 Pricing](https://auth0.com/pt/pricing). A página deve ser revisitada antes de uma mudança no tenant.
