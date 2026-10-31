@@ -8,6 +8,10 @@ Este repositório adota exclusivamente planos Free. Não recomendar upgrades, tr
 
 A classificação Free não elimina custos indiretos: hardware próprio, energia, conectividade, manutenção, domínio externo, armazenamento independente e operação de backups podem ter custos.
 
+## Referências técnicas da stack
+
+Consulte a [matriz de referências técnicas oficiais](../15-referencias-tecnicas/README.md), com links específicos de instalação Next.js, App Router, Auth0 SDK v4, conexão PostgreSQL Neon, driver TypeScript, GitHub Actions e Vercel Hobby.
+
 ## Guias por fornecedor
 
 | Fornecedor | Referência operacional | Foco |
