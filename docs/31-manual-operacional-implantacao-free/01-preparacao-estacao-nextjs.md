@@ -19,7 +19,7 @@ Registrar versões no inventário do projeto. Fixar versão Node suportada por .
 
 ## Criar aplicação
 ~~~bash
-npx create-next-app@latest sistema-web
+npx create-next-app@16 sistema-web
 cd sistema-web
 ~~~
 
