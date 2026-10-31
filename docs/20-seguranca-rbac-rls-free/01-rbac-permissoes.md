@@ -1,12 +1,12 @@
 # RBAC e matriz de permissões
 
 ## Modelo
-1. **Identidade:** Auth0 \`sub\` validado no servidor.
+1. **Identidade:** Auth0 `sub` validado no servidor.
 2. **Membership:** vínculo ativo do usuário com o tenant no banco.
 3. **Role:** função atribuída dentro do tenant.
 4. **Permission:** ação específica sobre um recurso.
 
-Não usar e-mail como chave de identidade. Não aceitar \`user_id\`, \`role\` ou \`tenant_id\` enviados pelo browser como prova de autorização.
+Não usar e-mail como chave de identidade. Não aceitar `user_id`, `role` ou `tenant_id` enviados pelo browser como prova de autorização.
 
 ## Papéis de referência
 
@@ -36,7 +36,7 @@ Todo "Sim" depende de membership ativo e tenant correto. Nenhum papel concede ac
 
 ## Tabelas locais de autorização
 
-\`\`\`sql
+```sql
 CREATE TABLE app.tenants (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   slug text NOT NULL UNIQUE
@@ -57,13 +57,14 @@ CREATE TABLE app.projects (
   created_by_sub text NOT NULL,
   UNIQUE (tenant_id, id)
 );
-\`\`\`
+```
 
-Atribuição de roles deve ser server-side, autorizada e auditada. Nunca permitir autoelevação por campo \`role\` enviado no formulário.
+Atribuição de roles deve ser server-side, autorizada e auditada. Nunca permitir autoelevação por campo `role` enviado no formulário.
 
 ## Auth0 RBAC
-- Definir API e permissões funcionais (ex.: \`projects:read\`, \`projects:write\`).
-- Ativar RBAC e a claim \`permissions\` se a configuração estiver disponível e elegível no Free.
+- O tenant Free é único por conta e tem limite de 10 Applications no total, compartilhado entre projetos; não pressupor um client por ambiente. Inventariar slots antes de configurar API e aplicações.
+- Definir API e permissões funcionais (ex.: `projects:read`, `projects:write`).
+- Ativar RBAC e a claim `permissions` se a configuração estiver disponível e elegível no Free.
 - Validar assinatura, issuer, audience, expiração e algoritmo esperado.
 - ID token não é access token de API.
 - A claim autoriza capacidades da API; ainda é necessário validar membership, tenant, ownership e estado atual no banco.
@@ -72,7 +73,7 @@ Atribuição de roles deve ser server-side, autorizada e auditada. Nunca permiti
 
 ## DAL TypeScript (exemplo conceitual)
 
-\`\`\`ts
+```ts
 import "server-only";
 
 type Permission =
@@ -102,12 +103,12 @@ export async function requireTenantPermission(
   }
   return membership;
 }
-\`\`\`
+```
 
-\`findActiveMembership\` consulta o banco no servidor. Em operações críticas, verificar autorização junto à operação/transação para reduzir TOCTOU.
+`findActiveMembership` consulta o banco no servidor. Em operações críticas, verificar autorização junto à operação/transação para reduzir TOCTOU.
 
 ## Regras
-- DAL marcada com \`server-only\`.
+- DAL marcada com `server-only`.
 - Checagem em cada Server Action e Route Handler, não apenas layout/Proxy.
 - Consultar recurso por ID + tenant_id, nunca por ID isolado.
 - Falha ao consultar membership/política deve negar.
