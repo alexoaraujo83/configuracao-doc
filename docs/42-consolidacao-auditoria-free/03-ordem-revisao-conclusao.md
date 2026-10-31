@@ -8,7 +8,7 @@
 5. Testes e operação (#34 e #35).
 6. Consolidação e critérios de aceite (#36).
 
-Os conteúdos #29–#36 foram reunidos no PR #37 para evitar conflitos repetidos nos arquivos README.md e docs/README.md. Os PRs originais serão encerrados como superseded somente após confirmação de que todos os arquivos foram copiados e o PR #37 estiver incorporado.
+Os conteúdos #29–#36 foram reunidos no PR #37 para evitar conflitos repetidos nos arquivos README.md e docs/README.md. O PR #37 foi incorporado à `main` em 31/10/2026 (merge commit `a315eddc465d87ecf1852a5b5d1a82806f5d508d`); os PRs originais #29–#36 foram encerrados como substituídos.
 
 ## Gate documental
 - [ ] Revisar todos os documentos integrados e comparar com main.
@@ -31,4 +31,4 @@ Os conteúdos #29–#36 foram reunidos no PR #37 para evitar conflitos repetidos
 - [ ] Revisão de segurança e quotas.
 
 ## Conclusão
-A incorporação documental será concluída após revisão e merge do PR #37. A validação operacional permanece pendente e será executada em etapa posterior, com instalação, credenciais, ambientes e dados de teste apropriados. Nenhum provisionamento, migration, teste, backup, restore ou deployment foi executado nesta etapa.
+A incorporação documental foi concluída pelo merge do PR #37 na `main`. A validação operacional foi iniciada em 31/10/2026: a inspeção identificou que o repositório é documental e não contém um projeto Next.js instalável na raiz. Assim, typecheck, lint, build, testes e E2E permanecem bloqueados até que exista uma aplicação executável e dependências/versões fixadas. Integrações Auth0/Neon, migrations, backup/restore e deployment ainda não foram executados.
