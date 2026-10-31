@@ -15,14 +15,14 @@ Definir isolamento prático sem presumir recursos pagos. Os quatro ambientes sã
 
 ## 3. Auth0: limite estrutural do tenant Free
 
-O Free permite um tenant por conta conforme a referência de suporte. Consequências:
+O Free permite um tenant por conta e limita a 10 Applications por tenant, conforme as referências de suporte Auth0. A contagem de entidades pode incluir clients de teste/integração; conferir o inventário efetivo no tenant. Consequências:
 - Dev, Preview, Staging e Production não terão tenants independentes dentro da mesma conta Free.
-- Preferir clients separados por ambiente quando a quota do tenant permitir.
+- Não provisionar automaticamente um client por ambiente ou por projeto: quatro ambientes em um único projeto já consumiriam quatro dos dez slots. Somar aplicações existentes, clients M2M/teste e integrações antes de alocar novos slots.\n- Preferir clients separados por ambiente somente quando a quota global permitir e a separação for necessária; caso contrário, compartilhar uma Application apenas entre ambientes com requisitos de segurança compatíveis, callbacks exatos e credenciais armazenadas separadamente.
 - Configurar callback, logout e origins exatos para cada URL.
 - Considerar que configurações de tenant, Connections, branding e políticas são compartilhadas.
 - Testes e usuários de desenvolvimento devem ser identificáveis e isolados por convenção.
 - Não usar a mesma credencial de client em todos os ambientes.
-- Se não for possível separar clients, documentar o risco residual e reduzir callbacks/origins autorizados.
+- Se não for possível separar clients, documentar o risco residual, reduzir callbacks/origins autorizados e não reutilizar credenciais entre ambientes. O compartilhamento de Application não cria isolamento de tenant nem de configuração global.
 
 A CLI de Deploy pode exportar/importar configurações, mas determinados recursos pagos devem ser excluídos no Free (por exemplo, log streams e custom domains conforme documentação do projeto da CLI). Exportar tenant config não exporta usuários; backup de usuários é um processo separado. Não assumir que a exportação representa backup integral.
 
@@ -92,7 +92,7 @@ Antes de adotar os quatro ambientes, responder no manifesto:
 - Staging é realmente necessário? Não criar ambiente redundante que consuma quota.
 
 ## Referências
-- [Auth0 — Free second tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)
+- [Auth0 — Free second tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)\n- [Auth0 — 10 Applications per Free tenant](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
 - [Auth0 Deploy CLI — multi-environment](https://github.com/auth0/auth0-deploy-cli/blob/master/docs/multi-environment-workflow.md)
 - [Vercel — Environments](https://vercel.com/docs/deployments/environments)
 - [Vercel — Environment Variables](https://vercel.com/docs/environment-variables)
