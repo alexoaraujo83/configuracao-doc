@@ -35,10 +35,10 @@ Este repositório reúne uma documentação técnica versionada para padronizar 
 
 | Ambiente lógico | GitHub | Hospedagem | Auth0 | Neon |
 |---|---|---|---|---|
-| Development | branch de desenvolvimento | local ou serviço permitido no Free | connection/app de desenvolvimento | branch/projeto de desenvolvimento |
-| Preview | Pull Request | preview somente se permitido pelo plano/termos | callback de teste controlado | branch/projeto de teste |
-| Staging | promoção revisada | self-host/host permitido no Free | configuração de homologação, se viável | branch/projeto de homologação |
-| Production | fluxo de release aprovado | somente host cujo Free permita o uso pretendido | tenant/app de produção | projeto/branch de produção |
+| Development | branch de desenvolvimento | local/Development | client de desenvolvimento no tenant Free compartilhado | branch de desenvolvimento |
+| Preview | Pull Request | Preview | client/callback de Preview no tenant compartilhado | branch de teste, conforme quota |
+| Staging | branch staging | Preview com override por branch no Hobby | client/callback de Staging no tenant compartilhado | branch staging, se houver quota |
+| Production | fluxo de release aprovado | Production se elegível no Hobby | client de produção no tenant compartilhado | branch root de produção |
 
 Os ambientes lógicos não são automaticamente isolados pelos fornecedores. A Vercel Hobby não permite uso comercial; não mapear um SaaS comercial para esse plano.
 
