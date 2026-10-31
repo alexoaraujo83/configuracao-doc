@@ -157,3 +157,16 @@ Todos os conjuntos são exclusivamente documentais. Não representam serviços p
 - [Segurança, testes e critérios de validação](docs/33-arquitetura-referencia-nextjs-auth0-neon-free/seguranca-e-testes.md)
 
 Material documental; os exemplos não foram instalados, compilados ou executados.
+
+## Documentação técnica integrada — somente Free
+
+- [Endpoints e contratos HTTP](docs/35-endpoints-contratos-http-free/README.md)
+- [Persistência e banco de dados Neon](docs/36-persistencia-banco-dados-free/README.md)
+- [Segurança integrada Auth0, Next.js e PostgreSQL](docs/37-seguranca-integrada-free/README.md)
+- [CI/CD GitHub Actions + Vercel + Neon](docs/38-cicd-github-vercel-neon-free/README.md)
+- [Ambientes Development, Preview e Production](docs/39-ambientes-free/README.md)
+- [Testes automatizados](docs/40-testes-automatizados-free/README.md)
+- [Operação, monitoramento e recuperação](docs/41-operacao-monitoramento-free/README.md)
+- [Consolidação e auditoria final](docs/42-consolidacao-auditoria-free/README.md)
+
+Os documentos são padrões técnicos. A integração no repositório não significa que a aplicação foi instalada, configurada, testada ou publicada.
