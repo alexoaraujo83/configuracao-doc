@@ -141,3 +141,10 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## Consolidação e auditoria documental — somente Free
+
+- [Matriz de cobertura, lacunas técnicas, decisões e critérios finais de aceite](docs/42-consolidacao-auditoria-free/README.md).
+
+Os PRs das etapas permanecem independentes e sujeitos a revisão. Esta consolidação não os mescla nem declara validação operacional.
