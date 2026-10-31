@@ -67,3 +67,13 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
 
 Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## Arquitetura de referência Next.js + Auth0 + Neon
+
+30. [Arquitetura de referência](33-arquitetura-referencia-nextjs-auth0-neon-free/README.md)
+31. [Estrutura do projeto e responsabilidade dos módulos](33-arquitetura-referencia-nextjs-auth0-neon-free/estrutura-projeto.md)
+32. [Exemplos de código de referência](33-arquitetura-referencia-nextjs-auth0-neon-free/exemplos-codigo.md)
+33. [Segurança, testes e critérios de validação](33-arquitetura-referencia-nextjs-auth0-neon-free/seguranca-e-testes.md)
+
+A arquitetura é uma referência documental; não comprova implementação ou testes operacionais.

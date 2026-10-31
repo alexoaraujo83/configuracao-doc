@@ -141,3 +141,13 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## Arquitetura de referência Next.js + Auth0 + Neon
+
+- [Arquitetura de referência](docs/33-arquitetura-referencia-nextjs-auth0-neon-free/README.md)
+- [Estrutura do projeto e responsabilidade dos módulos](docs/33-arquitetura-referencia-nextjs-auth0-neon-free/estrutura-projeto.md)
+- [Exemplos de código de referência](docs/33-arquitetura-referencia-nextjs-auth0-neon-free/exemplos-codigo.md)
+- [Segurança, testes e critérios de validação](docs/33-arquitetura-referencia-nextjs-auth0-neon-free/seguranca-e-testes.md)
+
+Material documental; os exemplos não foram instalados, compilados ou executados.
