@@ -110,3 +110,8 @@ Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e a
 ## Matriz de arquitetura por tipo de projeto
 
 - [Matriz Free por arquétipo](docs/19-matriz-arquitetura-free/README.md): aplicação simples, SaaS multiusuário, API/backend e múltiplas aplicações; inclui isolamento, reutilização e critérios GO/NO-GO.
+
+
+## Segurança e segregação de dados
+
+- [Matriz de segurança RBAC/RLS — somente Free](docs/20-seguranca-rbac-rls-free/README.md): autorização, isolamento PostgreSQL, credenciais, testes e gate de produção.
