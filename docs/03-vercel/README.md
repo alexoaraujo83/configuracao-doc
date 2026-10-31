@@ -51,6 +51,8 @@ Consulte o [guia detalhado de configuração e operação](guia-detalhado.md), q
 
 ## Restrições Vercel Hobby — baseline Free
 
-Vercel Hobby é restrito a uso pessoal ou não comercial pelos termos oficiais. Não hospedar SaaS, produto comercial ou aplicações empresariais oferecidas a clientes nesse plano. Custom Environments, Deployment Protection avançada, recursos de equipe e quotas de observabilidade variam conforme plano.
+Vercel Hobby é restrito a uso pessoal ou não comercial pelos termos oficiais. Não hospedar SaaS, produto comercial ou aplicações empresariais oferecidas a clientes nesse plano.
+
+Os Termos de Serviço também dizem que conteúdo enviado por contas Hobby pode ser usado para treinar modelos de IA/ML e compartilhado com terceiros para essa finalidade. Verificar a opção de opt-out nas configurações da Team antes de enviar código-fonte ou dados confidenciais; se a opção não estiver acessível ou não puder ser comprovada, não enviar conteúdo sensível. Custom Environments, Deployment Protection avançada, recursos de equipe e quotas de observabilidade variam conforme plano.
 
 Para projetos pessoais/não comerciais, utilizar somente os ambientes e limites efetivamente incluídos no Hobby. Para aplicações comerciais com orçamento de licença zero, considerar self-host com infraestrutura própria já disponível ou outro host cujo Free autorize explicitamente uso comercial. Não presumir que preço zero permita uso comercial.
