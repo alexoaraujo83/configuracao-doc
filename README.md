@@ -80,6 +80,12 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 
 - [Inventário de menus e submenus GitHub, Auth0, Vercel e Neon](docs/14-inventario-paineis/README.md)
 
+## Endpoints e contratos HTTP
+
+- [Endpoints e contratos HTTP — Next.js + Auth0 + Neon Free](docs/35-endpoints-contratos-http-free/README.md).
+
+Especificação documental de Route Handlers, Server Actions, payloads, respostas, paginação e integração entre módulos.
+
 ## Navegação
 
 - [Índice geral](docs/README.md)
