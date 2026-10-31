@@ -40,3 +40,10 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 18. [Modelagem de ameaças e resposta a incidentes — somente Free](21-modelagem-ameacas-incidentes-free/README.md)
 
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
+
+
+## Observabilidade e capacidade — somente Free
+
+19. [Observabilidade, monitoramento e gestão de capacidade](23-observabilidade-monitoramento-capacidade-free/README.md)
+
+A seção documenta logs estruturados, correlação de requisições, monitoramento Auth0/Neon/Vercel/GitHub Actions, indicadores, quotas, dashboards e runbooks sem dependência de ferramentas pagas. Limites precisam ser revalidados nos painéis; nenhum serviço foi configurado nesta etapa.
