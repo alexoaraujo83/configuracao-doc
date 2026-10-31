@@ -3,7 +3,7 @@
 ## 1. Limite de confiança
 RLS restringe linhas por query. É uma segunda barreira após autenticação/autorização da aplicação.
 
-Quando o backend usa uma única credencial para vários usuários, PostgreSQL não autentica cada usuário final. O backend define contexto transacional (`tenant_id`, `user_sub`). Um comprometimento total do processo/credencial pode permitir alterar GUCs; esse padrão reduz falhas de filtro na aplicação, mas não é fronteira criptográfica independente do backend.
+Quando o backend usa uma única credencial para vários usuários, PostgreSQL não autentica cada usuário final. O backend valida o token e a membership no servidor e deriva o contexto transacional (`tenant_id`, `user_sub`) de dados confiáveis do banco; nunca aceita esses valores diretamente do browser. Um comprometimento total do processo/credencial pode permitir alterar GUCs; esse padrão reduz falhas de filtro na aplicação, mas não é fronteira criptográfica independente do backend.
 
 Se for exigida identidade final verificada pelo próprio banco, desenhar e validar mecanismo de JWT assinado/verificação no PostgreSQL separadamente. Não presumir extensões, Data API ou recursos pagos no Neon Free.
 
@@ -80,7 +80,7 @@ Adicionar regras de ownership/role quando necessárias. Revisar views, funções
 - `app_migrator`: LOGIN NOINHERIT; pode executar SET ROLE app_owner no pipeline controlado; nunca atende requests.
 - `app_runtime`: LOGIN NOINHERIT NOBYPASSRLS; SELECT/INSERT/UPDATE/DELETE estritamente necessários; não é owner; sem CREATE, TRUNCATE, REFERENCES, DDL ou grants administrativos.
 
-Owner normalmente ignora RLS. FORCE aplica policies ao owner, mas superuser e BYPASSRLS continuam ignorando. Runtime nunca deve herdar essas capacidades.
+Membership necessária para o fluxo de migration (executar uma vez por role administrativa):\n\n```sql\nGRANT app_owner TO app_migrator;\n```\n\nOwner normalmente ignora RLS. FORCE aplica policies ao owner, mas superuser e BYPASSRLS continuam ignorando. Runtime nunca deve herdar essas capacidades. Não conceder membership de `app_owner` a `app_runtime`.
 
 ## 6. Testes negativos
 - Sem contexto: zero linhas e escrita rejeitada.
