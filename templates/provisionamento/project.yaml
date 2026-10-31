@@ -30,19 +30,19 @@ auth0:
   applications:
     development:
       name: "replace-project-slug-development"
-      client_id_ref: "AUTH0_CLIENT_ID"
+      client_id_ref: "AUTH0_CLIENT_ID_DEVELOPMENT"
       status: "planned"
     preview:
       name: "replace-project-slug-preview"
-      client_id_ref: "AUTH0_CLIENT_ID"
+      client_id_ref: "AUTH0_CLIENT_ID_PREVIEW"
       status: "planned"
     staging:
       name: "replace-project-slug-staging"
-      client_id_ref: "AUTH0_CLIENT_ID"
+      client_id_ref: "AUTH0_CLIENT_ID_STAGING"
       status: "planned"
     production:
       name: "replace-project-slug-production"
-      client_id_ref: "AUTH0_CLIENT_ID"
+      client_id_ref: "AUTH0_CLIENT_ID_PRODUCTION"
       status: "planned"
 
 vercel:
