@@ -105,3 +105,8 @@ Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto
 - [Templates de projeto](templates/provisionamento/README.md)
 
 Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e auditoria. Considera as limitações de tenant único do Auth0 Free, Preview branch-scoped no Vercel Hobby e cotas do Neon Free.
+
+
+## Matriz de arquitetura por tipo de projeto
+
+- [Matriz Free por arquétipo](docs/19-matriz-arquitetura-free/README.md): aplicação simples, SaaS multiusuário, API/backend e múltiplas aplicações; inclui isolamento, reutilização e critérios GO/NO-GO.
