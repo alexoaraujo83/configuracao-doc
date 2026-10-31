@@ -112,3 +112,10 @@ Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e a
 - [STRIDE, registro de riscos, controles Free-only, plano de resposta, runbooks e gate de produção](docs/21-modelagem-ameacas-incidentes-free/README.md).
 
 Este conteúdo é documental; não declara auditoria, teste, rotação de credenciais, restore ou resposta real executados.
+
+
+## Revisão técnica aprofundada — Next.js 16, Auth0 SDK v4 e Neon
+
+- [Compatibilidade de APIs, transações HTTP/interativas, autorização server-side, roles e RLS](docs/27-revisao-tecnica-next16-auth0-neon-free/README.md).
+
+Esta revisão é documental; não declara typecheck, build, testes, migrations ou validação operacional executados.

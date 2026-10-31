@@ -47,13 +47,16 @@ GRANT USAGE ON SCHEMA app TO app_migrator;
 
 Substituir `appdb` pelo nome real do database. Senhas são placeholders e devem ser definidas fora do histórico do repositório. Não executar SQL literal contendo segredo em terminal compartilhado ou ferramenta que retenha histórico.
 
-As migrations devem operar como `app_owner` por meio da role migrator autorizada. O atributo `NOINHERIT` impede que o migrator use automaticamente os privilégios do owner; a elevação ocorre explicitamente com `SET ROLE`:
+As migrations devem operar como `app_owner` por meio da role migrator autorizada. `NOINHERIT` impede o uso automático dos privilégios herdados; a membership `GRANT app_owner TO app_migrator` permite a troca explícita de role quando a opção `SET` estiver autorizada. O `SET ROLE` depende da mesma sessão PostgreSQL: não o envie como uma consulta HTTP isolada via `neon()` esperando que a role permaneça ativa na próxima chamada. Use um executor de migration com conexão persistente (`Client`/`Pool` em WebSocket ou conexão PostgreSQL direta) ou agrupe `SET LOCAL ROLE`, DDL e finalização em uma única transação suportada. A criação das roles/membership e a atribuição de ownership são tarefas administrativas separadas da credencial runtime:
 
 ```sql
-SET ROLE app_owner;
--- DDL da migration
-RESET ROLE;
+BEGIN;
+SET LOCAL ROLE app_owner;
+-- DDL da migration; executar na mesma conexão/transação
+COMMIT;
 ```
+
+Em caso de erro, o executor deve emitir `ROLLBACK` na mesma conexão. `SET LOCAL ROLE` termina com a transação; não reutilizar estado de role entre requests. Confirmar que o usuário conectado possui membership com permissão `SET` para `app_owner`. Não conceder essa membership a `app_runtime`.
 
 Conceder ao runtime apenas permissões necessárias sobre tabelas e sequences específicas. Exemplo após criar tabelas:
 
@@ -170,9 +173,9 @@ WITH CHECK (
 
 Criar policies adicionais para INSERT/DELETE somente se os casos de uso exigirem. O valor de `app.auth0_sub` deve ser definido exclusivamente a partir da sessão Auth0 validada no servidor, nunca recebido como identidade confiável do cliente.
 
-A variável de sessão deve ser local à transação. Executar a definição do contexto e as consultas protegidas na mesma transação. Para o driver HTTP Neon, utilizar transação em lote suportada pelo driver e confirmar a API exata na versão instalada; não presumir que chamadas HTTP independentes compartilham sessão. Quando o caso exigir estado interativo de sessão, usar a modalidade WebSocket/cliente PostgreSQL apropriado, validando compatibilidade com o runtime.
+A variável de sessão deve ser local à transação. Executar a definição do contexto e as consultas protegidas na mesma transação. O driver `neon()` via HTTP executa uma consulta por chamada; `sql.transaction([...])` agrupa múltiplas consultas em uma transação única, não interativa, e devolve um resultado por consulta na mesma ordem. Esse modo é adequado quando todas as instruções são conhecidas antecipadamente, como `set_config` seguido de `SELECT`/`INSERT`. Não usar chamadas `neon()` separadas para simular estado de sessão. Para fluxo interativo com decisões condicionais entre statements, cursores ou estado de sessão, usar `Pool`/`Client` via WebSocket ou conexão PostgreSQL persistente, com `release()`/`end()` e rollback garantidos.
 
-Exemplo conceitual de transação HTTP (validar assinatura da API na versão instalada):
+Exemplo de transação HTTP documentada pelo driver:
 
 ```typescript
 const [, userRows] = await sql.transaction([
@@ -191,7 +194,7 @@ const user = userRows[0] ?? null;
 
 O exemplo pressupõe que `auth0Sub`, `email` e `displayName` foram obtidos/normalizados no servidor, após validar a sessão Auth0; nunca aceitar `auth0Sub` como identidade confiável do body ou query. A policy de INSERT usa `WITH CHECK`, e a de UPDATE usa `USING` e `WITH CHECK`, impedindo criar ou mover uma linha para o subject de outra pessoa. O `ON CONFLICT DO UPDATE` também precisa satisfazer a policy de UPDATE.
 
-Não tratar o exemplo como substituto de teste de integração: verificar que ambas as instruções são executadas na mesma transação, que o parâmetro é transaction-local e que o usuário de runtime possui somente os grants necessários. Testar INSERT próprio, INSERT forjado, UPDATE próprio e UPDATE cruzado com `app_runtime`. RLS é defesa adicional; manter autorização explícita na camada de aplicação.
+Não tratar o exemplo como substituto de teste de integração. A assinatura `sql.transaction([...])` é uma API documentada do driver; os resultados retornam na mesma ordem das consultas. Confirmar em ambiente isolado que o lote está na mesma transação, que `set_config(..., true)` é transaction-local e que o usuário runtime possui somente os grants necessários. A consulta de membership/tenant deve permanecer server-side e a policy RLS deve impedir que um tenant sem membership ativa seja acessado, mesmo se um identificador de tenant for manipulado. Testar INSERT próprio, INSERT forjado, UPDATE próprio e UPDATE cruzado com `app_runtime`. RLS é defesa adicional; manter autorização explícita na camada de aplicação.
 
 ## 7. Health check seguro
 

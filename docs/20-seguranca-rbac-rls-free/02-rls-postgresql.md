@@ -13,10 +13,26 @@ Se for exigida identidade final verificada pelo próprio banco, desenhar e valid
 ALTER TABLE app.projects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE app.projects FORCE ROW LEVEL SECURITY;
 
+-- A tabela de membership também deve ter grants mínimos e RLS.
+ALTER TABLE app.tenant_memberships ENABLE ROW LEVEL SECURITY;
+ALTER TABLE app.tenant_memberships FORCE ROW LEVEL SECURITY;
+GRANT SELECT ON app.tenant_memberships TO app_runtime;
+
+CREATE POLICY memberships_self_read
+ON app.tenant_memberships FOR SELECT TO app_runtime
+USING (auth0_sub = current_setting('app.user_sub', true));
+
+-- O predicado confirma membership ativa no próprio statement protegido.
 CREATE POLICY projects_tenant_select
 ON app.projects FOR SELECT TO app_runtime
 USING (
   tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = projects.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
 );
 
 CREATE POLICY projects_tenant_insert
@@ -24,16 +40,46 @@ ON app.projects FOR INSERT TO app_runtime
 WITH CHECK (
   tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
   AND created_by_sub = current_setting('app.user_sub', true)
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = projects.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
 );
 
 CREATE POLICY projects_tenant_update
 ON app.projects FOR UPDATE TO app_runtime
-USING (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid)
-WITH CHECK (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid);
+USING (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = projects.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+)
+WITH CHECK (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = projects.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+);
 
 CREATE POLICY projects_tenant_delete
 ON app.projects FOR DELETE TO app_runtime
-USING (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid);
+USING (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = projects.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+);
 ```
 
 Sem contexto, `current_setting(..., true)` retorna NULL e a comparação não permite acesso. Validar casts e nomes no schema real.
@@ -44,13 +90,19 @@ Padrão ilustrativo com `@neondatabase/serverless`:
 
 ```ts
 import { neon } from "@neondatabase/serverless";
+import { auth0 } from "@/lib/auth0";
 const sql = neon(process.env.DATABASE_URL!);
 
-export async function listTenantProjects(tenantId: string, auth0Sub: string) {
+export async function listTenantProjects(requestedTenantId: string) {
+  const session = await auth0.getSession();
+  if (!session) throw new Error("UNAUTHENTICATED");
+
+  // requestedTenantId é apenas um seletor; o predicado RLS confirma
+  // membership ativa para session.user.sub no mesmo statement protegido.
   const [, projects] = await sql.transaction([
     sql`SELECT
-      set_config('app.tenant_id', \${tenantId}, true),
-      set_config('app.user_sub', \${auth0Sub}, true)`,
+      set_config('app.tenant_id', ${requestedTenantId}, true),
+      set_config('app.user_sub', ${session.user.sub}, true)`,
     sql`SELECT id, name, created_at
         FROM app.projects
         ORDER BY created_at DESC`,
@@ -59,7 +111,7 @@ export async function listTenantProjects(tenantId: string, auth0Sub: string) {
 }
 ```
 
-O terceiro argumento `true` torna o setting local à transação. Contexto e query precisam estar na mesma transação/conexão. Não executar SET em chamada independente e presumir persistência no pool. Validar a API e semântica da versão instalada do driver; operações interativas podem exigir modo de conexão compatível.
+O terceiro argumento `true` torna o setting local à transação. Contexto e query precisam estar na mesma transação/conexão. Não executar SET em chamada independente e presumir persistência no pool. O `tenantId` vindo da rota/formulário é somente um seletor: o servidor deve obter `sub` da sessão Auth0 e a policy deve confirmar membership ativa no tenant. O grant `SELECT` sobre `tenant_memberships` deve ser mínimo; a policy `memberships_self_read` permite apenas a linha do subject corrente. Validar a API e semântica da versão instalada do driver; operações interativas podem exigir modo de conexão compatível.
 
 ## 4. Tabelas relacionadas
 
@@ -69,18 +121,40 @@ ALTER TABLE app.documents FORCE ROW LEVEL SECURITY;
 
 CREATE POLICY documents_tenant_access
 ON app.documents FOR ALL TO app_runtime
-USING (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid)
-WITH CHECK (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid);
+USING (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = documents.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+)
+WITH CHECK (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = documents.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+);
 ```
 
-Adicionar regras de ownership/role quando necessárias. Revisar views, funções SECURITY DEFINER, triggers, jobs e rotinas administrativas.
+Adicionar regras de ownership/role quando necessárias. Aplicar o mesmo predicado de membership ativa a cada tabela tenant-scoped; não copiar uma policy simplificada que confira somente `tenant_id`. Revisar views, funções SECURITY DEFINER, triggers, jobs e rotinas administrativas.
 
 ## 5. Roles PostgreSQL
 - `app_owner`: NOLOGIN; dono do schema/tabelas; usado apenas em migrations.
 - `app_migrator`: LOGIN NOINHERIT; pode executar SET ROLE app_owner no pipeline controlado; nunca atende requests.
 - `app_runtime`: LOGIN NOINHERIT NOBYPASSRLS; SELECT/INSERT/UPDATE/DELETE estritamente necessários; não é owner; sem CREATE, TRUNCATE, REFERENCES, DDL ou grants administrativos.
 
-Membership necessária para o fluxo de migration (executar uma vez por role administrativa):\n\n```sql\nGRANT app_owner TO app_migrator;\n```\n\nOwner normalmente ignora RLS. FORCE aplica policies ao owner, mas superuser e BYPASSRLS continuam ignorando. Runtime nunca deve herdar essas capacidades. Não conceder membership de `app_owner` a `app_runtime`.
+Membership necessária para o fluxo de migration (executar uma vez por role administrativa):
+
+```sql
+GRANT app_owner TO app_migrator;
+```
+
+Owner normalmente ignora RLS; `FORCE ROW LEVEL SECURITY` submete o owner às policies, mas superuser e roles `BYPASSRLS` continuam ignorando. Runtime nunca deve herdar essas capacidades. Não conceder membership de `app_owner` a `app_runtime`.
 
 ## 6. Testes negativos
 - Sem contexto: zero linhas e escrita rejeitada.

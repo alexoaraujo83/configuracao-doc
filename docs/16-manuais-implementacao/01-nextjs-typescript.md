@@ -162,6 +162,8 @@ O pacote `server-only` é disponibilizado pelo ecossistema Next.js. A importaç�
 - Server Components por padrão.
 - Client Components apenas quando houver interação de navegador.
 - Route Handlers para endpoints HTTP.
+- No Next.js 16, usar `proxy.ts` com export `proxy`; `middleware.ts` é a convenção legada/depreciada. Proxy executa no runtime Node.js e é uma barreira de rede/otimização, não substitui autorização em DAL, Server Actions ou Route Handlers.
+- Cada Server Action deve ser tratada como endpoint público: validar sessão, entrada, autorização e escopo do recurso dentro da própria action; não confiar em layout, UI ou Proxy como controle suficiente.
 - Validar entrada no limite da aplicação (por exemplo, Zod).
 - Não confiar em parâmetros enviados pelo cliente para identificar o usuário.
 - Consultas SQL parametrizadas; não concatenar entrada em SQL.
