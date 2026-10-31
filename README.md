@@ -107,11 +107,8 @@ Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto
 Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e auditoria. Considera as limitações de tenant único do Auth0 Free, Preview branch-scoped no Vercel Hobby e cotas do Neon Free.
 
 
-## Matriz de arquitetura por tipo de projeto
+## Modelagem de ameaças e resposta a incidentes
 
-- [Matriz Free por arquétipo](docs/19-matriz-arquitetura-free/README.md): aplicação simples, SaaS multiusuário, API/backend e múltiplas aplicações; inclui isolamento, reutilização e critérios GO/NO-GO.
+- [STRIDE, registro de riscos, controles Free-only, plano de resposta, runbooks e gate de produção](docs/21-modelagem-ameacas-incidentes-free/README.md).
 
-
-## Segurança e segregação de dados
-
-- [Matriz de segurança RBAC/RLS — somente Free](docs/20-seguranca-rbac-rls-free/README.md): autorização, isolamento PostgreSQL, credenciais, testes e gate de produção.
+Este conteúdo é documental; não declara auditoria, teste, rotação de credenciais, restore ou resposta real executados.
