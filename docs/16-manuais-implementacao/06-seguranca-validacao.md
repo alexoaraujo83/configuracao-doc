@@ -56,8 +56,11 @@ Investigar alertas do `npm audit`; não executar `npm audit fix --force` sem rev
 | SEC-03 | Usuário A consulta recurso de B | 403 ou 404 conforme política |
 | SEC-04 | Cliente envia `auth0_sub` de B | Ignorado; identidade vem da sessão |
 | SEC-05 | SQL injection em campo de busca | Tratado como dado, sem alterar SQL |
-| SEC-06 | RLS sem contexto | Acesso negado |
+| SEC-06 | RLS sem contexto | SELECT/INSERT/UPDATE negados |
 | SEC-07 | RLS com contexto A consulta B | Nenhuma linha de B |
+| SEC-08 | RLS INSERT com subject A | Permitido somente para subject A |
+| SEC-09 | RLS INSERT forjado com subject B | Negado |
+| SEC-10 | RLS UPDATE cruzado ou troca de subject | Negado |
 | SEC-08 | Sessão ausente ou expirada | Acesso negado |
 | SEC-09 | Secret ausente | Inicialização falha sem revelar valor |
 | SEC-10 | Banco indisponível | Erro controlado, sem detalhes internos |
@@ -71,7 +74,9 @@ Investigar alertas do `npm audit`; não executar `npm audit fix --force` sem rev
 Criar dois usuários de teste com subjects diferentes. Inserir dados vinculados a cada identidade. Com a sessão A:
 - Consultar registro de A: permitido.
 - Consultar registro de B: negado/zero linhas.
-- Tentar atualizar registro de B: negado.
+- Inserir registro com subject A: permitido.
+- Inserir registro com subject B: negado pela policy INSERT.
+- Atualizar registro de B ou alterar o subject de A para B: negado.
 - Tentar forjar subject B no request: não altera identidade usada pelo servidor.
 
 Repetir com B. Executar testes com a role `app_runtime`, não com owner ou role administrativa. Guardar somente resultado, identificadores fictícios e data, nunca tokens ou dados reais.
