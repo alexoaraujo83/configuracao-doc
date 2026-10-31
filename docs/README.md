@@ -67,3 +67,10 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
 
 Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## CI/CD integrado — somente Free
+
+31. [CI/CD GitHub Free + Vercel Hobby + Neon Free: pipelines, Actions seguras, migrations, release e rollback](38-cicd-github-vercel-neon-free/README.md)
+
+Os exemplos não foram executados e não autorizam deploy ou migration.
