@@ -39,6 +39,10 @@ A nomenclatura de ambientes da Vercel não corresponde automaticamente a quatro 
 
 Documentar gatilhos, checks, build output, health checks, promoção, domínio associado e rollback. Antes de rollback, avaliar compatibilidade entre código e schema do banco. Usar migrations compatíveis com versões anterior e nova durante rollout.
 
+## Guia complementar
+
+Consulte o [guia detalhado de configuração e operação](guia-detalhado.md), que aprofunda Settings, Git Integration, ambientes, variáveis, domains, Functions, segurança, observabilidade e CLI.
+
 ## Referências
 
 - [Vercel Documentation](https://vercel.com/docs)
