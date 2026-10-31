@@ -25,7 +25,7 @@ evidence:
       - "mudança de configuração"
       - "mudança de fornecedor/plano"
     storage_reference: "restricted://evidence/EV-EXAMPLE-0001"
-    status: "proposed" # proposed | collected | reviewed | expired | rejected
+    status: "proposed" # proposed | collected | reviewed | expired | rejected # proposed | collected | reviewed | expired | rejected
 notes:
   - "Valores são exemplos; não representam evidência real."
   - "Nunca inserir tokens, cookies, secrets, connection strings ou dados de produção."
