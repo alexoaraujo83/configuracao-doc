@@ -58,3 +58,12 @@
 - [ ] Custos/limites revisados.
 - [ ] Backups/restores validados.
 - [ ] Runbooks atualizados.
+
+## Governança de planos Free
+
+- Revisar quotas e termos oficiais antes de cada implantação e periodicamente durante a operação.
+- Criar alertas/processo de observação para compute, storage, transferência, minutos CI e retenção.
+- Definir comportamento quando a quota acabar: pausar, limitar ou bloquear operação de forma segura; não ativar cobrança automática.
+- Manter backups independentes quando a retenção Free for insuficiente e testar restore.
+- Registrar recursos indisponíveis no Free e controles compensatórios sem classificá-los como equivalentes.
+- Para Vercel Hobby, confirmar que o uso é pessoal/não comercial antes de deploy.
