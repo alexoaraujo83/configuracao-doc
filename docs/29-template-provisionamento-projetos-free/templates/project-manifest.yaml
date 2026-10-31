@@ -1,0 +1,48 @@
+schema_version: "1.0"
+project:
+  id: "PRJ-example"
+  name: "Example project"
+  slug: "example-project"
+  purpose: "Describe personal, non-commercial purpose if using Vercel Hobby"
+  owner_role: "project-owner"
+  technical_owner_role: "technical-owner"
+  repository: "owner/example-project"
+  default_branch: "main"
+  stack:
+    framework: "Next.js App Router"
+    language: "TypeScript"
+    runtime: "Node.js LTS - record exact version"
+    auth_sdk: "Auth0 Next.js SDK v4"
+    database: "Neon PostgreSQL"
+    package_manager: "npm"
+  free_eligibility:
+    vercel_hobby_personal_noncommercial: "pending"
+    auth0_features_confirmed: "pending"
+    neon_quotas_confirmed: "pending"
+    github_free_controls_confirmed: "pending"
+    checked_at: null
+environments:
+  development:
+    app_url: "http://localhost:3000"
+    auth0_application_alias: "example-development"
+    neon_branch_alias: "development"
+  preview:
+    app_url: "pending"
+    auth0_application_alias: "example-preview"
+    neon_branch_alias: "preview"
+  production:
+    app_url: "pending"
+    auth0_application_alias: "example-production"
+    neon_branch_alias: "production"
+secrets:
+  storage_location: "local ignored file / approved provider secret store"
+  values_committed: false
+  production_shared_with_preview: false
+compliance:
+  status: "not_assessed"
+  evidence_ids: []
+  open_nonconformities: []
+  next_review: null
+notes:
+  - "Example only; not evidence of an existing deployment."
+  - "Verify current plan quotas and feature availability before use."
