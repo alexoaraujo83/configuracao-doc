@@ -10,7 +10,7 @@
 | Ambientes | Development, Preview, Staging lógico, Production | PR #33 | Documentada |
 | Testes | Vitest, RTL, integração, contratos, RLS, Playwright | PR #34 | Documentada |
 | Operação | Logs, quotas, incidentes, backup/restore | PR #35 | Documentada |
-| Consolidação | Matriz, lacunas, ordem de revisão | Este PR | Em revisão |
+| Consolidação | Matriz, lacunas, ordem de revisão | PR #37 | Integrada à main |
 
 ## Critérios para aceite documental
 - Cada área possui guia, pré-requisitos, passos, parâmetros, riscos, validação e fontes.
@@ -21,7 +21,7 @@
 - Limites voláteis têm fonte e data de consulta.
 
 ## Critérios para aceite operacional (fora do escopo atual)
-- Revisão e merge dos PRs autorizados.
+- Revisão e merge dos PRs documentais autorizados (PR #37 incorporado à `main` em 31/10/2026).
 - Instalação reproduzível e typecheck/build.
 - Migrations aplicadas em banco de teste.
 - Testes unitários, integração, RLS e E2E executados.
