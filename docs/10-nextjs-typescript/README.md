@@ -220,7 +220,7 @@ import "server-only";
 import { z } from "zod";
 
 const schema = z.object({
-  APP_BASE_URL: z.string().url(),
+  APP_BASE_URL: z.string().url().optional(),
   AUTH0_DOMAIN: z.string().min(1),
   AUTH0_CLIENT_ID: z.string().min(1),
   AUTH0_CLIENT_SECRET: z.string().min(1),
@@ -229,7 +229,7 @@ const schema = z.object({
 });
 
 export const env = schema.parse({
-  APP_BASE_URL: process.env.APP_BASE_URL,
+  APP_BASE_URL: process.env.APP_BASE_URL || undefined,
   AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
   AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
   AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
