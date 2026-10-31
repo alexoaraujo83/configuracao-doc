@@ -41,3 +41,16 @@ Toda mudança deve registrar motivação, responsável, ambientes, pré-requisit
 - [ ] Logs sem tokens, senhas ou dados pessoais desnecessários.
 - [ ] Backup/restore e rollback documentados.
 - [ ] Proprietários e responsáveis definidos.
+
+## Política obrigatória de compatibilidade Free
+
+Este repositório utiliza somente planos gratuitos. Nenhuma arquitetura, checklist ou exemplo deve depender de upgrade, trial, crédito promocional, add-on ou recurso pago. Antes de habilitar qualquer item, confirmar preço, termos, quotas, retenção, região e elegibilidade comercial na página oficial vigente.
+
+- Marcar explicitamente como **NÃO DISPONÍVEL NO FREE** qualquer controle pago.
+- Oferecer alternativa gratuita, open source ou self-hosted apenas quando tecnicamente viável.
+- Não chamar controle compensatório de equivalente a enforcement nativo.
+- Se não existir alternativa gratuita que satisfaça um requisito de segurança, classificar como **BLOCKED — requisito incompatível com Free**.
+- Considerar custos indiretos de infraestrutura própria, energia, conectividade, backup e manutenção.
+- Registrar plano, data, evidência, limites e responsável por cada recurso.
+
+A Vercel Hobby é apenas para projetos pessoais/não comerciais. Não utilizá-la para hospedar SaaS ou aplicações comerciais.
