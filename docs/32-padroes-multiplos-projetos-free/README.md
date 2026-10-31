@@ -30,7 +30,7 @@ organização
 └── documentação-compartilhada
 ~~~
 
-Cada projeto deve ter repositório GitHub próprio quando possível, projeto Vercel próprio e projeto Neon próprio. O Auth0 Free pode impor tenant único por conta; nesse caso, aplicações e callbacks precisam ser segregados por projeto dentro do tenant compartilhado, sem presumir isolamento de tenant independente.
+Cada projeto deve ter repositório GitHub próprio quando possível, projeto Vercel próprio e projeto Neon próprio. O Auth0 Free deve ser planejado para um tenant por conta e até 10 Applications por tenant conforme a matriz Free deste repositório; essa quota é compartilhada entre todos os projetos. Aplicações e callbacks precisam ser segregados por projeto/ambiente dentro do tenant compartilhado, sem presumir isolamento de tenant independente. Revalidar o limite no pricing/painel antes de cada adoção.
 
 Não compartilhar banco de produção entre aplicações distintas por conveniência. Quando a quota impedir projetos Neon separados, registrar formalmente a exceção, avaliar o risco e não declarar isolamento equivalente.
 
@@ -40,13 +40,13 @@ Use identificadores minúsculos, ASCII, sem espaços, sem dados pessoais e sem s
 
 | Elemento | Convenção | Exemplo |
 |---|---|---|
-| Projeto | <produto>-<dominio> | portal-clientes |
-| Repositório | <projeto> | portal-clientes |
-| Vercel project | <projeto>-web | portal-clientes-web |
-| Neon project | <projeto>-db | portal-clientes-db |
-| Auth0 Application | <projeto>-<ambiente>-web | portal-clientes-preview-web |
-| Branch Git | feat/<assunto>, fix/<assunto>, docs/<assunto> | feat/perfil |
-| Neon branch | <ambiente>-<projeto> | preview-portal-clientes |
+| Projeto | `<produto>-<dominio>` | portal-clientes |
+| Repositório | `<projeto>` | portal-clientes |
+| Vercel project | `<projeto>`-web | portal-clientes-web |
+| Neon project | `<projeto>`-db | portal-clientes-db |
+| Auth0 Application | `<projeto>`-`<ambiente>`-web | portal-clientes-preview-web |
+| Branch Git | feat/`<assunto>`, fix/`<assunto>`, docs/`<assunto>` | feat/perfil |
+| Neon branch | `<ambiente>`-`<projeto>` | preview-portal-clientes |
 | Variável | UPPER_SNAKE_CASE | DATABASE_URL |
 | Schema PostgreSQL | nome funcional | billing |
 
