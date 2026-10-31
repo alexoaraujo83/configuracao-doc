@@ -4,7 +4,9 @@
 
 ## 1. Objetivo e limites
 
-Definir uma base reutilizável para aplicações web com:
+Definir uma base reutilizável para aplicações web com apenas recursos dos planos Free. Nenhum passo depende de upgrade, trial, crédito promocional ou add-on pago. Onde o plano não atender a um requisito, registrar o cenário como BLOCKED.
+
+A base tecnológica usa:
 
 - Next.js App Router.
 - TypeScript em modo strict.
