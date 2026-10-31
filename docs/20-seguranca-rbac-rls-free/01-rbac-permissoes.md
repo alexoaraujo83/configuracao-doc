@@ -75,6 +75,7 @@ Atribuição de roles deve ser server-side, autorizada e auditada. Nunca permiti
 
 ```ts
 import "server-only";
+import { auth0 } from "@/lib/auth0";
 
 type Permission =
   | "projects:read"
@@ -92,20 +93,29 @@ const permissionsByRole: Record<string, Permission[]> = {
 };
 
 export async function requireTenantPermission(
-  auth0Sub: string,
-  tenantId: string,
+  requestedTenantId: string,
   permission: Permission,
 ) {
-  const membership = await findActiveMembership(tenantId, auth0Sub);
-  if (!membership) throw new Error("FORBIDDEN");
+  const session = await auth0.getSession();
+  if (!session) throw new Error("UNAUTHENTICATED");
+
+  // requestedTenantId seleciona o tenant pretendido; não concede acesso.
+  // findActiveMembership consulta o banco usando o sub validado da sessão.
+  const membership = await findActiveMembership(
+    requestedTenantId,
+    session.user.sub,
+  );
+  if (!membership || membership.status !== "active") {
+    throw new Error("FORBIDDEN");
+  }
   if (!permissionsByRole[membership.role]?.includes(permission)) {
     throw new Error("FORBIDDEN");
   }
-  return membership;
+  return { membership, auth0Sub: session.user.sub };
 }
 ```
 
-`findActiveMembership` consulta o banco no servidor. Em operações críticas, verificar autorização junto à operação/transação para reduzir TOCTOU.
+`findActiveMembership` consulta o banco no servidor; sua implementação deve filtrar por `tenant_id`, `auth0_sub` e `status = 'active'`, sem confiar em role/tenant enviados pelo cliente. Em operações críticas, revalidar permissão dentro da mesma transação/statement da mutação para reduzir TOCTOU. A role retornada é dado de domínio do banco, não claim fornecida pelo browser.
 
 ## Regras
 - DAL marcada com `server-only`.
