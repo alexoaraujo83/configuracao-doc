@@ -42,8 +42,17 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
 
 
+## Continuidade, qualidade e governança
+
+As seções 19–23 documentam recuperação, observabilidade, releases, testes e conformidade. Não representam execução de exercícios, validação de produção ou certificação.
+
 ## Revisões técnicas
 
-20. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
+19. [Continuidade de negócio e recuperação de desastres — Free](22-continuidade-recuperacao-free/README.md)
+20. [Observabilidade, monitoramento e capacidade — Free](23-observabilidade-monitoramento-capacidade-free/README.md)
+21. [Gestão de mudanças, releases e versionamento — Free](24-gestao-mudancas-releases-free/README.md)
+22. [Testes de qualidade, segurança e validação — Free](25-testes-seguranca-validacao-free/README.md)
+23. [Matriz mestra de conformidade Free](26-matriz-mestra-conformidade-free/README.md)
+24. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
