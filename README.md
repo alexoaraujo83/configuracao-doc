@@ -64,6 +64,10 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 - [Neon PostgreSQL: driver, roles, RLS e migrations](docs/12-neon-postgresql/README.md)
 - [Ambientes, CI, segurança, testes e operação](docs/13-ambientes-testes-operacao/README.md)
 
+## Inventário dos painéis
+
+- [Inventário de menus e submenus GitHub, Auth0, Vercel e Neon](docs/14-inventario-paineis/README.md)
+
 ## Navegação
 
 - [Índice geral](docs/README.md)
