@@ -19,12 +19,21 @@ Converter as referências oficiais em procedimentos reproduzíveis de instalaç�
 | [05 — Vercel Hobby e deploy](./05-vercel-deploy.md) | Importação, ambientes, variáveis, deploy e restrições de uso |
 | [06 — Segurança e aceite](./06-seguranca-validacao.md) | Modelo de ameaça, checklist, testes e resposta a incidentes |
 
+## Próxima camada: testes e operação verificável
+
+Consulte [docs/17 — Testes, RBAC, migrations e recuperação](../17-testes-rbac-migrations/README.md), que detalha:
+- Estratégia unitária, integração PostgreSQL e E2E com ferramentas open source.
+- RBAC no servidor e isolamento de dados por usuário.
+- Migrations versionadas, checksums e estratégia expand/contract.
+- GitHub Actions com permissões mínimas e sem secrets em PRs não confiáveis.
+- Backup lógico e ensaio de restore compatível com as cotas Free.
+
 ## Convenções obrigatórias
 
 - Comandos são executados na raiz do projeto, salvo indicação contrária.
 - Valores sensíveis são representados por placeholders; nunca copiar segredos para documentação, issues ou commits.
-- O arquivo `.env.example` contém nomes e exemplos não secretos; valores reais ficam em `.env.local` ou no cofre de variáveis do provedor.
-- Não usar prefixo `NEXT_PUBLIC_` em segredos, connection strings ou configurações exclusivamente de servidor.
+- O arquivo .env.example contém nomes e exemplos não secretos; valores reais ficam em .env.local ou no cofre de variáveis do provedor.
+- Não usar prefixo NEXT_PUBLIC_ em segredos, connection strings ou configurações exclusivamente de servidor.
 - Toda rota, Server Action e consulta privada verifica sessão e autorização no servidor. Proxy não substitui autorização.
 - SQL parametrizado; migrations versionadas; privilégios mínimos; isolamento de dados por usuário.
 - Separar credenciais e bancos/branches por ambiente sempre que possível dentro das cotas Free.
