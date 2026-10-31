@@ -40,3 +40,13 @@ A stack é somente documental nesta etapa. Os exemplos não significam que pacot
 18. [Modelagem de ameaças e resposta a incidentes — somente Free](21-modelagem-ameacas-incidentes-free/README.md)
 
 A modelagem de ameaças e os runbooks são padrões documentais. Não significam que controles foram aplicados, incidentes ocorreram ou exercícios foram executados.
+
+## Observabilidade e capacidade — somente Free
+
+19. [Observabilidade, monitoramento e gestão de capacidade](23-observabilidade-monitoramento-capacidade-free/README.md)
+
+## Gestão de mudanças, releases e versionamento — somente Free
+
+20. [Branches, Pull Requests, SemVer, changelog, CI/CD, migrations Neon, rollback, auditoria e checklist de release](24-gestao-mudancas-releases-free/README.md)
+
+Esta seção é documental. Nenhuma regra de branch, pipeline, migration ou deployment foi aplicada.
