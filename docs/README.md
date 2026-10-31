@@ -67,3 +67,10 @@ A revisão registra correções documentais e limites de compatibilidade; não s
 29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
 
 Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.
+
+
+## Testes automatizados — somente Free
+
+33. [Testes unitários, componentes, integração, contratos, autorização, RLS, E2E e CI](40-testes-automatizados-free/README.md)
+
+Os exemplos e critérios ainda dependem de implementação e execução em ambiente de teste.
