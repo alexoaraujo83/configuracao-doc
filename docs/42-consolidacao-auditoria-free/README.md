@@ -1,6 +1,6 @@
 # Consolidação e auditoria final — documentação Free
 
-**Status:** consolidada em uma única proposta de integração; incorporação à main pendente do PR #37. **Escopo:** Next.js + TypeScript + Auth0 + Neon + GitHub + Vercel, somente Free.
+**Status:** documentação integrada à `main` pelo PR #37 (merge em 31/10/2026). A validação operacional está em andamento e ainda não foi concluída. **Escopo:** Next.js + TypeScript + Auth0 + Neon + GitHub + Vercel, somente Free.
 
 ## Objetivo
 Consolidar arquitetura, implementação modular, contratos HTTP, persistência, segurança, CI/CD, ambientes, testes e operação. Os PRs #29–#36 foram reunidos na branch de integração #37 para evitar conflitos nos índices compartilhados; os PRs #27 e #28 já foram incorporados à main.
