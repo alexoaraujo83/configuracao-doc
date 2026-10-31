@@ -17,7 +17,8 @@ Definir isolamento prático sem presumir recursos pagos. Os quatro ambientes sã
 
 O Free permite um tenant por conta e limita a 10 Applications por tenant, conforme as referências de suporte Auth0. A contagem de entidades pode incluir clients de teste/integração; conferir o inventário efetivo no tenant. Consequências:
 - Dev, Preview, Staging e Production não terão tenants independentes dentro da mesma conta Free.
-- Não provisionar automaticamente um client por ambiente ou por projeto: quatro ambientes em um único projeto já consumiriam quatro dos dez slots. Somar aplicações existentes, clients M2M/teste e integrações antes de alocar novos slots.\n- Preferir clients separados por ambiente somente quando a quota global permitir e a separação for necessária; caso contrário, compartilhar uma Application apenas entre ambientes com requisitos de segurança compatíveis, callbacks exatos e credenciais armazenadas separadamente.
+- Não provisionar automaticamente um client por ambiente ou por projeto: quatro ambientes em um único projeto já consumiriam quatro dos dez slots. Somar aplicações existentes, clients M2M/teste e integrações antes de alocar novos slots.
+- Preferir clients separados por ambiente somente quando a quota global permitir e a separação for necessária; caso contrário, compartilhar uma Application apenas entre ambientes com requisitos de segurança compatíveis, callbacks exatos e credenciais armazenadas separadamente.
 - Configurar callback, logout e origins exatos para cada URL.
 - Considerar que configurações de tenant, Connections, branding e políticas são compartilhadas.
 - Testes e usuários de desenvolvimento devem ser identificáveis e isolados por convenção.
@@ -92,7 +93,8 @@ Antes de adotar os quatro ambientes, responder no manifesto:
 - Staging é realmente necessário? Não criar ambiente redundante que consuma quota.
 
 ## Referências
-- [Auth0 — Free second tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)\n- [Auth0 — 10 Applications per Free tenant](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
+- [Auth0 — Free second tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)
+- [Auth0 — 10 Applications per Free tenant](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
 - [Auth0 Deploy CLI — multi-environment](https://github.com/auth0/auth0-deploy-cli/blob/master/docs/multi-environment-workflow.md)
 - [Vercel — Environments](https://vercel.com/docs/deployments/environments)
 - [Vercel — Environment Variables](https://vercel.com/docs/environment-variables)
