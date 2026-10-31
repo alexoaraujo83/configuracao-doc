@@ -64,6 +64,10 @@
 5. Não substituir documentação de versão por blog antigo quando houver referência técnica atual.
 6. Não considerar recurso elegível no Free apenas porque existe uma página ou opção no Dashboard.
 
+## Manuais detalhados de implementação
+
+- [Manuais de implementação Free](../16-manuais-implementacao/README.md)
+
 ## Relação com os guias do repositório
 
 - [Next.js + TypeScript](../10-nextjs-typescript/README.md)

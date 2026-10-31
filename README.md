@@ -64,6 +64,10 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 - [Neon PostgreSQL: driver, roles, RLS e migrations](docs/12-neon-postgresql/README.md)
 - [Ambientes, CI, segurança, testes e operação](docs/13-ambientes-testes-operacao/README.md)
 
+## Manuais detalhados de implementação
+
+- [Manuais de implementação Free: Next.js, Auth0, Neon, GitHub Actions, Vercel, segurança e validação](docs/16-manuais-implementacao/README.md)
+
 ## Referências técnicas oficiais
 
 - [Matriz de referências oficiais: Next.js, Auth0 v4, Neon Driver, GitHub Actions e Vercel Hobby](docs/15-referencias-tecnicas/README.md)
