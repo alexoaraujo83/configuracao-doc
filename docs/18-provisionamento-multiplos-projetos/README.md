@@ -62,7 +62,8 @@ A especificação de origem exige distinguir padrão recomendado, configuração
 
 ## Fontes oficiais consultadas
 
-- [Auth0 Free — segundo tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)\n- [Auth0 Free — limite de 10 Applications por tenant](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
+- [Auth0 Free — segundo tenant](https://support.auth0.com/center/s/article/Second-Tenant-on-a-Free-Plan)
+- [Auth0 Free — limite de 10 Applications por tenant](https://support.auth0.com/center/s/article/Increase-Limit-of-10-Applications-for-Development-Environment-Tenant)
 - [Auth0 Deploy CLI — multi-environment workflow](https://github.com/auth0/auth0-deploy-cli/blob/master/docs/multi-environment-workflow.md)
 - [Auth0 Deploy CLI — configuração e limitações Free](https://github.com/auth0/auth0-deploy-cli/blob/master/docs/configuring-the-deploy-cli.md)
 - [Vercel — Environments](https://vercel.com/docs/deployments/environments)
