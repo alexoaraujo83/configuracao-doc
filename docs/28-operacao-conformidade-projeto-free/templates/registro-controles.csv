@@ -1,0 +1,2 @@
+requirement_id,domain,project_id,cycle_id,environment,applicability,status,owner,evidence_ids,assessed_at,valid_until,next_review,reviewer,notes
+REQ-EXAMPLE,example,PRJ-example,CYC-2026-10-01,development,applicable,not_assessed,role-or-team,,,"",,,"Exemplo fictício; substituir pelos IDs da matriz aprovada"
