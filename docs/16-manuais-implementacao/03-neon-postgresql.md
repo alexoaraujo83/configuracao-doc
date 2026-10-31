@@ -173,9 +173,9 @@ WITH CHECK (
 
 Criar policies adicionais para INSERT/DELETE somente se os casos de uso exigirem. O valor de `app.auth0_sub` deve ser definido exclusivamente a partir da sessão Auth0 validada no servidor, nunca recebido como identidade confiável do cliente.
 
-A variável de sessão deve ser local à transação. Executar a definição do contexto e as consultas protegidas na mesma transação. Para o driver HTTP Neon, utilizar transação em lote suportada pelo driver e confirmar a API exata na versão instalada; não presumir que chamadas HTTP independentes compartilham sessão. Quando o caso exigir estado interativo de sessão, usar a modalidade WebSocket/cliente PostgreSQL apropriado, validando compatibilidade com o runtime.
+A variável de sessão deve ser local à transação. Executar a definição do contexto e as consultas protegidas na mesma transação. O driver `neon()` via HTTP executa uma consulta por chamada; `sql.transaction([...])` agrupa múltiplas consultas em uma transação única, não interativa, e devolve um resultado por consulta na mesma ordem. Esse modo é adequado quando todas as instruções são conhecidas antecipadamente, como `set_config` seguido de `SELECT`/`INSERT`. Não usar chamadas `neon()` separadas para simular estado de sessão. Para fluxo interativo com decisões condicionais entre statements, cursores ou estado de sessão, usar `Pool`/`Client` via WebSocket ou conexão PostgreSQL persistente, com `release()`/`end()` e rollback garantidos.
 
-Exemplo conceitual de transação HTTP (validar assinatura da API na versão instalada):
+Exemplo de transação HTTP documentada pelo driver:
 
 ```typescript
 const [, userRows] = await sql.transaction([
