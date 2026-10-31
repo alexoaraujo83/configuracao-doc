@@ -57,6 +57,13 @@ Os ambientes lógicos não são automaticamente isolados pelos fornecedores. A V
 
 As configurações atuais dos serviços só serão declaradas como verificadas quando houver evidência obtida no painel, API ou CLI correspondente. Documentos de aplicações existentes podem demonstrar padrões implementados, mas não comprovam o estado atual dos tenants ou projetos dos fornecedores.
 
+## Guias de implementação Next.js + TypeScript + Neon
+
+- [Next.js App Router + TypeScript](docs/10-nextjs-typescript/README.md)
+- [Auth0 + Next.js SDK v4](docs/11-auth0-nextjs/README.md)
+- [Neon PostgreSQL: driver, roles, RLS e migrations](docs/12-neon-postgresql/README.md)
+- [Ambientes, CI, segurança, testes e operação](docs/13-ambientes-testes-operacao/README.md)
+
 ## Navegação
 
 - [Índice geral](docs/README.md)
