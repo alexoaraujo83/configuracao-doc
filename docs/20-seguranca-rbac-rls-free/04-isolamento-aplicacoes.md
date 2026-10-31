@@ -13,8 +13,8 @@ Documentar slug, repositório/owners, projeto Vercel/domínios, Auth0 client/URL
 - Cookies de sessão não devem permitir leitura por aplicações irmãs.
 - Não reutilizar token entre APIs sem audience correta.
 
-## 3. Auth0 tenant único no Free
-Tenant único cria fronteira administrativa compartilhada. Clients separados segmentam callback, logout e credenciais, mas não separam tenant, usuários, conexões, políticas globais ou blast radius. Se o requisito exige tenant isolado por aplicação/cliente, marcar BLOQUEADO NO FREE; não simular isolamento com nomes diferentes de clients.
+## 3. Auth0 tenant único e limite de Applications no Free
+Tenant único cria fronteira administrativa compartilhada. Auth0 Free também limita o tenant a 10 Applications no total, quota compartilhada entre projetos e clients; inventariar aplicações existentes antes de criar clients adicionais. Clients separados segmentam callback, logout e credenciais, mas não separam tenant, usuários, conexões, políticas globais ou blast radius. Se o requisito exige tenant isolado por aplicação/cliente, marcar BLOQUEADO NO FREE; não simular isolamento com nomes diferentes de clients.
 
 ## 4. Quando compartilhar banco
 Aceitar somente se domínios e owners forem comuns; grants e policies forem explícitos; credenciais não acessarem tabelas de outras apps; funções/views privilegiadas forem revisadas; testes negativos cross-app passarem; restore e ciclo de vida compartilhados forem aceitáveis.
