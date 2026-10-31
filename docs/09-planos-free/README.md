@@ -105,7 +105,7 @@
 
 1. **Código:** GitHub Free, repositório privado se confidencial; aceitar explicitamente que controles server-side de branch protegida não estão disponíveis para privados.
 2. **Autenticação:** Auth0 Free somente com fluxo interativo de usuário; Auth0 Organizations limitado a cinco; autorização/membership no PostgreSQL.
-3. **API:** validar Access Token (assinatura, iss, aud, exp, scopes) e membership no servidor. Não depender de M2M token do Auth0 Free.
+3. **API:** validar Access Token (assinatura, iss, aud, exp, scopes) e membership no servidor. Para serviços sem usuário, usar M2M do Auth0 somente até a quota Free de 1.000 autenticações/tokens por mês, com cache e monitoramento; não depender do M2M Add-on.
 4. **Dados:** Neon Free; usar branches com lifecycle controlado, roles SQL dedicadas, RLS, pooling e backup externo.
 5. **Hospedagem:** Vercel Hobby apenas para projetos pessoais/não comerciais. Para SaaS comercial, escolher hospedagem própria ou outro serviço cujo plano gratuito autorize uso comercial; se nenhum serviço compatível for confirmado, declarar **BLOCKED — nenhum host comercial Free validado** em vez de implantar em Hobby.
 6. **CI/CD:** GitHub Actions com permissões mínimas e cota controlada; não depender de Environment protection/review gates quando indisponíveis para repo privado. Não conectar produção até haver autorização e evidência.
