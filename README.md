@@ -68,6 +68,10 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 
 - [Manuais de implementação Free: Next.js, Auth0, Neon, GitHub Actions, Vercel, segurança e validação](docs/16-manuais-implementacao/README.md)
 
+## Testes, RBAC, migrations e recuperação
+
+- [Estratégia de testes automatizados, autorização multiusuário, migrations, CI/E2E e backup/restore](docs/17-testes-rbac-migrations/README.md)
+
 ## Referências técnicas oficiais
 
 - [Matriz de referências oficiais: Next.js, Auth0 v4, Neon Driver, GitHub Actions e Vercel Hobby](docs/15-referencias-tecnicas/README.md)
