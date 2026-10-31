@@ -26,6 +26,10 @@ A classificação Free não elimina custos indiretos: hardware próprio, energia
 | Neon PostgreSQL + RLS + migrations | [docs/12-neon-postgresql](../12-neon-postgresql/README.md) |
 | Ambientes, CI, testes e operação | [docs/13-ambientes-testes-operacao](../13-ambientes-testes-operacao/README.md) |
 
+## Inventário dos painéis
+
+Consulte o [inventário de menus e submenus](../14-inventario-paineis/README.md) para caminhos de navegação, finalidade, configuração relevante, restrições Free e pendências de auditoria visual.
+
 ## Matriz consolidada
 
 Consulte [Matriz de compatibilidade Free](../09-planos-free/README.md) antes de escolher qualquer arquitetura ou habilitar um recurso.
