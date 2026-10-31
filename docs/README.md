@@ -56,3 +56,14 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 24. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
+
+
+## Governança, provisionamento e integração da stack Free
+
+25. [Operação de conformidade por projeto](28-operacao-conformidade-projeto-free/README.md)
+26. [Template documental de provisionamento de projetos](29-template-provisionamento-projetos-free/README.md)
+27. [Integração ponta a ponta Next.js + Auth0 + Neon + GitHub + Vercel](30-integracao-ponta-a-ponta-free/README.md)
+28. [Manual operacional de implantação Free](31-manual-operacional-implantacao-free/README.md)
+29. [Padrões para múltiplos projetos e ambientes](32-padroes-multiplos-projetos-free/README.md)
+
+Os documentos 25–29 são padrões e procedimentos de referência. Não representam configuração observada, execução de testes ou operação de infraestrutura.

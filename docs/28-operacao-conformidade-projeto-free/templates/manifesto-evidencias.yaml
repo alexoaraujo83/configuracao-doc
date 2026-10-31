@@ -1,0 +1,33 @@
+schema_version: "1.0"
+project_id: "PRJ-example"
+cycle_id: "CYC-2026-10-01"
+evidence:
+  - id: "EV-EXAMPLE-0001"
+    title: "Exemplo fictício de evidência sanitizada"
+    requirement_ids:
+      - "REQ-EXAMPLE"
+    system: "github | auth0 | vercel | neon | application"
+    environment: "development"
+    scope: "componente e configuração avaliados"
+    source_type: "sanitized-export | test-report | review | console-capture"
+    source_reference: "referência privada controlada ou commit"
+    collected_at_utc: "2026-10-31T00:00:00Z"
+    collected_by: "role-or-team"
+    commit: "0000000000000000000000000000000000000000"
+    result: "descrever somente o que foi observado"
+    integrity_sha256: ""
+    classification: "internal"
+    sanitized: true
+    contains_secrets: false
+    contains_personal_data: false
+    valid_until: "2026-11-30"
+    invalidation_triggers:
+      - "mudança de configuração"
+      - "mudança de fornecedor/plano"
+    storage_reference: "restricted://evidence/EV-EXAMPLE-0001"
+    status: "proposed" # proposed | collected | reviewed | expired | rejected # proposed | collected | reviewed | expired | rejected
+notes:
+  - "Valores são exemplos; não representam evidência real."
+  - "Nunca inserir tokens, cookies, secrets, connection strings ou dados de produção."
+
+# Status de evidência: proposed (planejada), collected (coletada), reviewed (revisada), expired (expirada), rejected (rejeitada).
