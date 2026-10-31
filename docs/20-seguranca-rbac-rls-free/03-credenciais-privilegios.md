@@ -22,7 +22,7 @@
 
 Exemplo de grants para revisar e adaptar:
 
-\`\`\`sql
+```sql
 REVOKE ALL ON SCHEMA app FROM PUBLIC;
 GRANT USAGE ON SCHEMA app TO app_runtime;
 GRANT SELECT, INSERT, UPDATE, DELETE
@@ -34,7 +34,7 @@ ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA app
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO app_runtime;
 ALTER DEFAULT PRIVILEGES FOR ROLE app_owner IN SCHEMA app
 GRANT USAGE, SELECT ON SEQUENCES TO app_runtime;
-\`\`\`
+```
 
 Não conceder ALL PRIVILEGES por conveniência. Não conceder TRUNCATE, TRIGGER, REFERENCES, CREATE ou ownership ao runtime sem justificativa formal. Restringir colunas sensíveis com grants específicos.
 
@@ -42,7 +42,7 @@ Não conceder ALL PRIVILEGES por conveniência. Não conceder TRUNCATE, TRIGGER,
 - Development, Preview/Staging e Production usam credenciais distintas.
 - Preview nunca acessa connection string de Production.
 - Auth0 Client Secret, AUTH0_SECRET e Neon runtime credentials são separados por ambiente lógico quando a topologia Free permitir.
-- Auth0 Free tenant único não fornece isolamento de tenant entre ambientes; clients separados não eliminam esse risco.
+- Auth0 Free tenant único não fornece isolamento de tenant entre ambientes; o limite de 10 Applications é compartilhado por todos os projetos; clients separados não eliminam esse risco.
 - Migration não compartilha credencial com servidor web.
 - Rotacionar após exposição suspeita, saída de pessoa com acesso ou mudança de privilégio.
 
