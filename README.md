@@ -98,7 +98,6 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 
 Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto, validação e rollback. Mudanças estruturais devem ser submetidas por Pull Request e revisadas antes de serem incorporadas à branch principal.
 
-
 ## Provisionamento reutilizável para múltiplos projetos
 
 - [Guia de provisionamento Free](docs/18-provisionamento-multiplos-projetos/README.md)
@@ -106,9 +105,14 @@ Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto
 
 Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e auditoria. Considera as limitações de tenant único do Auth0 Free, Preview branch-scoped no Vercel Hobby e cotas do Neon Free.
 
-
 ## Modelagem de ameaças e resposta a incidentes
 
 - [STRIDE, registro de riscos, controles Free-only, plano de resposta, runbooks e gate de produção](docs/21-modelagem-ameacas-incidentes-free/README.md).
 
 Este conteúdo é documental; não declara auditoria, teste, rotação de credenciais, restore ou resposta real executados.
+
+## Matriz mestra de conformidade Free
+
+- [Matriz de requisitos, controles, evidências, responsáveis, limitações e gates de aprovação](docs/26-matriz-mestra-conformidade-free/README.md).
+
+A matriz separa requisito documentado, controle implementado, evidência verificada e aprovação formal. Ela não certifica execução nem estado dos serviços.
