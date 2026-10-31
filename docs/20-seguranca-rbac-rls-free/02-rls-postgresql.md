@@ -121,11 +121,27 @@ ALTER TABLE app.documents FORCE ROW LEVEL SECURITY;
 
 CREATE POLICY documents_tenant_access
 ON app.documents FOR ALL TO app_runtime
-USING (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid)
-WITH CHECK (tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid);
+USING (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = documents.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+)
+WITH CHECK (
+  tenant_id = NULLIF(current_setting('app.tenant_id', true), '')::uuid
+  AND EXISTS (
+    SELECT 1 FROM app.tenant_memberships m
+    WHERE m.tenant_id = documents.tenant_id
+      AND m.auth0_sub = current_setting('app.user_sub', true)
+      AND m.status = 'active'
+  )
+);
 ```
 
-Adicionar regras de ownership/role quando necessárias. Revisar views, funções SECURITY DEFINER, triggers, jobs e rotinas administrativas.
+Adicionar regras de ownership/role quando necessárias. Aplicar o mesmo predicado de membership ativa a cada tabela tenant-scoped; não copiar uma policy simplificada que confira somente `tenant_id`. Revisar views, funções SECURITY DEFINER, triggers, jobs e rotinas administrativas.
 
 ## 5. Roles PostgreSQL
 - `app_owner`: NOLOGIN; dono do schema/tabelas; usado apenas em migrations.
