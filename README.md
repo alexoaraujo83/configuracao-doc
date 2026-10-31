@@ -130,3 +130,14 @@ Esta revisão é documental; não declara typecheck, build, testes, migrations o
 - [Matriz mestra de conformidade Free](docs/26-matriz-mestra-conformidade-free/README.md).
 
 Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
+
+
+## Governança, provisionamento e integração da stack Free
+
+- [Operação de conformidade por projeto](docs/28-operacao-conformidade-projeto-free/README.md).
+- [Template documental de provisionamento de projetos](docs/29-template-provisionamento-projetos-free/README.md).
+- [Integração ponta a ponta Next.js + Auth0 + Neon + GitHub + Vercel](docs/30-integracao-ponta-a-ponta-free/README.md).
+- [Manual operacional de implantação Free](docs/31-manual-operacional-implantacao-free/README.md).
+- [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
+
+Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
