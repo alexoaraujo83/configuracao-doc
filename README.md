@@ -141,3 +141,10 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## Segurança integrada — Auth0, Next.js e Neon (Free)
+
+- [Modelo integrado de segurança, sessões, CSRF, autorização multi-tenant, RLS, segredos e resposta a incidentes](docs/37-seguranca-integrada-free/README.md).
+
+Este conjunto é documental e não representa controles aplicados ou testes executados.
