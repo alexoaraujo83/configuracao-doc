@@ -175,7 +175,7 @@ A variável de sessão deve ser local à transação. Executar a definição do 
 Exemplo conceitual de transação HTTP (validar assinatura da API na versão instalada):
 
 ```typescript
-const [contextResult, userRows] = await sql.transaction([
+const [, userRows] = await sql.transaction([
   sql`select set_config('app.auth0_sub', ${auth0Sub}, true)`,
   sql`insert into app.app_users (auth0_sub, email, display_name)
       values (${auth0Sub}, ${email}, ${displayName})
