@@ -15,7 +15,7 @@ Registrar versões de Node.js, npm, Next.js, React e TypeScript. Não atualizar 
 ### Criar a aplicação
 
 ~~~bash
-npx create-next-app@latest nome-do-projeto
+npx create-next-app@16 nome-do-projeto
 cd nome-do-projeto
 npm run dev
 ~~~
