@@ -39,8 +39,8 @@ sequenceDiagram
  participant A as Auth0
  participant D as Neon
  U->>N: Requisição
- N->>A: Ler sessão pelo SDK
- A-->>N: Identidade validada
+ N->>N: SDK lê e valida a sessão protegida no cookie
+ N->>N: Extrai subject da sessão validada
  N->>D: Consultar membership
  D-->>N: Contexto de domínio
  N->>N: Autorizar ação e tenant
