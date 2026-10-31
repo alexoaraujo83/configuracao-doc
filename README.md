@@ -119,3 +119,14 @@ Este conteúdo é documental; não declara auditoria, teste, rotação de creden
 - [Compatibilidade de APIs, transações HTTP/interativas, autorização server-side, roles e RLS](docs/27-revisao-tecnica-next16-auth0-neon-free/README.md).
 
 Esta revisão é documental; não declara typecheck, build, testes, migrations ou validação operacional executados.
+
+
+## Continuidade, observabilidade e governança de releases
+
+- [Continuidade de negócio e recuperação de desastres Free-only](docs/22-continuidade-recuperacao-free/README.md).
+- [Observabilidade, monitoramento e capacidade Free-only](docs/23-observabilidade-monitoramento-capacidade-free/README.md).
+- [Gestão de mudanças, releases e versionamento Free-only](docs/24-gestao-mudancas-releases-free/README.md).
+- [Testes de qualidade, segurança e validação Free-only](docs/25-testes-seguranca-validacao-free/README.md).
+- [Matriz mestra de conformidade Free](docs/26-matriz-mestra-conformidade-free/README.md).
+
+Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
