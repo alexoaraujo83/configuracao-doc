@@ -1,0 +1,104 @@
+# Manifesto declarativo, não secreto. Não incluir tokens, passwords ou connection strings.
+schema_version: "1.0"
+
+project:
+  slug: "replace-project-slug"
+  display_name: "Replace project name"
+  description: "Short non-sensitive purpose"
+  owner_team: "replace-owner"
+  data_classification: "internal"
+  commercial_use: false
+  template_version: "1.0"
+  status: "planned" # planned | existing | verified | blocked
+
+repository:
+  provider: "github"
+  name: "replace-project-slug"
+  visibility: "private" # private | public
+  default_branch: "main"
+  url: "https://github.com/OWNER/REPOSITORY"
+  status: "planned"
+
+auth0:
+  plan: "free"
+  tenant:
+    # Auth0 Free: one tenant per account per current support guidance.
+    # Store only tenant domain/identifier; never credentials.
+    domain: "replace-tenant-region.auth0.com"
+    isolation: "shared-single-tenant"
+    status: "planned" # Confirmar tenant existente no inventário; alterar para existing somente após verificação.
+  applications:
+    development:
+      name: "replace-project-slug-development"
+      client_id_ref: "AUTH0_CLIENT_ID_DEVELOPMENT"
+      status: "planned"
+    preview:
+      name: "replace-project-slug-preview"
+      client_id_ref: "AUTH0_CLIENT_ID_PREVIEW"
+      status: "planned"
+    staging:
+      name: "replace-project-slug-staging"
+      client_id_ref: "AUTH0_CLIENT_ID_STAGING"
+      status: "planned"
+    production:
+      name: "replace-project-slug-production"
+      client_id_ref: "AUTH0_CLIENT_ID_PRODUCTION"
+      status: "planned"
+
+vercel:
+  plan: "hobby"
+  project_name: "web-replace-project-slug"
+  production_branch: "main"
+  staging_branch: "staging"
+  staging_environment_model: "preview-branch-scoped"
+  commercial_eligibility_confirmed: false
+  status: "planned"
+
+neon:
+  plan: "free"
+  project_name: "db-replace-project-slug"
+  database_name: "appdb"
+  schema_name: "app"
+  branches:
+    production: "main"
+    development: "development"
+    staging: "staging"
+    preview_strategy: "shared-test-branch-or-ephemeral-when-quota-allows"
+  runtime_role: "app_runtime"
+  migration_role: "app_migrator"
+  owner_role: "app_owner"
+  status: "planned"
+
+environments:
+  development:
+    app_base_url: "http://localhost:3000"
+    vercel_scope: "development"
+    auth0_application: "development"
+    neon_branch: "development"
+  preview:
+    app_base_url: "https://preview-url-assigned-by-vercel.invalid"
+    vercel_scope: "preview"
+    auth0_application: "preview"
+    neon_branch: "shared-test-branch"
+  staging:
+    app_base_url: "https://staging-url-assigned-by-vercel.invalid"
+    vercel_scope: "preview"
+    vercel_branch_override: "staging"
+    auth0_application: "staging"
+    neon_branch: "staging"
+  production:
+    app_base_url: "https://production-domain.invalid"
+    vercel_scope: "production"
+    auth0_application: "production"
+    neon_branch: "main"
+
+audit:
+  last_reviewed: null
+  reviewer: null
+  free_plan_eligibility: "pending"
+  quotas_checked: false
+  secrets_scanned: false
+  callbacks_reviewed: false
+  rls_tested: false
+  evidence_uri: null
+  notes: []

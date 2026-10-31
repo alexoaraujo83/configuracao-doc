@@ -68,3 +68,8 @@ Cada procedimento deve receber um estado explícito:
 - [GitHub — Included usage](https://docs.github.com/pt/billing/reference/product-usage-included)
 - [Vercel — Hobby](https://vercel.com/docs/plans/hobby)
 - [Vercel — Limits](https://vercel.com/docs/limits)
+
+
+## Provisionamento reutilizável para múltiplos projetos
+
+Consulte [docs/18 — Provisionamento reproduzível para múltiplos projetos](../18-provisionamento-multiplos-projetos/README.md) para convenções de nomenclatura, ambientes Development/Preview/Staging/Production compatíveis com Free, matriz de variáveis, templates não secretos, procedimento manual de provisionamento e auditoria de permissões/secrets/quotas.
