@@ -141,3 +141,10 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## CI/CD integrado — somente Free
+
+- [GitHub Actions, Neon migrations, integração Git Vercel Hobby, releases e rollback](docs/38-cicd-github-vercel-neon-free/README.md).
+
+Padrões documentais; nenhum workflow, secret, migration ou deployment foi executado.
