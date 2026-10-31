@@ -154,6 +154,6 @@ Para operações iniciadas por usuário, usar OIDC Authorization Code Flow com P
 
 Não substituir M2M por ID Token, sessão compartilhada ou segredo estático no frontend. Se o requisito superar a quota Free, a arquitetura deve ser revista sem pressupor contratação de add-on; qualquer identidade de serviço alternativa requer revisão específica de segurança, chave privada server-side, validade curta, audience estrita, rotação e auditoria.
 
-Os requisitos do projeto — não adicionar Google OAuth2; usar Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado — continuam válidos como requisitos a verificar. Eles não comprovam disponibilidade de M2M nem que as opções estejam salvas.
+Os requisitos do projeto — não adicionar Google OAuth2; usar Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado — continuam válidos como requisitos a verificar. Eles não comprovam que as opções estejam salvas; a quota M2M Free também deve ser monitorada no painel de uso.
 
 Fonte de preços: [Auth0 Pricing](https://auth0.com/pt/pricing). A página deve ser revisitada antes de uma mudança no tenant.
