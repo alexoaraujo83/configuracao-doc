@@ -130,3 +130,10 @@ Esta revisão é documental; não declara typecheck, build, testes, migrations o
 - [Matriz mestra de conformidade Free](docs/26-matriz-mestra-conformidade-free/README.md).
 
 Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
+
+
+## Template de provisionamento reutilizável — somente Free
+
+- [Arquitetura, bootstrap Next.js + TypeScript, Auth0, Neon, GitHub, Vercel e templates](docs/29-template-provisionamento-projetos-free/README.md).
+
+Este pacote é documental. Os exemplos são fictícios e não representam serviços provisionados, configurações aplicadas ou testes executados. Vercel Hobby permanece restrito a uso pessoal e não comercial.
