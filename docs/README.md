@@ -58,6 +58,12 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
 
 
+## Implementação funcional por módulos
+
+30. [Implementação funcional Next.js + Auth0 + Neon — somente Free](34-implementacao-funcional-modulos-free/README.md)
+
+Guia documental dos módulos funcionais; exemplos não executados.
+
 ## Governança, provisionamento e integração da stack Free
 
 25. [Operação de conformidade por projeto](28-operacao-conformidade-projeto-free/README.md)

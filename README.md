@@ -80,6 +80,12 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 
 - [Inventário de menus e submenus GitHub, Auth0, Vercel e Neon](docs/14-inventario-paineis/README.md)
 
+## Implementação funcional por módulos
+
+- [Implementação funcional Next.js + Auth0 + Neon — somente Free](docs/34-implementacao-funcional-modulos-free/README.md).
+
+Guia documental de usuários, autenticação, autorização, CRUD, RLS, validação e testes. Exemplos não executados.
+
 ## Navegação
 
 - [Índice geral](docs/README.md)
