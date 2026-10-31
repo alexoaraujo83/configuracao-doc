@@ -57,8 +57,8 @@ Manter as decisões explicitamente aprovadas no projeto: não adicionar Google O
 
 ## Restrições Auth0 Free — baseline
 
-A documentação de preços do Auth0 apresenta o Free com até 25.000 MAU e até cinco Organizations. Não assumir que MFA OTP/Duo, RBAC por Organization, M2M Tokens ou database connections externas/customizadas estejam incluídos no Free; recursos e nomenclaturas variam e devem ser confirmados na tabela de preços vigente.
+A documentação de preços do Auth0 apresenta o Free com até 25.000 MAU, cinco Organizations e quota de até 1.000 autenticações/tokens M2M por mês. A mesma tabela indica M2M Add-on = No no Free; não há ampliação dessa quota incluída. MFA OTP/Duo e RBAC por Organization aparecem em Essentials. Custom Database Connections externas não estão incluídas; a Database Connection integrada do Auth0 está incluída.
 
-Para a API IAM, não depender de Client Credentials/M2M nativo no Free. Usar Access Tokens de usuário para operações em nome do usuário, validar assinatura/issuer/audience/expiração/scopes no backend e consultar membership/permissions no PostgreSQL, aplicando RLS. Não substituir M2M por ID Token, sessão compartilhada ou segredo no frontend.
+Para operações sem usuário, Client Credentials/M2M pode ser usado dentro da quota de até 1.000 autenticações/tokens por mês. Reutilizar/cachar tokens até próximo da expiração, evitar solicitação de token a cada operação, monitorar consumo e bloquear com segurança ao alcançar o limite; não pressupor M2M Add-on. Para operações em nome do usuário, usar Access Tokens de usuário, validar assinatura/issuer/audience/expiração/scopes no backend e consultar membership/permissions no PostgreSQL, aplicando RLS. Não substituir M2M por ID Token, sessão compartilhada ou segredo no frontend.
 
 Manter as decisões específicas pendentes de evidência do tenant: não adicionar Google OAuth2; utilizar a Database Connection integrada Username-Password-Authentication quando aplicável; Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado. A existência de um checklist não comprova que a configuração foi salva.
