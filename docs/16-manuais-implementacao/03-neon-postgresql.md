@@ -32,8 +32,11 @@ Não usar a role administrativa padrão do projeto Neon como credencial de runti
 
 ```sql
 CREATE ROLE app_owner NOLOGIN;
-CREATE ROLE app_migrator LOGIN PASSWORD '<SECRET_FOR_MIGRATOR>';
+CREATE ROLE app_migrator LOGIN NOINHERIT PASSWORD '<SECRET_FOR_MIGRATOR>';
 CREATE ROLE app_runtime LOGIN PASSWORD '<SECRET_FOR_RUNTIME>';
+
+-- O migrator pode assumir app_owner somente durante migrations.
+GRANT app_owner TO app_migrator;
 
 CREATE SCHEMA app AUTHORIZATION app_owner;
 
@@ -44,7 +47,7 @@ GRANT USAGE ON SCHEMA app TO app_migrator;
 
 Substituir `appdb` pelo nome real do database. Senhas são placeholders e devem ser definidas fora do histórico do repositório. Não executar SQL literal contendo segredo em terminal compartilhado ou ferramenta que retenha histórico.
 
-As migrations devem operar como `app_owner` por meio da role migrator autorizada:
+As migrations devem operar como `app_owner` por meio da role migrator autorizada. O atributo `NOINHERIT` impede que o migrator use automaticamente os privilégios do owner; a elevação ocorre explicitamente com `SET ROLE`:
 
 ```sql
 SET ROLE app_owner;
