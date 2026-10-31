@@ -56,3 +56,14 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 24. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
+
+
+## Padronização de múltiplos projetos e ambientes
+
+25. [Padrões para múltiplos projetos e ambientes — somente Free](32-padroes-multiplos-projetos-free/README.md)
+26. [Matriz de variáveis por ambiente](32-padroes-multiplos-projetos-free/matriz-variaveis.md)
+27. [Governança de configuração e dependências](32-padroes-multiplos-projetos-free/governanca.md)
+28. [Checklist de onboarding de novo projeto](32-padroes-multiplos-projetos-free/checklist-novo-projeto.md)
+29. [Perfil mestre de projeto reutilizável](../templates/projeto/PROJECT_PROFILE.md)
+
+Os padrões são documentais e não comprovam isolamento efetivo nem configuração operacional.
