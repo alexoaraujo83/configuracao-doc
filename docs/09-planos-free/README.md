@@ -7,7 +7,7 @@
 | Serviço | Plano permitido | Disponibilidade/limite Free | Restrições críticas |
 |---|---|---|---|
 | GitHub | Free | Repositórios públicos com conjunto amplo de recursos; privados ilimitados com conjunto limitado; Actions com franquia mensal e runners públicos gratuitos | Rulesets e branch protections nativos não abrangem repositórios privados no Free; reviewers obrigatórios, protected branches e Code Owners para privados exigem plano superior |
-| Auth0 | Free | Até 25.000 MAU; até 5 Organizations; Actions e Attack Protection básico; conexões sociais ilimitadas | M2M Tokens listados como add-on pago; MFA com OTP/Duo e RBAC por Organization aparecem em Essentials; mais de 5 Organizations indisponível |
+| Auth0 | Free | Até 25.000 MAU; 5 Organizations; até 1.000 autenticações M2M/mês; Actions e Attack Protection básico | M2M Add-on não incluído; MFA OTP/Duo e RBAC por Organization aparecem em Essentials; mais de 5 Organizations indisponível |
 | Vercel | Hobby ($0) | Projetos pessoais/não comerciais com quotas Hobby | Uso comercial ou SaaS comercial não permitido pelo Hobby; não usar para produção de produto comercial |
 | Neon | Free ($0) | 100 projetos; 10 branches/projeto; 100 CU-hours/projeto/mês; 1 GB/projeto e 20 GB agregados; 5 GB de transferência/projeto/mês | Branch protection nativo indisponível; escala para zero obrigatória; 6 h/1 GB de instant restore; quotas podem suspender compute |
 
@@ -41,16 +41,22 @@
 - Conexões sociais ilimitadas e opções passwordless indicadas na página oficial.
 - Custom domain exige verificação de cartão de crédito; para evitar essa etapa, usar inicialmente o domínio padrão do tenant.
 
+**Limites e recursos Free**
+- Machine-to-Machine Authentication: quota de até 1.000 autenticações/tokens por mês. A tabela atual também informa M2M Add-on = No para Free; não há ampliação gratuita presumida.
+- Auth0 Database Connection integrada: incluída. Custom Database Connections externas: não incluídas no Free.
+- Passwordless e passkeys aparecem como incluídos; avaliar o método concreto sem equiparar automaticamente passwordless a MFA.
+
 **NÃO DISPONÍVEL NO FREE ou não deve ser pressuposto**
-- M2M Tokens: listados como add-on pago na tabela de preços; não desenhar integrações de backend com Client Credentials nativo como se fossem incluídas.
+- M2M Add-on para ampliar quota: não incluído no Free. Não usar M2M sem cache e monitoramento da quota mensal.
 - MFA com OTP/Duo e RBAC por Organization: aparecem no plano Essentials.
-- Uso de banco de usuários externo/custom database connection: listado no Professional. Isso é diferente da Database Connection integrada Username-Password-Authentication; validar a capacidade exata no tenant.
+- Uso de banco de usuários externo/custom database connection: listado no Professional. Isso é diferente da Database Connection integrada Username-Password-Authentication, que está incluída.
 - Mais de cinco Organizations.
 
 **Alternativa Free**
 - Para operações da API em nome de uma pessoa, usar OIDC Authorization Code Flow com PKCE e Access Token para a audience da API, com sessão server-side/BFF quando aplicável.
+- Para operações sem usuário, usar o fluxo M2M do Auth0 somente dentro da quota de 1.000 autenticações/tokens por mês; reutilizar tokens, evitar emissão por requisição e acompanhar quota.
 - Persistir tenants, memberships e permissions no PostgreSQL, associando o usuário por iss + sub; verificar membership e autorização no servidor e aplicar RLS.
-- Não simular M2M com token de usuário. Para comunicação interna sem usuário, se indispensável, projetar identidade de serviço própria, curta duração, assinatura assimétrica, rotação e validação de audience/issuer; manter o segredo privado somente no servidor e registrar revisão de segurança.
+- Não simular M2M com token de usuário. Ao atingir o limite Free, bloquear a operação com segurança e rever a arquitetura; não pressupor acesso ao M2M Add-on.
 - Para autenticação forte sem depender do pacote MFA pago, avaliar passkeys/passwordless disponíveis no Free. Não declarar passwordless como equivalente automático a uma política MFA.
 - Os requisitos do tenant permanecem: não adicionar Google OAuth2; usar Database Connection Username-Password-Authentication quando aplicável; API Maximum Access Token Lifetime = 900 segundos; Allow Skipping User Consent desabilitado. São requisitos a validar, não prova de configuração nem prova de M2M disponível.
 
@@ -109,7 +115,7 @@
 | Requisito | Estado Free | Decisão |
 |---|---|---|
 | Repositório privado + ruleset/protected branch obrigatório | Não suportado pelo GitHub Free privado | BLOCKED; controles compensatórios não equivalem a enforcement |
-| Auth0 M2M Client Credentials | Add-on pago | Não usar; reavaliar arquitetura de identidade de serviço |
+| Auth0 M2M Client Credentials | Incluído até 1.000 autenticações/tokens por mês; M2M Add-on não incluído | Usar cache/reutilização, monitorar quota e bloquear com segurança ao atingir o limite |
 | Mais de 5 Auth0 Organizations | Não incluído | Guardar tenant/membership no banco ou BLOCKED se Organizations nativas forem requisito |
 | MFA nativo OTP/Duo do Auth0 | Essentials | Passkeys/passwordless ou provedor alternativo comprovadamente Free; não alegar equivalência |
 | Vercel para SaaS comercial | Proibido pelos termos do Hobby | Não usar Hobby; self-host ou host alternativo com uso comercial gratuito confirmado |
