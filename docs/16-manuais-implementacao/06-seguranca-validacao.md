@@ -61,13 +61,13 @@ Investigar alertas do `npm audit`; não executar `npm audit fix --force` sem rev
 | SEC-08 | RLS INSERT com subject A | Permitido somente para subject A |
 | SEC-09 | RLS INSERT forjado com subject B | Negado |
 | SEC-10 | RLS UPDATE cruzado ou troca de subject | Negado |
-| SEC-08 | Sessão ausente ou expirada | Acesso negado |
-| SEC-09 | Secret ausente | Inicialização falha sem revelar valor |
-| SEC-10 | Banco indisponível | Erro controlado, sem detalhes internos |
-| SEC-11 | Inspecionar bundle cliente | Nenhum segredo |
-| SEC-12 | Logout | Sessão encerrada |
-| SEC-13 | Callback não permitido | Provedor rejeita redirect |
-| SEC-14 | CI de PR | Build/typecheck/lint executados |
+| SEC-11 | Sessão ausente ou expirada | Acesso negado |
+| SEC-12 | Secret ausente | Inicialização falha sem revelar valor |
+| SEC-13 | Banco indisponível | Erro controlado, sem detalhes internos |
+| SEC-14 | Inspecionar bundle cliente | Nenhum segredo |
+| SEC-15 | Logout | Sessão encerrada |
+| SEC-16 | Callback não permitido | Provedor rejeita redirect |
+| SEC-17 | CI de PR | Build/typecheck/lint executados |
 
 ## 5. Teste de isolamento multiusuário
 
