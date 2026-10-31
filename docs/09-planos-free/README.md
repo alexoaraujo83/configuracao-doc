@@ -65,6 +65,7 @@
 **Restrição contratual**
 - O Hobby é gratuito e direcionado a projetos pessoais; os termos restringem o uso a fins pessoais ou não comerciais.
 - Não utilizar Hobby para hospedar ou operar um SaaS comercial, produto empresarial comercial ou serviço oferecido a clientes.
+- **Privacidade:** os termos atuais informam que conteúdo enviado por contas Hobby pode ser usado para treinamento de modelos de IA/ML e compartilhado com terceiros para esse fim. Verificar a opção de opt-out na Team antes de enviar código ou dados sensíveis; se não for possível comprovar a desativação, não enviar conteúdo confidencial.
 - A conta conectada foi observada em plano Hobby; isso não demonstra que a finalidade comercial do projeto seja permitida.
 
 **Quotas e limites relevantes**
