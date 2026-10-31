@@ -51,7 +51,7 @@ CREATE TABLE app.tenant_membership (
 
 CREATE TABLE app.project (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  tenant_id uuid NOT NULL REFERENCES tenant(id),
+  tenant_id uuid NOT NULL REFERENCES app.tenant(id),
   name text NOT NULL,
   created_at timestamptz NOT NULL DEFAULT now()
 );
@@ -83,6 +83,7 @@ ALTER TABLE app.tenant_membership FORCE ROW LEVEL SECURITY;
 ALTER TABLE app.project ENABLE ROW LEVEL SECURITY;
 ALTER TABLE app.project FORCE ROW LEVEL SECURITY;
 
+GRANT USAGE ON SCHEMA app TO app_runtime;
 GRANT SELECT (auth_issuer, auth_subject, disabled_at)
   ON app.app_user TO app_runtime;
 GRANT SELECT ON app.tenant_membership TO app_runtime;
@@ -216,21 +217,21 @@ export async function listProjects(requestedTenantId: string) {
 
 ~~~ts
 const rows = await sql`
-  SELECT id, name FROM project
+  SELECT id, name FROM app.project
   WHERE tenant_id = ${tenantId}
   ORDER BY created_at DESC
 `;
 ~~~
 
 ~~~sql
-INSERT INTO app_user (auth_issuer, auth_subject, email)
+INSERT INTO app.app_user (auth_issuer, auth_subject, email)
 VALUES ($1, $2, $3)
 ON CONFLICT (auth_issuer, auth_subject)
 DO UPDATE SET email = EXCLUDED.email
 RETURNING id;
 ~~~
 
-O issuer vem de configuração confiável e subject da sessão validada. Primeiro login não concede papel ou membership privilegiada.
+O issuer deve ser exatamente o issuer OIDC configurado para o tenant/domínio e validado pelo servidor; derive-o da configuração `AUTH0_DOMAIN` ou de configuração explícita equivalente, nunca de input do browser. O subject vem da sessão validada. A criação de perfil e membership deve ocorrer por fluxo controlado; primeiro login não concede papel ou membership privilegiada. O exemplo de RLS concede apenas leitura de perfil/membership; permissões de escrita nessas tabelas exigem fluxo administrativo separado.
 
 ## Migrations e recuperação
 Versionar migrations, revisar alterações destrutivas e executá-las com identidade de migração, nunca runtime. Não executar migration automaticamente em cada inicialização serverless. Planejar backup externo e restauração testada; PITR não substitui backup externo. Conferir limites e retenção Free no painel Neon na data de uso.
