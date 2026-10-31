@@ -1,4 +1,6 @@
-# Documentação de referência — Auth0, Vercel e Neon
+# Documentação de referência — GitHub, Auth0, Vercel e Neon
+
+**Política: somente planos Free.** Consulte docs/09-planos-free/README.md antes de implementar qualquer recurso.
 
 > Padrões reutilizáveis para arquitetura, configuração, integração, segurança e operação de aplicações.
 
