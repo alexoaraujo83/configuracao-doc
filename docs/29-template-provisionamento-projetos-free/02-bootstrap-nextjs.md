@@ -4,7 +4,7 @@
 
 ### Pré-requisitos
 
-- Node.js LTS compatível com a versão de Next.js escolhida.
+- Node.js 20.9 ou superior, respeitando uma versão LTS suportada pelo Next.js 16 e pelo Auth0 SDK v4.
 - npm e Git.
 - Editor e navegador atualizados.
 - Repositório GitHub criado pelo responsável.
