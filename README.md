@@ -141,3 +141,10 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## Testes automatizados — somente Free
+
+- [Estratégia unitária, integração, contratos, RLS, autorização e E2E com Playwright](docs/40-testes-automatizados-free/README.md).
+
+Documentação de estratégia; nenhum teste foi executado.
