@@ -194,7 +194,7 @@ const user = userRows[0] ?? null;
 
 O exemplo pressupõe que `auth0Sub`, `email` e `displayName` foram obtidos/normalizados no servidor, após validar a sessão Auth0; nunca aceitar `auth0Sub` como identidade confiável do body ou query. A policy de INSERT usa `WITH CHECK`, e a de UPDATE usa `USING` e `WITH CHECK`, impedindo criar ou mover uma linha para o subject de outra pessoa. O `ON CONFLICT DO UPDATE` também precisa satisfazer a policy de UPDATE.
 
-Não tratar o exemplo como substituto de teste de integração: verificar que ambas as instruções são executadas na mesma transação, que o parâmetro é transaction-local e que o usuário de runtime possui somente os grants necessários. Testar INSERT próprio, INSERT forjado, UPDATE próprio e UPDATE cruzado com `app_runtime`. RLS é defesa adicional; manter autorização explícita na camada de aplicação.
+Não tratar o exemplo como substituto de teste de integração. A assinatura `sql.transaction([...])` é uma API documentada do driver; os resultados retornam na mesma ordem das consultas. Confirmar em ambiente isolado que o lote está na mesma transação, que `set_config(..., true)` é transaction-local e que o usuário runtime possui somente os grants necessários. A consulta de membership/tenant deve permanecer server-side e a policy RLS deve impedir que um tenant sem membership ativa seja acessado, mesmo se um identificador de tenant for manipulado. Testar INSERT próprio, INSERT forjado, UPDATE próprio e UPDATE cruzado com `app_runtime`. RLS é defesa adicional; manter autorização explícita na camada de aplicação.
 
 ## 7. Health check seguro
 
