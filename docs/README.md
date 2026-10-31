@@ -83,3 +83,16 @@ Os documentos 25–29 são padrões e procedimentos de referência. Não represe
 33. [Segurança, testes e critérios de validação](33-arquitetura-referencia-nextjs-auth0-neon-free/seguranca-e-testes.md)
 
 A arquitetura é uma referência documental; não comprova implementação ou testes operacionais.
+
+## Documentação técnica integrada — somente Free
+
+34. [Endpoints e contratos HTTP](35-endpoints-contratos-http-free/README.md)
+35. [Persistência e banco de dados Neon](36-persistencia-banco-dados-free/README.md)
+36. [Segurança integrada](37-seguranca-integrada-free/README.md)
+37. [CI/CD GitHub Actions + Vercel + Neon](38-cicd-github-vercel-neon-free/README.md)
+38. [Ambientes Development, Preview e Production](39-ambientes-free/README.md)
+39. [Testes automatizados](40-testes-automatizados-free/README.md)
+40. [Operação, monitoramento e recuperação](41-operacao-monitoramento-free/README.md)
+41. [Consolidação e auditoria final](42-consolidacao-auditoria-free/README.md)
+
+Os documentos são de referência; nenhum procedimento operacional foi executado por sua incorporação.
