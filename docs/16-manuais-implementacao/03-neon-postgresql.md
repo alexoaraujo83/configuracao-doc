@@ -47,7 +47,7 @@ GRANT USAGE ON SCHEMA app TO app_migrator;
 
 Substituir `appdb` pelo nome real do database. Senhas são placeholders e devem ser definidas fora do histórico do repositório. Não executar SQL literal contendo segredo em terminal compartilhado ou ferramenta que retenha histórico.
 
-As migrations devem operar como `app_owner` por meio da role migrator autorizada. O atributo `NOINHERIT` impede que o migrator use automaticamente os privilégios do owner; a elevação ocorre explicitamente com `SET ROLE`:
+As migrations devem operar como `app_owner` por meio da role migrator autorizada. `NOINHERIT` impede o uso automático dos privilégios herdados; a membership `GRANT app_owner TO app_migrator` permite a troca explícita de role quando a opção `SET` estiver autorizada. O `SET ROLE` depende da mesma sessão PostgreSQL: não o envie como uma consulta HTTP isolada via `neon()` esperando que a role permaneça ativa na próxima chamada. Use um executor de migration com conexão persistente (`Client`/`Pool` em WebSocket ou conexão PostgreSQL direta) ou agrupe `SET LOCAL ROLE`, DDL e finalização em uma única transação suportada. A criação das roles/membership e a atribuição de ownership são tarefas administrativas separadas da credencial runtime:
 
 ```sql
 SET ROLE app_owner;
