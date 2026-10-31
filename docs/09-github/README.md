@@ -6,7 +6,7 @@
 
 1. Criar um repositório por unidade de versionamento/deploy, ou definir claramente os limites do monorepo.
 2. Definir branch padrão e estratégia de branches; proteger `main` por regras de branch ou rulesets.
-3. Exigir Pull Request para mudanças em `main), checks automatizados e resolução de conversas.
+3. Exigir Pull Request para mudanças em `main`, checks automatizados e resolução de conversas.
 4. Definir permissões mínimas para usuários, equipes, GitHub Apps e tokens.
 5. Usar GitHub Actions com permissões explícitas e mínimas para `GITHUB_TOKEN`.
 6. Guardar segredos em Actions Secrets por ambiente, repositório ou organização, limitando acesso.
