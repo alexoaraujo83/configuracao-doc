@@ -56,3 +56,10 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 24. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
+
+
+## Integração ponta a ponta
+
+25. [Auth0 + Next.js + Neon + GitHub + Vercel — integração completa Free](30-integracao-ponta-a-ponta-free/README.md)
+
+Este módulo documenta fluxos, APIs de referência, autorização multi-tenant, RLS, CI e deploy. Os exemplos não foram executados e devem ser validados contra as versões efetivamente instaladas.
