@@ -1,6 +1,6 @@
 # Documentação de referência — GitHub, Auth0, Vercel e Neon
 
-> Padrões reutilizáveis para arquitetura, configuração, integração, segurança e operação de aplicações.
+> Padrões reutilizáveis para arquitetura, configuração, integração, segurança e operação.
 
 ## Política de planos
 
@@ -63,6 +63,10 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 - [Auth0 + Next.js SDK v4](docs/11-auth0-nextjs/README.md)
 - [Neon PostgreSQL: driver, roles, RLS e migrations](docs/12-neon-postgresql/README.md)
 - [Ambientes, CI, segurança, testes e operação](docs/13-ambientes-testes-operacao/README.md)
+
+## Referências técnicas oficiais
+
+- [Matriz de referências oficiais: Next.js, Auth0 v4, Neon Driver, GitHub Actions e Vercel Hobby](docs/15-referencias-tecnicas/README.md)
 
 ## Inventário dos painéis
 

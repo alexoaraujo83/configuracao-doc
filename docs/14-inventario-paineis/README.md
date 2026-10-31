@@ -32,6 +32,10 @@ Os caminhos deste conjunto são DOCUMENTADOS ou RECOMENDADOS. Nenhum submenu é 
 - [Vercel Hobby](vercel.md)
 - [Neon Free](neon.md)
 
+## Referências técnicas oficiais
+
+A [matriz de referências técnicas oficiais](../15-referencias-tecnicas/README.md) reúne os links diretos para instalação Next.js, App Router, Auth0 SDK v4, conexão Neon, driver TypeScript, GitHub Actions e Vercel Hobby.
+
 ## Matriz resumida
 
 | Plataforma | Área | Limitação condicionante |
