@@ -37,7 +37,7 @@ A página oficial Neon Plans consultada em 31/10/2026 informa:
 | PostgreSQL storage | 1 GB por projeto; 20 GB por organização |
 | Public network transfer | 5 GB por projeto/mês |
 | Monitoring history | 1 dia |
-| Instant restore | não incluído como recurso pago de restore; histórico Free de 6 horas e até 1 GB |
+| Instant restore | Não incluído no Free | Histórico Free de 6 horas e até 1 GB-month; 1 snapshot manual por projeto |
 | Manual snapshots | 1 por projeto |
 | Protected branches | não incluído no Free |
 
@@ -194,7 +194,7 @@ import "server-only";
 import { sql } from "@/lib/db";
 
 export async function findCurrentUser(auth0Sub: string) {
-  const [context, rows] = await sql.transaction([
+  const [, rows] = await sql.transaction([
     sql`SELECT set_config('app.auth0_sub', ${auth0Sub}, true)`,
     sql`SELECT id, auth0_sub, email
         FROM app.app_users
