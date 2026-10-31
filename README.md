@@ -130,3 +130,10 @@ Esta revisão é documental; não declara typecheck, build, testes, migrations o
 - [Matriz mestra de conformidade Free](docs/26-matriz-mestra-conformidade-free/README.md).
 
 Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
+
+
+## Manual operacional de implantação Free
+
+- [Manual operacional: preparação local, Auth0, Neon, GitHub Actions, Vercel Hobby, validação, troubleshooting e rollback](docs/31-manual-operacional-implantacao-free/README.md).
+
+O manual é documental. Não significa que comandos, provisionamentos, migrations, testes ou deployments tenham sido executados.
