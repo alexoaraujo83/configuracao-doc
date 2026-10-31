@@ -98,7 +98,6 @@ As configurações atuais dos serviços só serão declaradas como verificadas q
 
 Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto, validação e rollback. Mudanças estruturais devem ser submetidas por Pull Request e revisadas antes de serem incorporadas à branch principal.
 
-
 ## Provisionamento reutilizável para múltiplos projetos
 
 - [Guia de provisionamento Free](docs/18-provisionamento-multiplos-projetos/README.md)
@@ -106,20 +105,17 @@ Toda alteração deve indicar escopo, ambiente afetado, pré-requisitos, impacto
 
 Este conjunto padroniza nomes, ambientes, variáveis, provisionamento manual e auditoria. Considera as limitações de tenant único do Auth0 Free, Preview branch-scoped no Vercel Hobby e cotas do Neon Free.
 
-
 ## Modelagem de ameaças e resposta a incidentes
 
 - [STRIDE, registro de riscos, controles Free-only, plano de resposta, runbooks e gate de produção](docs/21-modelagem-ameacas-incidentes-free/README.md).
 
 Este conteúdo é documental; não declara auditoria, teste, rotação de credenciais, restore ou resposta real executados.
 
-
 ## Revisão técnica aprofundada — Next.js 16, Auth0 SDK v4 e Neon
 
 - [Compatibilidade de APIs, transações HTTP/interativas, autorização server-side, roles e RLS](docs/27-revisao-tecnica-next16-auth0-neon-free/README.md).
 
 Esta revisão é documental; não declara typecheck, build, testes, migrations ou validação operacional executados.
-
 
 ## Continuidade, observabilidade e governança de releases
 
@@ -131,7 +127,6 @@ Esta revisão é documental; não declara typecheck, build, testes, migrations o
 
 Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, workflow, migration, release ou deployment foi executado por sua incorporação.
 
-
 ## Governança, provisionamento e integração da stack Free
 
 - [Operação de conformidade por projeto](docs/28-operacao-conformidade-projeto-free/README.md).
@@ -140,4 +135,8 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Manual operacional de implantação Free](docs/31-manual-operacional-implantacao-free/README.md).
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
-Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+## Persistência e banco de dados — somente Free
+
+- [Modelagem ER, dicionário de dados, migrations, índices, transações, RLS, backup e recuperação Neon](docs/36-persistencia-banco-dados-free/README.md).
+
+O guia é documental: SQL e diagramas são exemplos não executados; quotas e retenção Free devem ser verificadas na data de uso.
