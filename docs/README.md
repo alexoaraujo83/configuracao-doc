@@ -56,3 +56,10 @@ As seções 19–23 documentam recuperação, observabilidade, releases, testes 
 24. [Revisão técnica aprofundada — Next.js 16 + Auth0 SDK v4 + Neon PostgreSQL](27-revisao-tecnica-next16-auth0-neon-free/README.md)
 
 A revisão registra correções documentais e limites de compatibilidade; não substitui validação operacional autorizada.
+
+
+## Templates de provisionamento para novos projetos
+
+25. [Template reutilizável de provisionamento Next.js + TypeScript + Auth0 + Neon + GitHub + Vercel — somente Free](29-template-provisionamento-projetos-free/README.md).
+
+O pacote contém arquitetura, bootstrap, variáveis, guias por fornecedor, CI sem secrets, checklists e manifestos fictícios. Não representa provisionamento nem validação operacional.
