@@ -16,6 +16,7 @@ ALTER TABLE app.projects FORCE ROW LEVEL SECURITY;
 -- A tabela de membership também deve ter grants mínimos e RLS.
 ALTER TABLE app.tenant_memberships ENABLE ROW LEVEL SECURITY;
 ALTER TABLE app.tenant_memberships FORCE ROW LEVEL SECURITY;
+GRANT SELECT ON app.tenant_memberships TO app_runtime;
 
 CREATE POLICY memberships_self_read
 ON app.tenant_memberships FOR SELECT TO app_runtime
@@ -89,6 +90,7 @@ Padrão ilustrativo com `@neondatabase/serverless`:
 
 ```ts
 import { neon } from "@neondatabase/serverless";
+import { auth0 } from "@/lib/auth0";
 const sql = neon(process.env.DATABASE_URL!);
 
 export async function listTenantProjects(requestedTenantId: string) {
