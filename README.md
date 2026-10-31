@@ -141,3 +141,10 @@ Esses guias são padrões documentais. Nenhum backup, restore, teste, scanner, w
 - [Padrões para múltiplos projetos e ambientes](docs/32-padroes-multiplos-projetos-free/README.md).
 
 Todos os conjuntos são exclusivamente documentais. Não representam serviços provisionados, instalações, testes, migrations, backups/restores ou deployments executados.
+
+
+## Operação, monitoramento e recuperação — somente Free
+
+- [Observabilidade, quotas Free, incidentes, backup/restore e rotina operacional](docs/41-operacao-monitoramento-free/README.md).
+
+Runbooks documentais; nenhum monitoramento, backup, restore ou incidente foi executado.
