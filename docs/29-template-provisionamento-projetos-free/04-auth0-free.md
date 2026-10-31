@@ -2,7 +2,7 @@
 
 ## Escopo e limites
 
-Planejar a solução para um tenant Free e validar limites vigentes antes de criar aplicações e conexões. Não depender de role management gerenciado, add-ons, múltiplos tenants, Organizations avançadas ou retenção longa de logs. O Free pode limitar recursos, administradores, conexões, MAU e funcionalidades; conferir painel e página oficial de preços na data de adoção.
+Planejar a solução para um tenant Free e validar limites vigentes antes de criar aplicações e conexões. A matriz Free deste repositório registra até 10 Applications por tenant no Free; a quota é compartilhada entre os projetos que utilizam o tenant. Confirmar o limite no painel e na página oficial de preços antes de dimensionar ambientes. Não depender de role management gerenciado, add-ons, múltiplos tenants, Organizations avançadas ou retenção longa de logs. O Free pode limitar recursos, administradores, conexões, MAU e funcionalidades; conferir painel e página oficial de preços na data de adoção.
 
 ## Configuração padrão inicial
 
