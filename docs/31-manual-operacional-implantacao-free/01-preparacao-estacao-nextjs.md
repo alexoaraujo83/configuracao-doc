@@ -1,7 +1,7 @@
 # 1. Preparar estação e criar projeto Next.js
 
 ## Pré-requisitos
-- Node.js 20 LTS ou versão LTS mais recente compatível com Next.js e Auth0 SDK.
+- Node.js 20.9 ou superior, em versão LTS suportada pelo Next.js 16 e pelo Auth0 SDK v4.
 - npm e Git instalados.
 - Editor e navegador atualizados.
 - Acesso aos painéis, caso a etapa de configuração seja posteriormente autorizada.
