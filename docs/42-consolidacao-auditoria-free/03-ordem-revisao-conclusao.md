@@ -31,4 +31,4 @@ Os conteúdos #29–#36 foram reunidos no PR #37 para evitar conflitos repetidos
 - [ ] Revisão de segurança e quotas.
 
 ## Conclusão
-A incorporação documental foi concluída pelo merge do PR #37 na `main`. A validação operacional foi iniciada em 31/10/2026: a inspeção identificou que o repositório é documental e não contém um projeto Next.js instalável na raiz. Assim, typecheck, lint, build, testes e E2E permanecem bloqueados até que exista uma aplicação executável e dependências/versões fixadas. Integrações Auth0/Neon, migrations, backup/restore e deployment ainda não foram executados.
+A incorporação documental foi concluída pelo merge do PR #37 na `main`. A inspeção realizada é estática e documental: o repositório não contém uma aplicação Next.js instalável na raiz. Typecheck, lint, build, testes e E2E não foram executados e não se aplicam ao conteúdo Markdown isolado. Integrações Auth0/Neon, migrations, backup/restore e deployment estão fora do escopo desta etapa documental e não foram executados.
