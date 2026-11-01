@@ -32,3 +32,16 @@ Os conteúdos #29–#36 foram reunidos no PR #37 para evitar conflitos repetidos
 
 ## Conclusão
 A incorporação documental foi concluída pelo merge do PR #37 na `main`. A inspeção realizada é estática e documental: o repositório não contém uma aplicação Next.js instalável na raiz. Typecheck, lint, build, testes e E2E não foram executados e não se aplicam ao conteúdo Markdown isolado. Integrações Auth0/Neon, migrations, backup/restore e deployment estão fora do escopo desta etapa documental e não foram executados.
+
+
+## Evidência de revisão documental do PR #38 — 31/10/2026
+
+- Branch: `validation/correct-audit-status-free`.
+- HEAD revisado: `a1d11f95b5aaa36dbabaac025cf117d1438aa7f3`.
+- Árvore GitHub consultada: 278 entradas.
+- Arquivos Markdown alterados no PR: 9.
+- Verificação estática de links relativos nos 9 arquivos alterados: nenhum link interno quebrado detectado.
+- API GitHub para o HEAD consultado: zero check runs e zero status entries. Portanto, não há CI para classificar como aprovado.
+- PR #38: aberto, Draft e mergeable na última consulta. Merge não realizado.
+
+A verificação de links foi um script de inspeção de caminhos contra a árvore Git; não substitui um workflow CI, renderização Markdown, revisão humana integral ou teste operacional.
