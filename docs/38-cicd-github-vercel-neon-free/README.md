@@ -16,7 +16,7 @@ Preferir integração Git nativa GitHub → Vercel para Preview e Production, qu
 - [05 — Fluxo de release e rollback](05-release-rollback.md)
 
 ## Limites GitHub Free
-- GitHub Free informa 2.000 minutos mensais para Actions em repositórios privados; Actions em repositórios públicos têm política distinta de cobrança.
+- A tabela oficial de uso incluído registra US$ 12/mês de compute para GitHub Free e 500 MB de armazenamento de Actions. Não tratar 2.000 minutos como franquia universal; verificar o custo/consumo do runner e sistema operacional na área Billing. Runners padrão em repositórios públicos têm política distinta.
 - Environments, secrets de environment, deployment branches e regras de proteção variam por visibilidade/plano. Não presumir required reviewers nem secrets de environment em repositório privado Free.
 - Usar secrets de repositório apenas em workflows de código confiável; não disponibilizar secrets para PRs de forks.
 - Conferir limites, armazenamento, retenção e minutos no painel e na página oficial.

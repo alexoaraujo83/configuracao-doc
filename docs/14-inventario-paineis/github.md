@@ -8,7 +8,7 @@ GitHub Free oferece repositórios públicos e privados ilimitados, mas com conju
 
 - Rulesets estão disponíveis em repositórios públicos no GitHub Free e GitHub Free for organizations.
 - Rulesets e branch protection em repositórios privados exigem GitHub Pro, Team ou Enterprise, conforme o tipo de conta.
-- GitHub Free inclui 2.000 minutos/mês de Actions para repositórios privados em contas pessoais/organizações, sujeitos às regras de cobrança e armazenamento. Runners padrão hospedados em repositórios públicos têm uso gratuito.
+- A tabela oficial de uso incluído registra 500 MB de armazenamento de Actions e US$ 12/mês de compute incluído para GitHub Free (incluindo runners padrão privados/internos). Não interpretar 2.000 minutos como franquia universal: a página de pricing e a tabela de billing expressam limites de formas diferentes. Conferir saldo, runner e sistema operacional em Billing. Runners padrão em repositórios públicos seguem política distinta.
 - Code Security e Secret Protection pagos não devem ser tratados como incluídos. Recursos gratuitos variam por visibilidade e tipo de conta.
 - PRs, revisão humana e CI são controles úteis, mas não equivalem a enforcement técnico de branch protection.
 

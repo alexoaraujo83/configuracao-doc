@@ -1,6 +1,6 @@
 # Consolidação e auditoria final — documentação Free
 
-**Status:** consolidada em uma única proposta de integração; incorporação à main pendente do PR #37. **Escopo:** Next.js + TypeScript + Auth0 + Neon + GitHub + Vercel, somente Free.
+**Status:** documentação integrada à `main` pelo PR #37 (merge em 31/10/2026). PR #38 mantém correções de auditoria documental em Draft. **Escopo desta etapa:** somente documentação e inspeção estática do repositório; nenhuma implantação ou validação operacional de serviços foi autorizada.
 
 ## Objetivo
 Consolidar arquitetura, implementação modular, contratos HTTP, persistência, segurança, CI/CD, ambientes, testes e operação. Os PRs #29–#36 foram reunidos na branch de integração #37 para evitar conflitos nos índices compartilhados; os PRs #27 e #28 já foram incorporados à main.
@@ -23,7 +23,7 @@ Consolidar arquitetura, implementação modular, contratos HTTP, persistência, 
 - [03 — Ordem de revisão e conclusão](03-ordem-revisao-conclusao.md)
 
 ## Estado geral
-A documentação está reunida em uma proposta única de integração. O merge no repositório principal ainda depende da revisão final do PR #37. **Não é correto declarar o projeto operacionalmente concluído:** exemplos, workflows, migrations, testes, configurações e runbooks ainda não foram executados.
+A documentação está incorporada à `main` pelo PR #37. **Não é correto declarar o projeto operacionalmente concluído:** exemplos, workflows, migrations, testes, configurações e runbooks são referências documentais e ainda não foram executados. O PR #38 atualiza o estado da auditoria, sem alterar serviços.
 
 ## Política Free
 Não adicionar dependência de plano pago, trial, crédito promocional ou add-on. Vercel Hobby é somente para uso pessoal/não comercial. Quando uma exigência não puder ser atendida no Free, registrar a limitação e o bloqueio em vez de propor upgrade.
