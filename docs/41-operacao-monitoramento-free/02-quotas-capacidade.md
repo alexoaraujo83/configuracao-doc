@@ -10,7 +10,7 @@
 - Instant restore: janela de 6 horas, limitada a 1 GB de change history.
 - Monitoring history: 1 dia.
 
-**Divergência documental:** FAQ e anúncio de 02/10/2026 informam 1 GB/projeto, enquanto a página Plans ainda apresenta 0,5 GB em partes do conteúdo. Até confirmar o limite exibido no Console do projeto, adotar 0,5 GB como teto operacional conservador e registrar evidência da data.
+**Nota de atualização (31/10/2026):** a FAQ específica de quotas, atualizada em 01/10/2026, e o anúncio de 02/10/2026 confirmam 1 GB/projeto e 20 GB agregados. Alguns trechos da página geral Plans ainda mostram 0,5 GB e devem ser tratados como desatualizados. Usar a FAQ específica como fonte primária; conferir o Console na data de provisionamento.
 
 Ao esgotar CU-hours ou egress, compute pode ser suspenso até o reset mensal; ultrapassar storage impede operações que aumentem armazenamento; atingir limite de branches impede criar novas. Não presumir cobrança de excedente no Free.
 
@@ -24,7 +24,7 @@ Ao esgotar CU-hours ou egress, compute pode ser suspenso até o reset mensal; ul
 - Uso pessoal e não comercial.
 
 ## GitHub Free
-- 2.000 minutos mensais Actions em repositórios privados; repositórios públicos seguem política própria de minutos.
+- A tabela oficial atual de uso incluído registra 500 MB de armazenamento de Actions e US$ 12/mês de compute incluído para GitHub Free (incluindo runners padrão privados/internos); não tratar 2.000 minutos como franquia universal. O valor efetivo depende da conta, runner e sistema operacional; verificar Billing. Runners padrão em repositórios públicos têm política distinta.
 - Controlar consumo, concurrency, workers e artifacts.
 
 ## Auth0 Free
