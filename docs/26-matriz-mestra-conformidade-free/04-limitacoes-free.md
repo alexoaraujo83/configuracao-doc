@@ -37,7 +37,7 @@ Data de consulta: 2026-10-31. Confirmar novamente no painel e na documentação 
 ### Neon
 
 - A FAQ de limites Free consultada em 2026-10-31 informa 100 projetos, 10 branches/projeto, 100 CU-hours/projeto/mês, 1 GB por projeto, 20 GB totais, 5 GB de transferência pública/projeto/mês e janela de restore de 6 horas limitada a 1 GB de histórico de alterações.
-- Outra página de planos consultada apresenta 0,5 GB por projeto, divergindo da FAQ. **Não assumir 1 GB como garantia contratual:** confirmar no painel e adotar 0,5 GB como teto operacional conservador até a divergência ser esclarecida.
+- A FAQ específica de quotas, atualizada em 01/10/2026, e o anúncio de 02/10/2026 confirmam 1 GB por projeto e 20 GB agregados. A página geral Plans contém trechos de 0,5 GB que parecem desatualizados; usar a FAQ específica como fonte primária e revalidar o valor exibido no Console antes de provisionar.
 - Esgotar compute ou transferência pode suspender compute até o próximo período; atingir armazenamento pode impedir operações que aumentem dados.
 - PITR não substitui backup lógico independente nem garante RPO inferior à janela de histórico.
 
