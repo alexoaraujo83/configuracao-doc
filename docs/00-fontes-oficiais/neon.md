@@ -150,7 +150,9 @@ Leitura somente de metadados em 31/10/2026: organização Neon em Free; projeto 
 ## Fontes oficiais
 
 - [Neon Plans](https://neon.com/docs/introduction/plans)
-- [Free plan limits and quotas](https://neon.com/faqs/free-plan-limits-and-quotas)
+- [Free plan limits and quotas — FAQ específica, atualizada em 01/10/2026; fonte primária para 1 GB/projeto](https://neon.com/faqs/free-plan-limits-and-quotas)
+- [Anúncio oficial de 1 GB PostgreSQL por projeto no Free — 02/10/2026](https://neon.com/blog/neon-free-plan-1-gb-per-project)
+- Nota de reconciliação: alguns trechos da página geral Plans e artigos anteriores ainda exibem 0,5 GB; conferir a FAQ específica e o Console antes de provisionar.
 - [Regions and product availability](https://neon.com/docs/introduction/regions)
 - [Protected branches](https://neon.com/docs/guides/protected-branches)
 - [Manage branches](https://neon.com/docs/manage/branches)
